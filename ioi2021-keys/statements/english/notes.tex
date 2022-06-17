@@ -1,0 +1,118 @@
+\textbf{Example 1}
+
+Consider the following call:
+
+\begin{verbatim}
+find_reachable([0, 1, 1, 2],
+               [0, 0, 1, 1, 3], 
+               [1, 2, 2, 3, 1], 
+               [0, 0, 1, 0, 2])
+\end{verbatim}
+
+If the player starts the game in room $0$, they can perform the following sequence of actions:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|}
+\hline
+Current room & Action \\
+\hline
+$0$ & Collect key of type $0$ \\
+\hline
+$0$ & Traverse connector $0$ to room $1$ \\
+\hline
+$1$ & Collect key of type $1$ \\
+\hline
+$1$ & Traverse connector $2$ to room $2$ \\
+\hline
+$2$ & Traverse connector $2$ to room $1$ \\
+\hline
+$1$ & Traverse connector $3$ to room $3$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Hence room $3$ is reachable from room $0$. Similarly, we can construct sequences showing that all
+rooms are reachable from room $0$, which implies $p[0]=4$. The table below shows the reachable
+rooms for all starting rooms:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Starting room $i$ & Reachable rooms & $p[i]$ \\
+\hline
+$0$ & $[0,1,2,3]$ & $4$\\
+\hline
+$1$ & $[1,2]$ & $2$\\
+\hline
+$2$ & $[1,2]$ & $2$\\
+\hline
+$3$ & $[1,2,3]$ & $3$\\
+\hline
+\end{tabular}
+\end{center}
+The smallest value of $p[i]$ across all rooms is $2$, and this is attained for $i=1$ or $i=2$. Therefore,
+this procedure should return $[0,1,1,0]$.
+
+
+
+\textbf{Example 2}
+\begin{verbatim}
+find_reachable([0, 1, 1, 2, 2, 1, 2],
+               [0, 0, 1, 1, 2, 3, 3, 4, 4, 5],
+               [1, 2, 2, 3, 3, 4, 5, 5, 6, 6],
+               [0, 0, 1, 0, 0, 1, 2, 0, 2, 1])
+\end{verbatim}
+The table below shows the reachable rooms:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Starting room $i$ & Reachable rooms & $p[i]$ \\
+\hline
+$0$ & $[0,1,2,3,4,5,6]$ & $7$\\
+\hline
+$1$ & $[1,2]$ & $2$\\
+\hline
+$2$ & $[1,2]$ & $2$\\
+\hline
+$3$ & $[3,4,5,6]$ & $4$\\
+\hline
+$4$ & $[4,6]$ & $2$\\
+\hline
+$5$ & $[3,4,5,6]$ & $4$\\
+\hline
+$6$ & $[4,6]$ & $2$\\
+\hline
+\end{tabular}
+\end{center}
+
+The smallest value of $p[i]$ across all rooms is $2$, and this is attained for $i \in \\{1,2,4,6\\}$. Therefore,
+this procedure should return $[0,1,1,0,1,0,1]$.
+
+\textbf{Example 3}
+
+\texttt{find\_reachable([0, 0, 0], [0], [1], [0])}
+
+The table below shows the reachable rooms:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Starting room $i$ & Reachable rooms & $p[i]$ \\
+\hline
+$0$ & $[0,1]$ & $2$\\
+\hline
+$1$ & $[0,1]$ & $2$\\
+\hline
+$2$ & $[2]$ & $1$\\
+\hline
+\end{tabular}
+\end{center}
+
+The smallest value of $p[i]$ across all rooms is $1$, and this is attained when $i=2$. Therefore, this procedure should return $[0,0,1]$.
+
+

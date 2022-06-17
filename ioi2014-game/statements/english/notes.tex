@@ -1,0 +1,74 @@
+We explain the game rules with three examples. Each example has $n = 4$ cities and $r = 6$ rounds of question and answer.
+
+In the first example (the following table), Jian-Jia \texttt{loses} because after round 4, Mei-Yu knows for certain that one can travel between any two cities by flights, no matter how Jian-Jia answers questions 5 or 6.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Round & Question & Answer \\
+\hline
+1 &  0, 1 & yes\\
+\hline
+2 &  3, 0 & yes\\
+\hline
+3 &  1, 2 & no\\
+\hline
+4 &  0, 2 & yes\\
+\hline
+--- &  --- & ---\\
+\hline
+5 &  3, 1 & no\\
+\hline
+6 &  2, 3 & no\\
+\hline
+\end{tabular}
+\end{center}
+
+In the next example Mei-Yu can prove after round 3 that no matter how Jian-Jia answers questions 4, 5, or 6, one \texttt{cannot} travel between cities 0 and 1 by flights, so Jian-Jia loses again.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Round & Question & Answer \\
+\hline
+1 &  0, 3 & no\\
+\hline
+2 &  2, 0 & no\\
+\hline
+3 &  0, 1 & no\\
+\hline
+--- &  --- & ---\\
+\hline
+4 &  1, 2 & yes\\
+\hline
+5 &  1, 3 & yes\\
+\hline
+6 &  2, 3 & yes\\
+\hline
+\end{tabular}
+\end{center}
+
+In the final example Mei-Yu cannot determine whether one can travel between any two cities by flights until allsix questions are answered, so Jian-Jia \texttt{wins} the game. Specifically, because Jian-Jia answered yes to the last question (in the following table), then it is possible to travel between any pair of cities. However, if Jian-Jia had answered no to the last question instead then it would be impossible.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Round & Question & Answer \\
+\hline
+1 &  0, 3 & no\\
+\hline
+2 &  1, 0 & yes\\
+\hline
+3 &  0, 2 & no\\
+\hline
+4 &  3, 1 & yes\\
+\hline
+5 &  1, 2 & no\\
+\hline
+6 &  2, 3 & yes\\
+\hline
+\end{tabular}
+\end{center}

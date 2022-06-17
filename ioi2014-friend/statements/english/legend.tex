@@ -1,0 +1,27 @@
+We build a social network from $n$ people numbered $0, \ldots, n - 1$. Some pairs of people in the network will be friends. If person $x$ becomes a friend of person $y$, then person $y$ also becomes a friend of person $x$.
+
+The people are added to the network in $n$ stages, which are also numbered from $0$ to $n - 1$. Person $i$ is added in stage $i$. In stage $0$, person $0$ is added as the only person of the network. In each of the next $n - 1$ stages, a person is added to the network by a \texttt{host}, who may be any person already in the network. At stage $i (0 < i < n)$, the host for that stage can add the incoming person $i$ into the network by one of the following three protocols:
+
+\begin{itemize}
+\item \texttt{IAmYourFriend} makes person $i$ a friend of the host only.
+\item \texttt{MyFriendsAreYourFriends} makes person $i$ a friend of \texttt{each} person, who is a friend of the host at this moment. Note that this protocol does \texttt{not} make person $i$ a friend of the host.
+\item \texttt{WeAreYourFriends} makes person $i$ a friend of the host, and also a friend of \texttt{each} person, who is a friend of the host at this moment.
+\end{itemize}
+
+After we build the network we would like to pick a \texttt{sample} for a survey, that is, choose a group of people from the network. Since friends usually have similar interests, the sample should not include any pair of people who are friends with each other. Each person has a survey \texttt{confidence}, expressed as a positive integer, and we would like to find a sample with the maximum total confidence.
+
+\textbf{Task}
+
+Given the description of each stage and the confidence value of each person, find a sample with the maximum total confidence. You only need to implement the function \texttt{findSample}.
+
+\begin{itemize}
+\item \texttt{int findSample(int n, int confidence[], int host[], int protocol[])}
+\begin{itemize}
+\item $n$: the number of people.
+\item $confidence$: array of length $n$; $confidence[i]$ gives the confidence value of person $i$.
+\item $host$: array of length $n$; $host[i]$ gives the host of stage $i$.
+\item $protocol$: array of length $n$; $protocol[i]$ gives the protocol code used in stage $i$ $(0 < i < n)$: $0$ for \texttt{IAmYourFriend}, $1$ for \texttt{MyFriendsAreYourFriends}, $2$ for \texttt{WeAreYourFriends}.
+\item Since there is no host in stage $0$, $host[0]$ and $protocol[0]$ are undefined and should not be accessed by your program.
+\item The function should return the maximum possible total confidence of a sample.
+\end{itemize}
+\end{itemize}

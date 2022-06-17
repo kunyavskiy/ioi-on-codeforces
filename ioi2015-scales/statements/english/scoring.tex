@@ -1,0 +1,15 @@
+There are no subtasks in this problem. Instead, your score will be based on how many weighings (total number of calls to grader functions \t{getLightest()}, \t{getHeaviest()}, \t{getMedian()} and/or \t{getNextLightest()}) your program makes.
+
+Your program will be run multiple times with multiple test cases in each run. Let $r$ be the number of runs of your program. This number is fixed by the test data. If your program does not order the coins correctly in any test case of any run, it will get $0$ points. Otherwise, the runs are scored individually as follows.
+
+Let $Q$ be the smallest number such that it is possible to sort any sequence of six coins using $Q$ weighings on Amina's scale. To make the task more challenging, we do not reveal the value of $Q$ here.
+
+Suppose the largest number of weighings amongst all test cases of all runs is $Q + y$ for some integer $y$. Then, consider a single run of your program. 
+
+%Let the largest number of weighings amongst all $T$ test cases in this run be $Q + x$ for %some non-negative integer $x$. (If you use fewer than $Q$ weighings for every test case, %then $x = 0$.) Then, the score for this run will be $\frac{100}{r((x + y) / 5 + 1)}$, %rounded \textit{down} to two digits after the decimal point.
+
+Then, the score for this run will be $\frac{100}{r(y / 2.5 + 1)}$, rounded \textit{down} to two digits after the decimal point.
+
+In particular, if your program makes at most $Q$ weighings in each test case of every run, you will get $100$ points.
+
+{\it On the original contest, scoring was a bit different to award solutions, which are good on average. It's not implemented here. } 

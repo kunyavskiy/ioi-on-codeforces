@@ -1,0 +1,38 @@
+\textbf{Example 1}
+
+Suppose $s = 0$, $n = 2$, $k = 1$, $q = 1000$. There are two input integers $a[0]$ and $a[1]$, each
+having $k=1$ bit. Before the program is executed, $r[0][0] = a[0]$ and $r[0][1] = a[1]$. All other bits
+in the processor are set to $0$. After all the instructions in the program are executed, we need to have $c[0]=r[0][0] = \min(a[0], a[1])$, which is the minimum of $a[0]$ and $a[1]$.
+
+There are only 4 possible inputs to the program:
+\begin{itemize}
+\item Case $1$: $a[0]=0, a[1]=0$
+\item Case $2$: $a[0]=0, a[1]=1$
+\item Case $3$: $a[0]=1, a[1]=0$
+\item Case $4$: $a[0]=1, a[1]=1$
+\end{itemize}
+
+We can notice that for all 4 cases, $\min(a[0], a[1])$ s equal to the bitwise-AND of $a[0]$ and $a[1]$. Therefore, a possible solution is to construct a program by making the following calls:
+\begin{enumerate}
+\item \texttt{append\_move(1, 0)},  which appends an instruction to copy $r[0]$ to $r[1]$.
+\item \texttt{append\_right(1, 1, 1)}, which appends an instruction that takes all bits in $r[1]$, shifts them
+to the right by $1$ bit, and then stores the result back in $r[1]$. Since each integer is $1$-bit long,
+this results in $r[1][0]$ being equal to $a[1]$.
+\item \texttt{append\_and(0, 0, 1)}, which appends an instruction to take the bitwise-AND of $r[0]$ and $r[1]$, then store the result in $r[0]$. After this instruction is executed, $r[0][0]$ is set to the bitwiseAND of $r[0][0]$ and $r[1][0]$, which is equal to the bitwise-AND of $a[0]$ and $a[1]$, as desired.
+\end{enumerate}
+
+
+\textbf{Example 2}
+
+Suppose $s=1$, $n=2$, $k=1$, $q=1000$. As with the earlier example, there are only 4 possible
+inputs to the program. For all 4 cases, $\min(a[0], a[1])$ is the bitwise-AND of $a[0]$ and $a[1]$, and $\max(a[0], a[1])$ is the bitwise-OR of $a[0]$ and $a[1]$. A possible solution is to make the following calls:
+\begin{enumerate}
+\item \texttt{append\_move(1,0)}
+\item \texttt{append\_right(1,1,1)}
+\item \texttt{append\_and(2,0,1)}
+\item \texttt{append\_or(3,0,1)}
+\item \texttt{append\_left(3,3,1)}
+\item \texttt{append\_or(0,2,3)}
+\end{enumerate}
+
+After executing these instructions, $c[0]=r[0][0]$ contains $\min(a[0],a[1])$, and $c[1]=r[0][1]$ contains $\max(a[0],a[1])$, which sorts the input.

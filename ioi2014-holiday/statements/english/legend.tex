@@ -1,0 +1,22 @@
+Jian-Jia is planning his next holiday in Taiwan. During his holiday, Jian-Jia moves from city to city and visits attractions in the cities.
+
+There are $n$ cities in Taiwan, all located along a single highway. The cities are numbered
+consecutively from $0$ to $n - 1$. For city $i$, where $0 < i < n - 1$, the adjacent cities are $i - 1$ and $i + 1$. The only city adjacent to city $0$ is city $1$, and the only city adjacent to city $n - 1$ is city $n - 2$.
+
+Each city contains some number of attractions. Jian-Jia has $d$ days of holiday and plans to visit as many attractions as possible. Jian-Jia has already selected a city in which to start his holiday. In each day of his holiday Jian-Jia can either move to an adjacent city, or else visit all the attractions of the city he is staying, but not both. Jian-Jia will \texttt{never visit the attractions in the same city twice} even if he stays in the city multiple times. Please help Jian-Jia plan his holiday so that he visits as many different attractions as possible.
+
+\textbf{Task}
+
+Please implement a function \texttt{findMaxAttraction} that computes the maximum number of attractions Jian-Jia can visit.
+
+\begin{itemize}
+\item \texttt{long long int findMaxAttraction(int n, int start, int d,
+int attraction[])}
+\begin{itemize}
+\item $n$: the number of cities.
+\item $start$: the index of the starting city.
+\item $d$: the number of days.
+\item $attraction$: array of length $n$; $attraction[i]$ is the number of attractions in city $i$, for $0 \le i \le n - 1$.
+\item The function should return the maximum number of attractions Jian-Jia can visit.
+\end{itemize}
+\end{itemize}

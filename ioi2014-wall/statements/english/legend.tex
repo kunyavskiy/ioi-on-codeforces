@@ -1,0 +1,27 @@
+Jian-Jia is building a wall by stacking bricks of the same size together. This wall consists of columns $n$ of bricks, which are numbered $0$ to $n - 1$ from left to right. The columns may have different heights. The height of a column is the number of bricks in it.
+
+Jian-Jia builds the wall as follows. Initially there are no bricks in any column. Then, Jian-Jia goes through $k$ phases of \texttt{adding} or \texttt{removing} bricks. The building process completes when all $k$ phases are finished. In each phase Jian-Jia is given a range of consecutive brick columns and a height $h$, and he does the following procedure:
+
+\begin{itemize}
+\item In an \texttt{adding} phase, Jian-Jia adds bricks to those columns in the given range that have less than $h$ bricks, so that they have exactly $h$ bricks. He does nothing on the columns having $h$ or more bricks.
+\item In a \texttt{removing} phase, Jian-Jia removes bricks from those columns in the given range that have more than $h$ bricks, so that they have exactly $h$ bricks. He does nothing on the columns having $h$ bricks or less.
+\end{itemize}
+
+Your task is to determine the finalshape of the wall.
+
+\textbf{Task}
+
+Given the description of the $k$ phases, please calculate the number of bricks in each column after all phases are finished. You need to implement the function \texttt{buildWall}.
+
+\begin{itemize} 
+\item \texttt{void buildWall(int n, int k, int op[], int left[], int right[],
+int height[], int finalHeight[])}
+\begin{itemize} 
+\item $n$: the number of columns of the wall.
+\item $k$: the number of phases.
+\item $op$: array of length $k$; $op[i]$ is the type of phase $i$: $1$ for an adding phase and $2$ for a removing phase, for $0 \le i \le k - 1$.
+\item $left$ and $right$: arrays of length $k$; the range of columns in phase $i$ starts with column $left[i]$ and ends with column $right[i]$ (including both endpoints $left[i]$ and $right[i]$), for $0 \le i \le k - 1$. You will always have $left[i] \le right[i]$.
+\item $height$: array of length $k$; $height[i]$ is the height parameter of phase $i$, for $0 \le i \le k - 1$.
+\item $finalHeight$: array of length $n$; you should return your results by placing the final number of bricks in column $i$ into $finalHeight[i]$, for $0 \le i \le n - 1$.
+\end{itemize}
+\end{itemize}

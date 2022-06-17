@@ -1,0 +1,29 @@
+\textbf{Example 1}
+
+Consider the following call:
+
+\texttt{distribute\_candies([10, 15, 13], [0, 0], [2, 1], [20, -11])}
+
+This means that box $0$ has a capacity of $10$ candies, box $1$ has a capacity of $15$ candies, and box $2$ has a capacity of $13$ candies.
+
+At the end of day $0$, box $0$ has $\min(c[0], 0+v[0]) = 10$ candies, box $1$ has
+$\min(c[1], 0+v[0])=15$ candies and box $2$ has $\min(c[2], 0+v[0])=13$ candies.
+
+At the end of day $1$, box $0$ has $\max(0, 10+v[1]) = 0$ candies, box $1$ has
+$\max(0, 15+v[1]) = 4$ candies. Since $2 > r[1]$, there is no change in the number of candies in box $2$. The number of candies at the end of each day are summarized below:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ Day & Box $0$ & Box $1$ & Box $2$ \\
+\hline
+$0$ & $10$ & $15$ & $13$ \\
+\hline
+$1$ & $0$ & $4$ & $13$ \\
+\hline
+
+\end{tabular}
+\end{center}
+
+As such, the procedure should return $[0, 4, 13]$

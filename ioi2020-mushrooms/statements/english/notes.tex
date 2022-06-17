@@ -1,0 +1,23 @@
+\textbf{Example 1}
+
+Consider a scenario in which there are $3$ mushrooms of species $[A, B, B]$, in order. The procedure \t{count\_mushrooms} is called in the following way:
+
+\t{count\_mushrooms(3)}
+
+This procedure may call \t{use\_machine([0, 1, 2])}, which (in this scenario) returns $1$.
+
+It may then call  \t{use\_machine([2, 1])}, which returns $0$.
+
+At this point, there is sufficient information to conclude that there is only $1$ mushroom of species A. So, the procedure \t{count\_mushrooms} should return $1$.
+
+\textbf{Example 2}
+
+Consider a case in which there are $4$ mushrooms with species $[A, B, A, A]$, in order. The procedure \t{count\_mushrooms} is called as below:
+
+\t{count\_mushrooms(4)}
+
+This procedure may call \t{use\_machine([0, 2, 1, 3])}, which returns $2$.
+
+It may then call \t{use\_machine([1, 2])}, which returns $1$.
+
+At this point, there is sufficient information to conclude that there are $3$ mushrooms of species A. Therefore, the procedure \t{count\_mushrooms} should return $3$.

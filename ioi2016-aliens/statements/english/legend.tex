@@ -1,0 +1,68 @@
+Our satellite has just discovered an alien civilization on a remote planet. 
+We have already obtained a low-resolution photo of a square area of the planet. 
+The photo shows many signs of intelligent life. Our experts have identified 
+$n$ points of interest in the photo. The points are numbered from $0$ to
+$n - 1$. We now want to take high-resolution photos that contain all of those
+$n$ points.
+
+Internally, the satellite has divided the area of the low-resolution 
+photo into an $m$ by $m$ grid of unit square cells. Both rows and
+columns of the grid are consecutively numbered from $0$ to $m - 1$ 
+(from the top and left, respectively). We use $(s, t)$ to denote the
+cell in row $s$ and column $t$. The point number $i$ is located 
+in the cell $(r_i, c_i)$. Each cell may contain an arbitrary number
+of these points.
+
+Our satellite is on a stable orbit that passes directly over the
+\textbf{main} diagonal of the grid. The main diagonal is the line
+segment that connects the top left and the bottom right corner of 
+the grid. The satellite can take a high-resolution photo of any
+area that satisfies the following constraints:
+
+\begin{itemize}
+\item the shape of the area is a square,
+\item two opposite corners of the square both lie on the main diagonal of the grid,
+\item each cell of the grid is either completely inside or completely outside the photographed area.
+\end{itemize}
+
+The satellite is able to take at most $k$ high-resolution photos.
+
+Once the satellite is done taking photos, it will transmit the 
+high-resolution photo of each photographed cell to our home base
+(regardless of whether that cell contains some points of interest).
+The data for each photographed cell will only be transmitted \textbf{once},
+even if the cell was photographed several times.
+
+Thus, we have to choose at most $k$ square areas that will be photographed, 
+assuring that:
+
+\begin{itemize}
+ \item each cell containing at least one point of interest is photographed 
+ at least once, and
+ \item the number of cells that are photographed at least once is minimized.
+\end{itemize}
+
+Your task is to find the smallest possible total number of photographed cells.
+
+\textbf{Implementation details}
+
+You should implement the following function (method): 
+
+\begin{itemize}
+\item \texttt{int64 take\_photos(int n, int m, int k, int[] r, int[] c)}
+\begin{itemize}
+  \item \texttt{n}: the number of points of interest,
+  \item \texttt{m}: the number of rows (and also columns) in the grid,
+  \item \texttt{k}: the maximum number of photos the satellite can take,
+  \item \texttt{r} and \texttt{c}: two arrays of length $n$ describing the coordinates
+  of the grid cells that contain points of interest. 
+  For $0 \le i \le n - 1$, the $i$-th point of interest is
+  located in the cell $(r[i], c[i])$,
+  \item the function should return the smallest possible total number of
+  cells that are photographed at least once (given that the photos must cover
+  all points of interest).
+\end{itemize}
+\end{itemize}
+
+Please use the provided template files for details of implementation in your 
+programming language.

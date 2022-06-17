@@ -1,0 +1,31 @@
+In the early 19th century, the ruler Hoseyngulu Khan Sardar ordered a palace to be built on a plateau overseeing a beautiful river.
+The plateau is modeled as an $n \times m$ grid of square cells.
+The rows of the grid are numbered $0$ through $n-1$, and the columns are numbered $0$ through $m-1$.
+We refer to the cell in row $i$ and column $j$ ($0 \leq i \leq n-1, 0 \leq j \leq m-1$) as cell $(i,j)$.
+Each cell $(i,j)$ has a specific height, denoted by $a[i][j]$.
+
+Hoseyngulu Khan Sardar asked his architects to choose a rectangular \texttt{area} to build the palace.
+The area should not contain any cell from the grid boundaries (row $0$, row $n-1$, column $0$, and column $m-1$).
+Hence, the architects should choose four integers $r_1$, $r_2$, $c_1$, and $c_2$ ($1 \leq r_1 \leq r_2 \leq n-2$ and $1 \leq c_1 \leq c_2 \leq m-2$), which define an area consisting of all cells $(i, j)$ such that $r_1 \leq i \leq r_2$ and $c_1 \leq j \leq c_2$.
+
+In addition, an area is considered \texttt{valid}, if and only if for every cell $(i, j)$ in the area, the following condition holds:
+
+\begin{itemize}
+\item Consider the two cells adjacent to the area in row $i$ (cell $(i, c_1-1)$ and cell $(i, c_2+1)$) and the two cells adjacent to the area in column $j$ (cell $(r_1-1, j)$ and cell $(r_2+1, j)$).
+The height of cell $(i,j)$ should be strictly smaller than the heights of all these four cells.
+\end{itemize}
+
+Your task is to help the architects find the number of valid areas for the palace (i.e., the number of choices of $r_1$, $r_2$, $c_1$ and $c_2$ that define a valid area).
+
+\textbf{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \texttt{int64 count\_rectangles(int[][] a)}
+\begin{itemize}
+\item $a$: a two-dimensional $n$ by $m$ array of integers representing the heights of the cells.
+\item This procedure should return the number of valid areas for the palace.
+\end{itemize}
+\end{itemize}
+

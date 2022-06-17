@@ -1,0 +1,17 @@
+\texttt{who\_wins([0, 1], [1, 0], [0, 0, 1, 1], [0, 1, 0, 1])}
+
+\includegraphics{train.png}
+
+\begin{itemize}
+\item There are 2 stations.
+Borzou is the owner of station $0$, which is a charging station.
+Arezou is the owner of station $1$, which is not a charging station.
+\item There are $4$ tracks $(0, 0), (0, 1), (1, 0)$, and $(1, 1)$, where $(i, j)$ denotes a one-way track from station $i$ to station $j$.
+\item Consider the game in which the train is initially placed at station $0$.
+If Borzou sets the switch on station $0$ towards the track $(0, 0)$, the train will indefinitely cycle through this track (note that station $0$ is a charging station).
+In this case, Arezou wins.
+Otherwise, if Borzou sets the switch on station $0$ towards track $(0, 1)$, Arezou can set the switch on station $1$ towards $(1, 0)$.
+If this happens, the train will indefinitely cycle through both stations. Again Arezou wins, since station $0$ is a charging station and the train will not stop.
+Hence, Arezou can win the game, regardless of what Borzou does.
+\item By a similar reasoning, in the game starting at station $1$ Arezou can also win, regardless of how Borzou plays. Thus, the procedure should return $[1, 1]$.
+\end{itemize}

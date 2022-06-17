@@ -1,0 +1,15 @@
+Assume $H=2$, $W=3$, $K=3$. There are only two possible images where the distance between the black pixels is $3$.
+
+\includegraphics{1.png}
+
+\begin{itemize}
+\item Case 1: black pixels are $0$ and $5$
+\item Case 2: black pixels are $2$ and $3$
+\end{itemize}
+
+A possible solution is to build a robot's program by making the following calls:
+\begin{enumerate}
+\item \texttt{add\_and([0, 5])}, which adds an instruction that outputs $1$ if and only if the first case holds. The output is stored in cell $6$.
+\item \texttt{add\_and([2, 3])}, which adds an instruction that outputs $1$ if and only if the second case holds. The output is stored in cell $7$.
+\item \texttt{add\_or([6, 7])}, which adds an instruction that outputs $1$ if and only if one of the cases above holds.
+\end{enumerate}

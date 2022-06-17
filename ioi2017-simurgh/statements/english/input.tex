@@ -1,0 +1,19 @@
+The sample grader reads the input in the following format:
+\begin{itemize}
+\item line 1: $n$ $m$ ($2 \leq n \leq 500$, $n - 1 \leq m \leq n \cdot (n - 1) / 2$)
+\item line $2 + i$ (for all $0 \leq i \leq m - 1$): $u[i]$ $v[i]$ ($0 \leq u[i], v[i] \leq n - 1$)
+\item line $2 + m$: $s[0], s[1], \ldots, s[n - 2]$
+\end{itemize}
+
+Here, $s[0], s[1], \ldots, s[n - 2]$ are the labels of the royal roads.
+
+For all $0 \leq i \leq m - 1$, road $i$ connects two different cities (i.e., $u[i] \neq v[i]$).
+
+There is at most one road between each pair of cities.
+
+It is possible to travel between any pair of cities through the roads.
+
+The set of all royal roads is a golden set.
+
+\texttt{find\_roads} should call \texttt{count\_common\_roads} at most $q$ times.
+In each call, the set of roads specified by $r$ should be a golden set.

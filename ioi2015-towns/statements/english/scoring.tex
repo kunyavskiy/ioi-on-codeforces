@@ -1,0 +1,30 @@
+In each test case:
+\begin{itemize}
+\item $N$ is between $6$ and $110$ inclusive.
+\item The distance between any two distinct small towns is between $1$ and $1\,000\,000$ inclusive.
+\end{itemize}
+The number of queries your program may make is limited. The limit varies by subtask, as given in the table below. If your program tries to exceed the limit on the number of queries, it will be terminated and it will be assumed to have given an incorrect answer.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Subtask & Points &  Number of queries & Find balanced hub & 
+Additional constraints \\
+\hline
+1 &  13 & $\frac{N(N-1)}{2}$ &  NO & --- \\
+\hline
+2 & 12 & $\lceil \frac{7N}{2} \rceil$ & NO &  --- \\
+\hline
+3 & 13 & $\frac{N(N-1)}{2}$& YES &  --- \\
+\hline
+4 & 10 & $\lceil \frac{7N}{2} \rceil$& YES & \parbox{6cm}{\centering \vspace{2mm}Each large city is connected to exactly three settlements \\\vspace{2mm}}\\
+\hline
+5 & 13 & $5n$& YES &  --- \\
+\hline
+6 & 39 & $\lceil \frac{7N}{2} \rceil$& YES &  --- \\
+\hline
+\end{tabular}
+\end{center}
+
+Note that $\lceil x \rceil$ denotes the smallest integer which is greater than or equal to $x$.

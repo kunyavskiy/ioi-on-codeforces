@@ -1,0 +1,19 @@
+The sample grader first calls \texttt{construct\_network(H, W, K)}.
+If \texttt{construct\_network} violates some constraint described in the problem statement, the sample grader prints one of the error messages listed at the end of Implementation details section and exits.
+
+
+Otherwise, the sample grader produces two outputs.
+
+First, the sample grader prints the output of the robot's program in the following format:
+\begin{itemize}
+\item line $1+i$ $(0 \leq i)$: output of the last instruction in the robot's program for image $i$ ($1$ or $0$).
+\end{itemize}
+
+Second, the sample grader writes a file `log.txt' in the current directory in the following format:
+\begin{itemize}
+\item line $1+i$ $(0 \leq i)$: $m[i][0], m[i][1], \ldots, m[i][c-1]$
+\end{itemize}
+
+The sequence on line $1+i$ describes the values stored in the robot's memory cells after the robot's program is run, given image $i$ as the input.
+Specifically, $m[i][j]$ gives the value of cell $j$.
+Note that the value of $c$ (the length of the sequence) is equal to $H \cdot W$ plus the number of instructions in the robot's program.

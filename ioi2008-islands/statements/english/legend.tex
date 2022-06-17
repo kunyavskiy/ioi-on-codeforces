@@ -1,0 +1,16 @@
+You are visiting a park which has $N$ islands. From each island $i$, exactly one bridge was constructed. The length of that bridge is denoted by $L_i$. The total number of bridges in the park is $N$. Although each bridge was built from one island to another, now every bridge can be traversed in both directions. Also, for each pair of islands, there is a unique ferry that travels back and forth between them. 
+
+Since you like walking better than riding ferries, you want to maximize the sum of the lengths of the bridges you cross, subject to the constraints below.
+\begin{itemize}
+\item You can start your visit at an island of your choice.
+\item You may not visit any island more than once.
+\item At any time you may move from your current island $S$ to another island $D$ that you have not visited before. You can go from $S$ to $D$ either by:
+\begin{itemize}
+\item Walking: Only possible if there is a bridge between the two islands. With this option the length of the bridge is added to the total distance you have walked, or
+\item Ferry: You can choose this option only if $D$ is not reachable from $S$ using any combination of bridges and/or previously used ferries. (When checking whether it is reachable or not, you consider all paths, including paths passing through islands that you have already visited.)
+\end{itemize}
+\end{itemize}
+
+Note that you do not have to visit all the islands, and it may be impossible to cross all the bridges.
+
+Write a program that, given the $N$ bridges along with their lengths, computes the maximum distance you can walk over the bridges obeying the rules described above.

@@ -1,0 +1,82 @@
+You are implementing a vision program for a robot.
+Each time the robot camera takes a picture, it is stored as a black and white image in the robot's memory.
+Each image is an $H \times W$ grid of pixels, with rows numbered $0$ through $H-1$ and columns numbered $0$ through $W-1$.
+There are \texttt{exactly two} black pixels in each image, and all other pixels are white.
+
+The robot can process each image with a program consisting of simple instructions.
+You are given the values of $H$, $W$, and a positive integer $K$.
+Your goal is to write a procedure to produce a program for the robot that, for any image, determines whether the \texttt{distance} between the two black pixels is exactly $K$.
+Here, the distance between a pixel in row $r_1$ and column $c_1$ and a pixel in row $r_2$ and column $c_2$ is $|r_1-r_2|+|c_1-c_2|$.
+In this formula $|x|$ denotes the absolute value of $x$, which equals $x$ if $x \geq 0$ and equals $-x$ if $x < 0$.
+
+We now describe how the robot works.
+
+The robot's memory is a sufficiently large array of cells, indexed from $0$.
+Each cell can store either $0$ or $1$ and its value, once set, will not be changed.
+The image is stored row by row in cells indexed $0$ through $H \cdot W - 1$.
+The first row is stored in cells $0$ through $W-1$, and the last row is stored in cells $(H - 1) \cdot W$ through $H \cdot W - 1$.
+In particular, if the pixel in row $i$ and column $j$ is black, the value of cell $i \cdot W + j$ is $1$, otherwise it is $0$.
+
+A robot's program is a sequence of \texttt{instructions}, which are numbered with consecutive integers starting from $0$.
+When the program is run, the instructions are executed one by one.
+Each instruction reads the values of one or more cells (we call these values the instruction's \texttt{inputs}) and produces a single value equal to $0$ or $1$ (we call this value the instruction's \texttt{output}).
+The output of instruction $i$ is stored in cell $H \cdot W + i$.
+The inputs of instruction $i$ can only be cells that store either pixels or outputs of previous instructions, i.e. cells $0$ to $H \cdot W + i - 1$.
+
+There are four types of instructions:
+\begin{itemize}
+\item \texttt{NOT}: has exactly one input. Its output is $1$ if the input is $0$, otherwise its output is $0$.
+\item \texttt{AND}: has one or more inputs. Its output is $1$ if and only if \texttt{all} of the inputs are $1$.
+\item \texttt{OR}: has one or more inputs. Its output is $1$ if and only if \texttt{at least one} of the inputs is $1$.
+\item \texttt{XOR}: has one or more inputs. Its output is $1$ if and only if an \texttt{odd number} of the inputs are $1$.
+\end{itemize}
+
+The output of the last instruction of the program should be $1$ if the distance between the two black pixels is exactly $K$, and $0$ otherwise.
+
+\textbf{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \texttt{void construct\_network(int H, int W, int K)}
+\begin{itemize}
+\item $H, W$: dimensions of each image taken by the robot's camera
+\item $K$: a positive integer
+\item This procedure should produce a robot's program. For any image taken by the robot's camera, this program should determine whether the distance between the two black pixels in the image is exactly $K$.
+\end{itemize}
+\end{itemize}
+
+This procedure should call one or more of the following procedures to append instructions to the robot's program (which is initially empty):
+
+\begin{verbatim}
+int add_not(int N)
+int add_and(int[] Ns)
+int add_or(int[] Ns)
+int add_xor(int[] Ns)
+\end{verbatim}
+
+\begin{itemize}
+\item Append a \texttt{NOT}, \texttt{AND}, \texttt{OR}, or \texttt{XOR} instruction, respectively.
+\item $N$ (for \texttt{add\_not}): the index of the cell from which the appended \texttt{NOT} instruction reads its input
+\item $Ns$ (for \texttt{add\_and}, \texttt{add\_or}, \texttt{add\_xor}): array containing the indices of the cells from which the appended \texttt{AND}, \texttt{OR}, or \texttt{XOR} instruction reads its inputs
+\item Each procedure returns the index of the cell that stores the output of the instruction. The consecutive calls to these procedures return consecutive integers starting from $H \cdot W$.
+\end{itemize}
+
+The robot's program can consist of at most $10\,000$ instructions. The instructions can read at most $1\,000\,000$ values in total. In other words, the total length of $Ns$ arrays in all calls to \texttt{add\_and}, \texttt{add\_or} and \texttt{add\_xor} plus the number of calls to \texttt{add\_not} cannot exceed $1\,000\,000$.
+
+After appending the last instruction, procedure \texttt{construct\_network} should return.
+The robot's program will then be evaluated on some number of images.
+Your solution passes a given test case if for each of these images, the output of the last instruction is $1$ if and only if the distance between the two black pixels in the image is equal to $K$.
+
+The grading of your solution may result in one of the following error messages:
+
+% <!-- WARNING: DO NOT TRANSLATE THE MESSAGES IN TRIPLE QUOTES BELOW -->
+\begin{itemize}
+\item \texttt{Instruction with no inputs}: an empty array was given as the input to \texttt{add\_and}, \texttt{add\_or}, or \texttt{add\_xor}.
+\item \texttt{Invalid index}: an incorrect (possibly negative) cell index was provided as the input to  \texttt{add\_and}, \texttt{add\_or}, \texttt{add\_xor}, or \texttt{add\_not}.
+\item \texttt{Too many instructions}: your procedure attempted to add more than $10\,000$ instructions.
+\item \texttt{Too many inputs}: the instructions read more than $1\,000\,000$ values in total.
+\end{itemize}
+
+
+

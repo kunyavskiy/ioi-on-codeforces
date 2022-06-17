@@ -1,0 +1,22 @@
+Aunty Khong is preparing $n$ boxes of candies for students from a nearby school. The boxes are numbered from $0$ to $n-1$ and are initially empty. Box $i$ ($0 \leq i \leq n-1$) has a capacity of $c[i]$ candies.
+
+Aunty Khong spends $q$ days preparing the boxes. On day $j$ ($0 \leq j \leq q-1$), she performs an action specified by three integers $l[j]$, $r[j]$ and $v[j]$ where $0 \leq l[j] \leq r[j] \leq n-1$ and $v[j] \neq 0$. For each box $k$ satisfying $l[j] \leq k \leq r[j]$:
+\begin{itemize}
+\item If $v[j] > 0$, Aunty Khong adds candies to box $k$, one by one, until she has added exactly $v[j]$ candies or the box becomes full. In other words, if the box had $p$ candies before the action, it will have $\min(c[k],p+v[j])$ candies after the action.
+\item If $v[j] < 0$, Aunty Khong removes candies from box $k$, one by one, until she has removed exactly $-v[j]$ candies or the box becomes empty. In other words, if the box had $p$ candies before the action, it will have $\max(0,p+v[j])$ candies after the action.
+\end{itemize}
+
+Your task is to determine the number of candies in each box after the $q$ days.
+
+
+\textbf{Implementation Details}
+
+You should implement the following procedure:
+\begin{itemize}
+\item \texttt{int[] distribute\_candies(int[] c, int[] l, int[] r, int[] v)}
+\begin{itemize}
+\item $c$: an array of length $n$. For $0 \leq i \leq n-1$, $c[i]$ denotes the capacity of box $i$.
+\item $l$, $r$ and $v$: three arrays of length $q$. On day $j$, for $0 \leq j \leq q-1$, Aunty Khong performs an action specified by integers $l[j]$, $r[j]$ and $v[j]$, as described above.
+\item This procedure should return an array of length $n$. Denote the array by $s$. For $0 \leq i \leq n-1$, $s[i]$ should be the number of candies in box $i$ after the $q$ days.
+\end{itemize}
+\end{itemize}

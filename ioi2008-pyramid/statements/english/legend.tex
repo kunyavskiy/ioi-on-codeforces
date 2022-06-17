@@ -1,0 +1,7 @@
+You have been asked to find the largest affordable location for constructing a new pyramid.  In order to help you decide, you have been provided with a survey of the available land which has been conveniently divided into an $M$ by $N$ grid of square cells. The base of the pyramid must be a square with sides parallel
+to those of the grid.
+
+The survey has identified a set of $P$ possibly overlapping obstacles, which are described as rectangles in the grid with sides parallel to those of the grid. In order to build the pyramid, all the cells covered by its base must be cleared of any obstacles. Removing the $i$-th obstacle has a cost $C_i$. Whenever an obstacle is
+removed, it must be removed completely, that is, you cannot remove only part of an obstacle. Also, please note that removing an obstacle does not affect any other obstacles that overlap it.
+
+Write a program that, given the dimensions $M$ and $N$ of the survey, the description of the $P$ obstacles, the cost of removing each of the obstacles, and the budget $B$ you have, finds the maximum possible side length of the base of the pyramid such that the total cost of removing obstacles does not exceed $B$.

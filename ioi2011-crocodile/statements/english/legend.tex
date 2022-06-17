@@ -1,0 +1,30 @@
+Archaeologist Benjamas is running for her life after investigating the mysterious Crocodile's Underground City. The city has $N$ chambers. There are $M$ bidirectional corridors, each connecting a different pair of distinct chambers. Running through different corridors may require different amounts of time. Only $K$ of the $N$ chambers are exit chambers that allow her to escape. Benjamas starts in chamber $0$. She wants to reach an exit chamber as quickly as possible.
+
+The Crocodile gatekeeper wants to prevent Benjamas from escaping. From his den, he controls secret doors that can block any \textit{single} corridor. That is, whenever he blocks a new corridor, the previously blocked one has to be reopened.
+
+Benjamas's situation can be described as follows: Each time she tries to leave a chamber, the Crocodile gatekeeper may choose to block one of the corridors adjacent to it. Benjamas then chooses and follows one of the unblocked corridors to the next chamber. Once Benjamas enters a corridor, the Crocodile gatekeeper may not block it until Benjamas reaches the other end. Once she enters the next chamber, the gatekeeper may again choose to block one of the outgoing corridors (possibly the corridor that Benjamas just followed), and so on.
+
+She would like to have a simple escape plan in advance. More precisely, she would like to have a set of instructions that tell her what to do when she gets to a chamber. Let $A$ be one of the chambers. If $A$ is an exit chamber, no instructions are needed--obviously, she can escape the city. Otherwise, the instruction for chamber $A$ should have one of the following forms:
+\begin{itemize}
+\item ``If you ever reach chamber $A$, take the corridor leading to chamber $B$. However, if that
+corridor is blocked, then take the corridor leading to chamber $C$.''
+\item ``Don't bother about chamber $A$; according to this escape plan you cannot possibly reach
+it.''
+\end{itemize}
+Note that in some cases (for example, if your plan directs Benjamas to run in a cycle) the gatekeeper may be able to prevent Benjamas from reaching an exit. An escape plan is \textit{good} if Benjamas is guaranteed to reach an exit chamber after a finite amount of time, regardless of what the
+gatekeeper does. For a good escape plan, let $T$ be the smallest time such that after time $T$, Benjamas is \textit{guaranteed} to reach an exit. In that case, we say that the \textit{good escape plan takes time} $T$.
+
+Your task is to write a procedure \texttt{travel\_plan(N,M,R,L,K,P)} that takes the following parameters:
+\begin{itemize}
+\item $N$~--- the number of chambers. The chambers are numbered $0$ through $N-1$.
+\item $M$~--- the number of corridors. The corridors are numbered $0$ through $M-1$.
+\item $R$~--- a two-dimensional array of integers representing the corridors. For $0 \le i < M$, corridor $i$ connects two distinct chambers $R[i][0]$ and $R[i][1]$. No two corridors join the same pair of chambers.
+\item $L$~--- a one-dimensional array of integers containing the times needed to traverse the corridors. For $0 \le i < M$, the value $1 \le L[i] \le 1\,000\,000\,000$ is the time Benjamas needs to runthrough the $i$ corridor.
+\item $K$~--- the number of exit chambers. You may assume that $1 \le K \le N$.
+\item $P$~--- a one-dimensional array of integers with $K$ distinct entries describing the exit chambers. For $0 \le i < K$, the value $P[i]$ is the number of the $i$ exit chamber. Chamber $0$ will never be one of the exit chambers.
+\end{itemize}
+Your procedure must return the smallest time $T$ for which there exists a good escape plan that
+takes time $T$.
+
+You may assume that each non-exit chamber will have at least two corridors leaving it. You may
+also assume that in each test case there is a good escape plan for which $T \le 1\,000\,000\,000$.

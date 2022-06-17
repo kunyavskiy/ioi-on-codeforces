@@ -1,0 +1,12 @@
+Perhaps the most basic strategy to approach this problem is to consider the edges of $G$ in the order that they are represented in the input file, then attempting to add them one by one to $G'$, verifying at each step whether $H$ is contained in $G'$ or not. The correct implementation of this greedy algorithm will earn some points, but much better strategies exist. We will call this {\bf base algorithm}
+
+Your score will depend on the number of edges in the $G'$ you output. Your score will be determined in the following way: you will receive a non-zero score for each output file only if it meets the task specification. If it does, your score will be calculated as follows. Let $E_y$ be the number of edges in your output, let $E_b$ be the number of edges in $G'$ as computed by the base algorithm, and let $E_m$ be the maximum number of edges in the output of any of the contestants submissions. Your
+score for the case will be: 
+
+\begin{itemize}
+\item $30 \frac{E_y}{E_b}$, if $E_y \le E_b$;
+\item $30 + 70 \frac{E_y - E_b}{E_m - E_b}$, if $E_y > E_b$.
+\end{itemize}
+
+
+Unfortunately, no best solution is known to me for sure. So, if you found solution, which is better then jury's one, you will receive denial of judgment verdict. In that case, contact me (by codeforces message to user PavelKunyavskiy) and I will eventually add your solution as new best one and rejudge problem.

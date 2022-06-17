@@ -1,0 +1,9 @@
+The United Nations Regional Development Agency (UNRDA) has a very well defined
+organizational structure. It employs a total of $N$ people, each of them coming from one of $R$ geographically distinct regions of the world. The employees are numbered from $1$ to $N$ inclusive in order of seniority, with employee number 1, the Chair, being the most senior. The regions are numbered from $1$ to $R$ inclusive in no particular order. Every employee except for the Chair has a single supervisor. A supervisor is always more senior than the employees he or she supervises. 
+
+We say that an employee $A$ is a manager of employee $B$ if and only if $A$ is $B$'s supervisor or $A$ is a manager of $B$'s supervisor. Thus, for example, the Chair is a manager of every other employee. Also, clearly no two employees can be each other's managers. 
+
+Unfortunately, the United Nations Bureau of Investigations (UNBI) recently received a number of complaints that the UNRDA has an imbalanced organizational structure that favors some regions of the world more than others. In order to investigate the accusations, the UNBI would like to build a computer system that would be given the supervision structure of the UNRDA and would then be able to answer queries of the form: given two different regions $r_1$ and $r_2$, how many pairs of employees $e_1$ and $e_2$ exist in the agency, such that employee $e_1$ comes from region $r_1$, employee $e_2$ comes from region $r_2$, and $e_1$ is a manager of $e_2$. Every query has two parameters: the regions $r_1$ and $r_2$; and its result is a single integer: the number of different pairs $e_1$ and $e_2$ that satisfy the above-mentioned conditions.
+
+
+Write a program that, given the home regions of all of the agency's employees, as well as data on who is supervised by whom, interactively answers queries as described above.

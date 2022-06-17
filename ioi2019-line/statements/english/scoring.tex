@@ -1,0 +1,44 @@
+For each test case, you can get up to $10$ points.
+Your output for a test case will get $0$ points if it does not specify a broken line with the required properties.
+Otherwise, the score will be determined using a decreasing sequence $c_1, \ldots, c_{10}$, which varies by testcase.
+
+Assume that your solution is a valid broken line consisting of $k$ segments. Then, you will get
+\begin{itemize}
+\item $i$ points, if $k = c_i$ (for $1 \leq i \leq 10$),
+\item $i + \frac{c_i - k}{c_i - c_{i+1}}$  points, if $c_{i+1} < k < c_i$ (for $1 \leq i \leq 9$),
+\item $0$ points, if $k > c_1$,
+\item $10$ points, if $k < c_{10}$.
+\end{itemize}
+
+The sequence $c_1, \ldots, c_{10}$ for each testcase is given below.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+Testcases & 01 & 02 & 03 & 04 & 05 & 06 & 07-10 \\
+\hline
+$n$ & $20$ & $600$ & $5\,000$ & $50\,000$ & $72\,018$ & $91\,891$ & $100\,000$ \\
+\hline
+$c_{1}$ & $50$ & $1\,200$ & $10\,000$ & $100\,000$ & $144\,036$ & $183\,782$ & $200\,000$ \\
+\hline
+$c_{2}$&$45$&$937$&$7\,607$&$75\,336$&$108\,430$&$138\,292$&$150\,475$ \\
+\hline
+$c_{3}$&$40$&$674$&$5\,213$&$50\,671$&$72\,824$&$92\,801$&$100\,949$ \\
+\hline
+$c_{4}$&$37$&$651$&$5\,125$&$50\,359$&$72\,446$&$92\,371$&$100\,500$ \\
+\hline
+$c_{5}$&$35$&$640$&$5\,081$&$50\,203$&$72\,257$&$92\,156$&$100\,275$ \\
+\hline
+$c_{6}$&$33$&$628$&$5\,037$&$50\,047$&$72\,067$&$91\,941$&$100\,050$ \\
+\hline
+$c_{7}$&$28$&$616$&$5\,020$&$50\,025$&$72\,044$&$91\,918$&$100\,027$ \\ 
+\hline
+$c_{8}$&$26$&$610$&$5\,012$&$50\,014$&$72\,033$&$91\,906$&$100\,015$ \\
+\hline
+$c_{9}$&$25$&$607$&$5\,008$&$50\,009$&$72\,027$&$91\,900$&$100\,009$ \\
+\hline 
+$c_{10}$&$23$&$603$&$5\,003$&$50\,003$&$72\,021$&$91\,894$&$100\,003$ \\
+\hline
+\end{tabular}
+\end{center}

@@ -1,0 +1,23 @@
+The last act of the IOI 2015 opening ceremony is in progress. During the opening ceremony, each team was supposed to receive a box with a souvenir from the host. However, all volunteers are so fascinated by the ceremony that they completely forgot about the souvenirs. The only person who remembers about the souvenirs is Aman. He is an enthusiastic volunteer and he wants the IOI to be perfect, so he wants to deliver all the souvenirs in the least amount of time.
+
+The venue of the opening ceremony is a circle divided into $L$ identical sections. The sections around the circle are numbered consecutively from $0$ to $L - 1$. That is, for $0 \le i \le L - 2$, sections $i$ and $i + 1$ are adjacent, and also sections $0$ and $L - 1$ are adjacent. There are $N$ teams at the venue. Each team is sitting in one of the sections. Each section may contain arbitrarily many teams. Some sections may even be empty.
+
+There are $N$ identical souvenirs. Initially, both Aman and all of the souvenirs are in section $0$. Aman should give one souvenir to each team, and after delivering the last souvenir he must return to section $0$. Note that some teams may be sitting in section $0$.
+
+At any moment, Aman can only carry at most $K$ souvenirs. Aman must pick up souvenirs in section $0$, and this takes him no time. Each souvenir must
+be carried until it is delivered to one of the teams. Whenever Aman carries one or more souvenirs and reaches a section with a team that has not received a souvenir yet, he may give that team one of the souvenirs he carries. This also happens instantly. The only thing that takes time is movement. Aman can move around the circular venue in both directions. Moving to an adjacent section (either clockwise or counterclockwise) takes him exactly one second, regardless of how many souvenirs he carries.
+
+Your task is to find the smallest number of seconds Aman needs to deliver all souvenirs and then return to his initial position.
+
+You are given $N$, $K$, $L$, and the positions of all teams. Compute the smallest number of seconds Aman needs to deliver all the souvenirs and to return to section $0$. You need to implement the function $delivery$:
+\begin{itemize}
+\item $int64\ delivery(int\ N, int\ K, int\ L, int\ positions[])$~--- This function will be called by the grader exactly once.
+\begin{itemize}
+\item $N$: the number of teams.
+\item $K$: the maximum number of souvenirs Aman can carry at the same
+\item time.
+\item $L$: the number of sections in the venue of the opening ceremony.
+\item $positions$: an array of length $N$. $positions[0], \ldots, positions[N - 1]$ give the section number of all teams. The elements of $positions$ are in non-decreasing order.
+\item The function should return the smallest number of seconds in which Aman can complete his task.
+\end{itemize}
+\end{itemize}

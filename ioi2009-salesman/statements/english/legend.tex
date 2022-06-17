@@ -1,0 +1,13 @@
+The traveling salesman has decided that optimally scheduling his trips on land is an intractable computational problem, so he is moving his business to the linear world of the Danube River. He has a very fast boat that can get him from anywhere to anywhere along the river in no time, but unfortunately the boat has terrible fuel consumption. It costs the salesman $U$ dollars for every meter traveled upstream (towards the source of the river) and $D$ dollars for every meter traveled downstream (away from the source of the river).
+
+There are $N$ trade fairs that the salesman would like to visit along the river. Each trade fair is held for one day only. For each trade fair $X$, the traveling salesman knows its date $T_X$, measured in the number of days since he purchased his boat. He also knows the fair's location $L_X$, measured as the distance in meters from the source of the river downstream to the fair, as well as the number of dollars $M_X$ that the salesman is going to gain if he attends this trade fair. He has to start and end his journey at his waterfront home on the river, which is at location $S$,
+measured also in meters downstream from the source of the river.
+
+
+Help the traveling salesman choose which trade fairs to attend (if any) and in what order, so that he may maximize his profit at the end of his travels. The traveling salesman's total profit is defined as the sum of the dollars he gained at the fairs he attended, minus the total sum of dollars he spent traveling up and down the river.
+
+Keep in mind that if trade fair $A$ is held earlier than trade fair $B$, the salesman can visit them only in this order (i.e., he cannot visit $B$ and then visit $A$). 
+ However, if two fairs are held on the same date, the salesman can visit them both in any order. There is no limit to how many fairs the salesman can visit in a day, but naturally he can't visit the same fair twice and reap the gains twice. He can pass through fairs he has already visited without gaining anything.
+
+Write a program that, given the date, location and profitability of all fairs, as well as the location of the traveling salesman's home and his costs of traveling, determines the maximum possible profit he can make by the end of his journey. 
+

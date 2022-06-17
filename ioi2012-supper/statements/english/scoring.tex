@@ -1,0 +1,16 @@
+\begin{tabular}{|c|c|lll|}
+\hline
+\bf{Subtask}&\bf{Points}&\multicolumn{3}{c|}{\bf{Conditions}}\\\hline
+1 & 8 & $N \le 5\,000$ & $M = 65\,000\,bits$&\\\hline
+2 & 9 & $N \le 100\,000$ & $M = 2\,000\,000\,bits$&\\\hline
+3 & 9 & $N \le 100\,000$ & $M = 1\,500\,bits$ & $K \le 25\,000$\\\hline
+4 & 35 & $N \le 5\,000$ & $M = 10\,000\,bits$&\\\hline
+5 & up to 39 & $N \le 100\,000$ & $M = 1\,800\,000\,bits$ & $K \le 25\,000$\\\hline
+\end{tabular}
+
+The score for the last subtask depends on the length $R$ of the advice your program communicates. More precisely, if $R_{max}$ is the maximum (over all test cases) of the length of the advice sequence produced by your routine \t{ComputeAdvice}, your score will be:
+\begin{itemize}
+\item $39$ points if $R_{max} \le 200\,000$;
+\item $\frac{39*(1\,800\,000 - R_{max})}{1\,600\,000}$ points if $200\,000 < R_{max} < 1\,800\,000$;
+\item $0$ points if $R_{max} \geq 1\,800\,000$.
+\end{itemize}

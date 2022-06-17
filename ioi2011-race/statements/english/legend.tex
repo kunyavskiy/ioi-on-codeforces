@@ -1,0 +1,15 @@
+In conjunction with the IOI, Pattaya City will host a race: the International Olympiad in Racing (IOR) 2011. As the host, we have to find the best possible course for the race. 
+
+In the Pattaya-Chonburi metropolitan area, there are $N$ cities connected by a network of $N-1$ highways. Each highway is bidirectional, connects two different cities, and has an integer length in kilometers. Furthermore, there is exactly one possible path connecting any pair of cities. That is, there is exactly one way to travel from one city to another city by a sequence of highways without visiting any city twice.
+
+The IOR has specific regulations that require the course to be a path whose total length is exactly $K$ kilometers, starting and ending in different cities. Obviously, no highway (and therefore also no city) may be used twice on the course to prevent collisions. To minimize traffic disruption, the course must contain as few highways as possible.
+
+Write a procedure \t{best\_path(N,K,H,L)} that takes the following parameters:
+\begin{itemize}
+\item $N$~--- the number of cities. The cities are numbered $0$ through $N-1$.
+\item $K$~--- the required distance for the race course.
+\item $H$~--- a two-dimensional array representing highways. For $0 \le i < N-1$, highway $i$ connects the cities $H[i][0]$ and $H[i][1]$.
+\item $L$~--- a one-dimensional array representing the lengths of the highways. For $0 \le i < N-1$, the length of highway $i$ is $L[i]$.
+\end{itemize}
+
+You may assume that all values in the array $H$ are between $0$ and $N-1$, inclusive, and that the highways described by this array connect all cities as described above. You may also assume that all values in the array $L$ are integers between $0$ and $1\,000\,000$, inclusive. Your procedure must return the minimum number of highways on a valid race course of length exactly $K$. If there is no such course, your procedure must return $-1$.

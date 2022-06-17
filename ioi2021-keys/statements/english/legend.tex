@@ -1,0 +1,35 @@
+Timothy the architect has designed a new escape game. In this game, there are $n$ rooms numbered from $0$ to $n-1$. Initially, each room contains exactly one key. Each key has a type, which is an integer between $0$ and $n-1$, inclusive. The type of the key in room $i$ ($0 \leq i \leq n-1$) is $r[i]$. Note that multiple rooms may contain keys of the same type, i.e., the values $r[i]$ are not necessarily
+distinct.
+
+There are also $m$ \textbf{bidirectional} connectors in the game, numbered from $0$ to $m-1$. Connector $j$ ($0 \leq j \leq m-1$) connects a pair of different rooms $u[j]$ and $v[j]$. A pair of rooms can be connected by multiple connectors.
+
+The game is played by a single player who collects the keys and moves between the rooms by
+traversing the connectors. We say that the player \textbf{traverses} connector $j$ when they use this
+connector to move from room $u[j]$ to room $v[j]$, or vice versa. The player can only traverse connector $j$ if they have collected a key of type $c[j]$ before.
+
+At any point during the game, the player is in some room $x$ and can perform two types of actions:
+\begin{itemize}
+\item collect the key in room $x$, whose type is $r[x]$ (unless they have collected it already),
+\item traverse a connector $j$, where either $u[j]=x$ or $v[j]=x$, if the player has collected a key of type $c[j]$ beforehand. Note that the player \textbf{never} discards a key they have collected.
+\end{itemize}
+
+The player \textbf{starts} the game in some room $s$ not carrying any keys. A room $t$ is \textbf{reachable} from a room $s$, if the player who starts the game in room $s$ can perform some sequence of actions described
+above, and reach room $t$.
+
+For each room $i$ ($0 \leq i \leq n-1$), denote the number of rooms reachable from room $i$ as $p[i]$. Timothy would like to know the set of indices $i$ that attain the minimum value of $p[i]$ across $0 \leq i \leq n-1$.
+
+\textbf{Implementation Details}
+
+You are to implement the following procedure:
+
+\begin{itemize}
+\item \texttt{int[] find\_reachable(int[] r, int[] u, int[] v, int[] c)}
+\begin{itemize}
+
+\item $r$:  an array of length $n$. For each $i$ ($0\leq i\leq n-1$), the key in room $i$ is of type $r[i]$.
+\item $u,v$: two arrays of length $m$. For each $j$ ($0\leq j\leq m-1$), connector $j$ connects rooms $u[j]$ and $v[j]$.
+\item $c$:  an array of length $m$. For each $j$ ($0\leq j\leq m-1$) ), the type of key needed to traverse connector $j$ is $c[j]$.
+\item This procedure should return an array $a$ of length  $n$. For each $0 \leq i \leq n-1$, the value of $a[i]$ should be $1$ if for every $j$ such that $0 \leq j \leq n-1$, $p[i] \leq p[j]$. Otherwise, the value of $a[i]$ should be $0$.
+\end{itemize}
+\end{itemize}
+

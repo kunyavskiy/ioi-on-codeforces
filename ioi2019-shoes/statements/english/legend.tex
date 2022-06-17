@@ -1,0 +1,34 @@
+Adnan owns the biggest shoe store in Baku.
+A box containing $n$ pairs of shoes has just arrived at the store.
+Each pair consists of two shoes of the same size: a left and a right one.
+Adnan has put all of the $2n$ shoes in a row consisting of $2n$ \texttt{positions} numbered $0$ through $2n - 1$ from left to right.
+
+Adnan wants to rearrange the shoes into a \texttt{valid arrangement}.
+An arrangement is valid if and only if for every $i$ ($0 \leq i \leq n-1$), the following conditions hold:
+\begin{itemize}
+\item The shoes at positions $2i$ and $2i+1$ are of the same size.
+\item The shoe at position $2i$ is a left shoe.
+\item The shoe at position $2i+1$ is a right shoe.
+\end{itemize}
+
+For this purpose, Adnan can make a series of swaps.
+In each swap, he selects two shoes that are \texttt{adjacent} at that moment and exchanges them (i.e., picks them up and puts each one on the former position of the other shoe).
+Two shoes are adjacent if their positions differ by one.
+
+Determine the minimum number of swaps that Adnan needs to perform in order to obtain a valid arrangement of the shoes.
+
+\textbf{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \texttt{int64 count\_swaps(int[] S)}
+\begin{itemize}
+\item $S$: an array of $2n$ integers.
+For each $i$ ($0 \leq i \leq 2n-1$), $|S[i]|$ is a non-zero value equal to the size of the shoe initially placed at position $i$.
+Here, $|x|$ denotes the absolute value of $x$, which equals $x$ if $x>0$ and equals $-x$ if $x<0$.
+If $S[i] < 0$, the shoe at position $i$ is a left shoe; otherwise, it is a right shoe.
+\item This procedure should return the minimum number of swaps (of adjacent shoes) that need to be performed in order to obtain a valid arrangement.
+\end{itemize}
+\end{itemize}
+

@@ -1,0 +1,26 @@
+There is a class of $N$ students, numbered $0$ through $N - 1$. Every day the teacher of the class has some projects for the students. Each project has to be completed by a team of students within the same day. The projects may have various difficulty. For each project, the teacher knows the exact size of a team that should work on it.
+
+Different students may prefer different team sizes. More precisely, student $i$ can only be assigned to a team of size between $A[i]$ and $B[i]$ inclusive. On each day, a student may be assigned to at most one team. Some students might not be assigned to any teams. Each team will work on a single project.
+
+The teacher has already chosen the projects for each of the next $Q$ days. For each of these days, determine whether it is possible to assign students to teams so that there is one team working on each project.
+
+You are given the description of all students: $N$, $A$, and $B$, as well as a sequence of $Q$ questions~--- one about each day. Each question consists of the number $M$ of projects on that day and a sequence $K$
+of length $M$ containing the required team sizes. For each question, your program must return whether it is possible to form all the teams.
+You need to implement the functions \t{init} and \t{can}:
+\begin{itemize}
+\item \t{void init(int N, int A[], int B[])}~--- The grader will call this function first and exactly once.
+\begin{itemize}
+\item $N$: the number of students.
+\item $A$: an array of length $N$: $A[i]$ is the minimum team size for student $i$.
+\item $B$: an array of length $N$: $B[i]$ is the maximum team size for student $i$
+\item The function has no return value.
+\item You may assume that $1 \le A[i] \le B[i] \le N$ for each $i = 0, \ldots, N - 1$
+\end{itemize}
+\item \t{int can(int M, int K[])}~--- After calling \t{init} once, the grader will call this function $Q$ times in a row, once for each day.
+\begin{itemize}
+\item $M$: the number of projects for this day.
+\item $K$: an array of length $M$ containing the required team size for each of these projects.
+\item The function should return $1$ if it is possible to form all the required teams and $0$ otherwise.
+\item You may assume that $1 \le M \le N$, and that for each $i = 0, \ldots, M - 1$ we have $1 \le K[i] \le N$. Note that the sum of all $K[i]$ may exceed $N$.
+\end{itemize}
+\end{itemize}

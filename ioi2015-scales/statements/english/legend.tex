@@ -1,0 +1,51 @@
+Amina has six coins, numbered from $1$ to $6$. She knows that the coins all have different weights. She would like to order them according to their weight. For this purpose she has developed a new kind of balance scale.
+
+A traditional balance scale has two pans. To use such a scale, you place a coin into each pan and the scale will determine which coin is heavier.
+
+Amina's new scale is more complex. It has four pans, labeled $A$, $B$, $C$, and $D$. The scale has four different settings, each of which answers a different question regarding the coins. To use the scale, Amina must place exactly one coin into each of the pans $A$, $B$, and $C$. Additionally, in the fourth setting she must also place exactly one coin into pan $D$.
+
+The four settings will instruct the scale to answer the following four questions:
+\begin{enumerate}
+\item Which of the coins in pans $A$, $B$ and $C$ is the heaviest?
+\item Which of the coins in pans $A$, $B$ and $C$ is the lightest?
+\item Which of the coins in pans $A$, $B$ and $C$ is the median? (This is the coin that is neither the heaviest nor the lightest of the three.)
+\item Among the coins in pans $A$, $B$ and $C$, consider only the coins that are heavier than the coin on pan $D$. If there are any such coins, which of these coins is the lightest? Otherwise, if there are no such coins, which of the coins in pans $A$, $B$ and $C$ and is the lightest?
+\end{enumerate}
+
+Write a program that will order Amina's six coins according to their weight. The program can query Amina's scale to compare weights of coins. Your program will be given several test cases to solve, each corresponding to a new set of six coins.
+
+Your program should implement the functions \t{init} and \t{orderCoins}. During each run of your program, the grader will first call \t{init} exactly once. This gives you the number of test cases and allows you to initialize any variables. The grader will then call \t{orderCoins()} once per test case.
+\begin{itemize}
+    \item \t{void init(int T)}
+    \begin{itemize}
+        \item $T$: The number of test cases your program will have to solve during this run. $T$ is an integer from the range $1,\dots,18$.
+        \item This function has no return value.
+    \end{itemize}
+    \item \t{void orderCoins()}
+    \begin{itemize}
+        \item This function is called exactly once per test case.
+        \item The function should determine the correct order of Amina's coins by calling the grader functions \t{getHeaviest()}, \t{getLightest()}, \t{getMedian()}, and/or \t{getNextLightest()}.
+        \item Once the function knows the correct order, it should report it by calling the grader function \t{answer()}.
+        \item After calling \t{answer()}, the function \t{orderCoins()} should return. It has no return value.
+    \end{itemize}
+\end{itemize}
+You may use the following grader functions in your program:
+\begin{itemize}
+    \item \t{answer(W)} --- your program should use this function to report the answer that it has found.
+    \begin{itemize}
+        \item $W$: An array of length $6$ containing the correct order of coins. $W[0]$ through $W[5]$ should be the coin numbers (i.e., numbers from $1$ to $6$) in order from the lightest to the heaviest coin.
+        \item Your program should only call this function from \t{orderCoins()}, once per test case.
+        \item This function has no return value.
+    \end{itemize}
+    \item \t{getHeaviest(A, B, C)}, \t{getLightest(A, B, C)}, \t{getMedian(A, B, C)}~--- these correspond to settings $1$, $2$ and $3$ respectively for Amina's scale.
+    \begin{itemize}
+        \item $A, B, C$: The coins that are put in pans $A$, $B$ and $C$, respectively. $A$, $B$, and $C$ should be three distinct integers, each between $1$ and $6$ inclusive.
+        \item Each function returns one of the numbers $A$, $B$, and $C$: the number of the appropriate coin. For example, \t{getHeaviest(A, B, C)} returns the number of the heaviest of the three
+        \item given coins.
+    \end{itemize}
+    \item \t{getNextLightest(A, B, C, D)}~--- this corresponds to setting 4 for Amina's scale
+    \begin{itemize}
+    \item $A, B, C, D$: The coins that are put in pans $A$, $B$, $C$, and $D$, respectively. $A$, $B$, $C$, and $D$ should be four distinct integers, each between $1$ and $6$ inclusive.
+    \item The function returns one of the numbers $A$, $B$, and $C$: the number of the coin selected by the scale as described above for setting $4$. That is, the returned coin is the lightest amongst those coins on pans $A$, $B$, and $C$ that are heavier than the coin in pan $D$; or, if none of them is heavier than the coin on pan $D$, the returned coin is simply the lightest of all three coins on pans $A$, $B$, and $C$.
+    \end{itemize}
+\end{itemize}

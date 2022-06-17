@@ -1,0 +1,35 @@
+Byteman owns the most beautiful garden in Bytetown. He planted $n$ roses in his garden. Summer has come and the flowers have grown big and beautiful. Byteman has realized that he is not able to take care of all the roses on his own. He has decided to employ two gardeners to help him. He wants to select two rectangular areas, so that each of the gardeners will take care of the roses inside one area. The areas should be disjoint and each should contain exactly $k$ roses.
+
+Byteman wants to make a fence surrounding the rectangular areas, but he is short of money, so he wants to use as little fence as possible. Your task is to help Byteman select the two rectangular areas.
+
+The garden forms a rectangle $l$ meters long and $w$ meters wide. It is divided into $l \times w$ squares of size
+1 meter $\times$ 1 meter each. We fix a coordinate system with axes parallel to the sides of the garden. All squares
+have integer coordinates $(x, y)$ satisfying $1 \le x \le l$, $1 \le y \le w$. Each square may contain any number of roses.
+
+The rectangular areas, which must be selected, should have their sides parallel to the sides of the garden
+and the squares in their corners should have integer coordinates. For $1 \le l_1 \le l_2 \le l$ and $1 \le w_1 \le w_2 \le w$, a
+rectangular area with corners $(l_1,w_1)$, $(l_1,w_2)$, $(l_2,w_1)$ and $(l_2,w_2)$:
+
+\begin{itemize}
+\item contains all the squares with coordinates $(x, y)$ satisfying $l_1 \le x \le l_2$ and $w_1 \le y \le w_2$, and
+
+\item has perimeter $2 \cdot (l_2 -l_1 +1)+2 \cdot (w_2-w_1 +1)$.
+\end{itemize}
+
+The two rectangular areas must be disjoint, that is they cannot contain a common square. Even if they have a
+common side, or part of it, they must be surrounded by separate fences.
+
+Task
+
+Write a program, that:
+
+\begin{itemize}
+\item reads from the standard input the dimensions of the garden, the number of roses in the garden, the
+number of roses that should be in each of the rectangular areas, and the positions of the roses,
+
+\item finds the corners of two such rectangular areas with minimum sum of perimeters that satisfy the given
+conditions,
+
+\item writes to the standard output the minimum sum of perimeters of two non-overlapping rectangular areas,
+each containing exactly the given number of roses (or a single word ``\texttt{NO}'', if no such pair of areas exists).
+\end{itemize}

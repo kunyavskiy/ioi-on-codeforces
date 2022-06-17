@@ -1,0 +1,19 @@
+There are two coal mines, each employing a group of miners. Mining coal is hard work, so miners need food to keep at it. Every time a shipment of food arrives at their mine, the miners produce some amount of coal. There are three types of food shipments: meat shipments, fish shipments and bread shipments.
+
+Miners like variety in their diet and they will be more productive if their food supply is kept varied. More precisely, every time a new shipment arrives to their mine, they will consider the new shipment and the previous two shipments (or fewer if there haven't been that many) and then:
+
+\begin{itemize}
+\item If all shipments were of the same type, they will produce one unit of coal.
+
+\item If there were two different types of food among the shipments, they will produce two units of coal.
+
+\item If there were three different types of food, they will produce three units of coal.
+\end{itemize}
+
+We know in advance the types of food shipments and the order in which they will be sent. It is possible to influence the amount of coal that is produced by determining which shipment should go to which mine.
+
+Shipments cannot be divided; each shipment must be sent to one mine or the other in its entirety.
+
+The two mines don't necessarily have to receive the same number of shipments (in fact, it is permitted to send all shipments to one mine).
+
+Your program will be given the types of food shipments, in the order in which they are to be sent. Write a program that finds the largest total amount of coal that can be produced (in both mines) by deciding which shipments should be sent to mine 1 and which shipments should be sent to mine 2.

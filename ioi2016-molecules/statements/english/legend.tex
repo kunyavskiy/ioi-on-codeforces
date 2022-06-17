@@ -1,0 +1,27 @@
+Petr is working for a company that has built a machine for detecting molecules. Each molecule has a positive integer weight. The machine has a \textit{detection range} $[l, u]$, where $l$ and $u$ are positive integers. The machine can detect a set of molecules if and only if this set contains a subset of the molecules with total weight belonging to the machine's detection range.  
+
+Formally, consider $n$ molecules with weights $w_0, \ldots, w_{n - 1}$. The detection is successful if there is a set of distinct indices $I = {i_1, \ldots , i_m}$ such that $l \le w_{i_1} + \ldots + w_{i_m} \le u$.
+
+Due to specifics of the machine, the gap between $l$ and $u$ is guaranteed to be greater than or equal to the weight gap between the heaviest and the lightest molecule. Formally, $u - l \ge w_{max} - w_{min}$, where $w_{max}=\max(w_0, \ldots, w_{n - 1})$ and $w_{min}=\min(w_0, \ldots, w_{n - 1})$.
+
+Your task is to write a program which either finds any one subset of molecules with total weight within the detection range, or determines that there is no such subset.
+
+\textbf{Implementation details}
+
+You should implement one function (method):
+
+\begin{itemize}
+\item \texttt{int[] find\_subset(int l, int u, int[] w)}
+\begin{itemize}
+\item \texttt{l} and \texttt{u}: the endpoints of the detection range,
+\item \texttt{w}: weights of the molecules.
+\item if the required subset exists, the function should return an array of indices of molecules that form any one such subset. If there are several correct answers, return any of them.
+\item if the required subset does not exist, the function should return an empty array.
+\end{itemize}
+\end{itemize}
+
+Your program may write the indices into the returned array in any order.
+
+Please use the provided template files for details of implementation in your programming language.
+
+The sample grader reads the input in the following format:

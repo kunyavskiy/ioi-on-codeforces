@@ -1,0 +1,62 @@
+In southern Ontario, many corn farmers create cornstalk mazes. The mazes are created in the fall, after the grain has been harvested. There is still time for you to help design the best maze ever for 2010.
+
+A field is covered with corn stalks except for a few obstacles (trees, buildings and the
+like) where corn cannot grow. The stalks, which are extremely tall, form the walls of
+the maze. Pathways are created on a square grid by crushing 1m square areas of
+stalks. One grid square on the edge is the entrance, and one grid square is the core of
+the maze.
+
+Jack visits a corn maze every year, and has become adept at finding his way quickly
+from the entrance to the core. You are designing a new maze, and your job is to
+determine which stalks to crush, so as to maximize the number of squares Jack must
+visit.
+
+The grader will determine which square is the entrance (the only one on the perimeter)
+and which square is the core (the one that Jack must walk farthest to reach).
+
+A map of the rectangular field is represented as text; for example, a 6m by 10m field
+with eight trees might be represented as:
+
+\begin{verbatim}
+##X#######
+###X######
+####X##X##
+##########
+##XXXX####
+##########
+\end{verbatim}
+
+The symbol \t{\#} represents a square with standing cornstalks, and \t{X} represents a square with an obstacle (such as a tree) that cannot be crushed to form a pathway.
+
+The field is transformed into a maze by crushing squares occupied by corn. One
+crushed square (the entrance) must be on the edge of the field. The other crushed
+squares must be in the interior. The objective is to maximize the shortest path from the entrance to the core, measured by the number of crushed squares that Jack must pass through, including the entrance and the core. It is possible to pass from one square to another only if both are crushed and they share an edge.
+
+In your submission, the crushed squares should be identified by periods (\t{.}). Exactly
+one of the crushed squares should be on the perimeter. For example:
+\begin{verbatim}
+#.X#######
+#.#X#...##
+#...X#.X.#
+#.#......#
+#.XXXX##.#
+##########
+\end{verbatim}
+
+Below, for illustration purposes only, we mark the entrance \t{E}, the core \t{C} and
+remainder of the path using \t{+}. The path length is 12.
+
+\begin{verbatim}
+#EX#######
+#+#X#C+.##
+#+++X#+X.#
+#.#++++..#
+#.XXXX##.#
+##########
+\end{verbatim}
+
+This is an output-only task with partial scoring.
+You are given $10$ input files specifying the field.
+For each input file, you should submit an output file describing a maze.
+
+You are not supposed to submit any source code for this task.

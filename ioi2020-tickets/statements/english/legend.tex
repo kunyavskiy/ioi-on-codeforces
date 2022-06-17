@@ -1,0 +1,50 @@
+Ringo is at a carnival in Singapore. He has some prize tickets in his bag, which he would like to use at the prize game stall. Each ticket comes in one of $n$ colours and has a non-negative integer printed on it. The integers printed on different tickets might be the same. Due to a quirk in the carnival rules, $n$ is guaranteed to be \t{even}. 
+
+Ringo has $m$ tickets of each colour in his bag, that is a total of $n \cdot m$ tickets. The ticket $j$ of the colour $i$ has the integer $x[i][j]$ printed on it ($0 \leq i \leq n-1$ and $0 \leq j \leq m-1$).
+
+The prize game is played in $k$ rounds, numbered from $0$ to $k-1$. Each round is played in the following order:
+\begin{itemize}
+\item From his bag, Ringo selects a \t{set} of $n$ tickets, one ticket from each colour. He then gives the set to the game master. 
+\item The game master notes down the integers $a[0], a[1] \ldots a[n-1]$ printed on the tickets of the set. The order of these $n$ integers is not important.
+\item The game master pulls out a special card from a lucky draw box and notes down the integer $b$ printed on that card.
+\item The game master calculates the absolute differences between $a[i]$ and $b$ for each $i$ from $0$ to $n-1$. Let's $S$ be the sum of these absolute differences.
+\item For this round, the game master gives Ringo a prize with a value equal to $S$.
+\item The tickets in the set are discarded and cannot be used in future rounds.
+\end{itemize}
+
+The remaining tickets in Ringo's bag after $k$ rounds of the game are discarded. 
+
+By watching closely, Ringo realized that the prize game is rigged! There is actually a printer inside the lucky draw box. In each round, the game master finds an integer $b$ that minimizes the value of the prize of that round. The value chosen by the game master is printed on the special card for that round.
+
+Having all this information, Ringo would like to allocate tickets to the rounds of the game.
+That is, he wants to select the ticket set to use in each round in order to maximize the total value of the prizes.
+
+\textbf{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \t{int64 find\_maximum(int k, int[][] x)}
+\begin{itemize}
+
+\item $k$: the number of rounds.
+\item $x$: an $n\times m$ array describing the integers on each ticket. Tickets of each color are sorted in non-decreasing order of their integers.
+\item This procedure is called exactly once.
+\item This procedure should make exactly one call to \t{allocate\_tickets} (see below), describing $k$ ticket sets, one for each round. The allocation should maximize the total value of the prizes.
+\item This procedure should return the maximum total value of the prizes.
+\end{itemize}
+\end{itemize}
+
+
+The procedure \t{allocate\_tickets} is defined as follows:
+
+\begin{itemize}
+\item \t{void allocate\_tickets(int[][] s)}
+\begin{itemize}
+\item $s$: an $n\times m$ array. The value of $s[i][j]$ should be $r$ if the ticket $j$ of the colour $i$ is used in the set of round $r$ of the game, or $-1$ if it is not used at all.
+\item For each $0 \leq i \leq n - 1$, among $s[i][0], s[i][1],\ldots, s[i][m - 1]$ each value $0,1,2,\ldots,k-1$ must occur exactly once, and all other entries must be $-1$.
+\item If there are multiple allocations resulting in the maximum total prize value, it is allowed to report any of them.
+\end{itemize}
+\end{itemize}
+
+

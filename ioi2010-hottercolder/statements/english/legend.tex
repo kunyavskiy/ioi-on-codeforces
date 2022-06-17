@@ -1,0 +1,32 @@
+Jack and Jill play a game called Hotter, Colder. Jill has a number between $1$ and $N$,
+and Jack makes repeated attempts to guess it.
+
+Each of Jack's guesses is a number between $1$ and $N$. In response to each guess, Jill
+answers hotter, colder or same. For Jack's first guess, Jill answers same. For the
+remaining guesses Jill answers:
+
+\begin{itemize}
+\item hotter if this guess is closer to Jill's number than his previous guess
+\item colder if this guess is farther from Jill's number than his previous guess
+\item same if this guess is neither closer to nor further from Jill's number than his
+previous guess.
+\end{itemize}
+
+You are to implement a procedure \t{HC(N)} that plays Jack's role. This implementation
+may repeatedly call \t{Guess(G)}, with $G$ a number between $1$ and $N$. \t{Guess(G)} will return $1$ to indicate hotter, $-1$ to indicate colder or $0$ to indicate same. \t{HC(N)} must return Jill's number.
+
+As example, assume $N=5$, and Jill has chosen the number $2$. When
+procedure \t{HC} makes the following sequence of calls to Guess, the results in the
+second column will be returned.
+
+\begin{tabular}{|l|l|l|} \hline
+Call & Returned value & Explanation \\ \hline
+\t{Guess(5)} & 0 & Same (first call) \\ \hline
+\t{Guess(3)} & 1 & Hotter \\ \hline
+\t{Guess(4)} & -1 & Colder \\ \hline
+\t{Guess(1)} & 1 & Hotter \\ \hline
+\t{Guess(3)} & 0 & Same \\ \hline
+\end{tabular}
+
+At this point Jack knows the answer, and \t{HC} should return $2$. It has taken Jack $5$
+guesses to determine Jill's number. You can do better.

@@ -1,0 +1,20 @@
+\textbf{Example 1}
+
+\texttt{find\_subset(15, 17, [6, 8, 8, 7])}
+
+In this example we have four molecules with weights 6, 8, 8 and 7. The machine can detect subsets of molecules with total weight between 15 and 17, inclusive. Note, that $17-15\geq 8-6$. The total weight of molecules 1 and 3 is $w_1 + w_3 = 8 + 7 = 15$, so the function can return \texttt{[1, 3]}. Other possible correct answers are \texttt{[1, 2]} 
+($w_1 + w_2 = 8 + 8 = 16$) and \texttt{[2, 3]} ($w_2 + w_3 = 8 + 7 = 15$).
+
+\textbf{Example 2}
+
+\texttt{find\_subset(14, 15, [5, 5, 6, 6]) }
+
+In this example we have four molecules with weights 5, 5, 6 and 6, and we are looking for a subset of them with total weight between 14 and 15, inclusive. Again, note that $15 - 14 \geq 6 - 5$. There is no subset of molecules with total weight between $14$ and $15$ so the function should return an empty array.
+
+\textbf{Example 3}
+
+\texttt{find\_subset(10, 20, [15, 17, 16, 18]) }
+
+In this example we have four molecules with weights 15, 17, 16 and 18, and we are looking for a subset of them with total weight between 10 and 20, inclusive. Again, note that $20 - 10 \geq 18 - 15$. Any subset consisting of exactly one element has total weight between $10$ and $20$, so the possible correct answers are: \texttt{[0]}, \texttt{[1]}, \texttt{[2]} and \texttt{[3]}.
+
+

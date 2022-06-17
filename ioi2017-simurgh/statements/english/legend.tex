@@ -1,0 +1,44 @@
+According to ancient Persian legends in Shahnameh, Zal, the legendary Persian hero, is madly in love with Rudaba, the princess of Kabul. When Zal asked for Rudaba's hand in marriage, her father gave him a challenge.
+
+In Persia there are $n$ cities, labeled from $0$ to $n - 1$, and $m$ two-way roads, labeled from $0$ to $m - 1$. Each road connects a pair of distinct cities.
+Each pair of cities is connected by at most one road. Some of the roads are \texttt{royal roads} used for travels by royals. Zal's task is to determine which of the roads are the royal roads.
+
+Zal has a map with all the cities and the roads in Persia. He does not know which of the roads are royal, but he can get help from Simurgh, the benevolent mythical bird who is Zal's protector. However, Simurgh does not want to reveal the set of royal roads directly. Instead, she tells Zal that the set of all royal roads is a \texttt{golden set}. A set of roads is a golden set if and only if:
+\begin{itemize}
+\item it has \texttt{exactly} $n - 1$ roads, and
+\item for every pair of cities, it is possible to reach one from the other by traveling only along the roads of this set.
+\end{itemize}
+
+Furthermore, Zal can ask Simurgh some questions.
+For each question:
+\begin{enumerate}
+\item Zal chooses a \texttt{golden} set of roads, and then
+\item Simurgh tells Zal how many of the roads in the chosen golden set are royal roads.
+\end{enumerate}
+
+Your program should help Zal find the set of royal roads by asking Simurgh at most $q$ questions. The grader will play the role of Simurgh.
+
+\textbf{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \texttt{int[] find\_roads(int n, int[] u, int[] v)}
+\begin{itemize}
+\item $n$: number of cities,
+\item $u$ and $v$: arrays of length $m$. For all $0 \leq i \leq m - 1$, $u[i]$ and $v[i]$ are the cities connected by road $i$.
+\item This procedure should return an array of length $n - 1$ containing the labels of the royal roads (in an arbitrary order).
+\end{itemize}
+\end{itemize}
+
+
+Your solution can make at most $q$ calls to the following grader procedure:
+
+\begin{itemize}
+\item \texttt{int count\_common\_roads(int[] r)}
+\begin{itemize}
+\item $r$: array of length $n - 1$ containing the labels of roads in a golden set (in an arbitrary order).
+\item This procedure returns the number of royal roads in $r$.
+\end{itemize}
+\end{itemize}
+

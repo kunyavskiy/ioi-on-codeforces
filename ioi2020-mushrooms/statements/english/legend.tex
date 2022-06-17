@@ -1,0 +1,36 @@
+Andrew the mushroom expert is investigating mushrooms native to Singapore.
+
+As part of his research, Andrew collected $n$ mushrooms labelled $0$ to $n-1$. Each mushroom is of one of two species, which are called A and B.
+
+Andrew knows that \t{mushroom $0$ belongs to species A}, but as the two species look the same, he does not know the species of mushrooms $1$ to $n-1$.
+
+Fortunately, Andrew has a machine in his lab that can help with this. To use this machine, one should place two or more mushrooms in a row inside the machine (in any order) and turn the machine on. Then, the machine calculates the number of \t{adjacent} pairs of mushrooms that are of different species. For example, if you place mushrooms of species $[A, B, B, A]$ (in that order) into the machine, the result will be $2$.
+
+However, as operating the machine is very expensive, the machine can be used for a limited number of times. In addition, the total number of mushrooms placed in the machine across all its uses cannot exceed $100\,000$. Use this machine to help Andrew count the number of mushrooms of species A
+collected.
+
+\textbf{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \t{int count\_mushrooms(int n)}
+\begin{itemize}
+\item $n$: number of mushrooms collected by Andrew.
+\item This procedure is called exactly once, and should return the number of mushrooms of species A.
+\end{itemize}
+\end{itemize}
+
+The above procedure can make calls to the following procedure:
+\begin{itemize}
+\item \t{int use\_machine(int[] x)}
+\begin{itemize}
+\item $x$: an array of length between $2$ and $n$ inclusive, describing the labels of the mushrooms
+placed in the machine, in order.
+\item The elements of $x$ must be \t{distinct} integers from $0$ to $n-1$ inclusive.
+\item Let $d$ be the length of array $x$. Then, the procedure returns the number of different indices $j$, such that $0 \leq j \leq d-2$ and mushrooms $x[j]$ and $x[j+1]$ are of different species.
+\item This procedure can be called at most $20\,000$ times.
+\item The total length of $x$ passed to the procedure \t{use\_machine} among all its invocations cannot exceed $100\,000$.
+\end{itemize}
+\end{itemize}
+

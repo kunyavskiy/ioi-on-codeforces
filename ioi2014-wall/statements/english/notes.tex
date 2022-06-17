@@ -1,0 +1,31 @@
+We assume that there are $10$ brick columns and 6 wall building phases. All ranges in the following table are inclusive. Diagrams of the wall after each phase are shown below.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ |c|c|c|c| }
+\hline
+Phase & Type & Range & Height\\
+\hline
+0 & add & columns 1 to 8 & 4 \\
+\hline
+1 & remove & columns 4 to 9 & 1 \\
+\hline
+2 & remove & columns 3 to 6 & 5 \\
+\hline
+3 & add & columns 0 to 5 & 3 \\
+\hline
+4 & add & column 2 & 5 \\
+\hline
+5 & remove & columns 6 to 7 & 0 \\
+\hline
+\end{tabular}
+\end{center}
+
+Since all columns are initially empty, after phase 0 each of the columns 1 to 8 will have 4 bricks.
+Columns 0 and 9 remain empty. In phase 1, the bricks are removed from columns 4 to 8 until each of
+them has 1 brick, and column 9 remains empty. Columns 0 to 3, which are out of the given range,
+remain unchanged. Phase 2 makes no change since columns 3 to 6 do not have more than 5 bricks.
+After phase 3 the numbers of bricks in columns 0, 4, and 5 increase to 3. There are 5 bricks in column
+2 after phase 4. Phase 5 removes all bricks from columns 6 and 7.
+
+\includegraphics{1.png}

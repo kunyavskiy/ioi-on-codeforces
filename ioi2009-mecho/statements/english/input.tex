@@ -1,0 +1,13 @@
+Your program must read from standard input the following data:
+\begin{itemize}
+\item The first line contains the integers $N$ ($1 \le N \le 800$) and $S$ ($1 \le S \le 1\,000$), separated by a space.
+\item The next $N$ lines represent the map of the forest. Each of these lines contains $N$ characters with each character representing one unit cell of the grid. The possible characters and their associated meanings are as follows:
+\begin{itemize}
+\item \t{T} denotes a tree
+\item \t{G} denotes a grassy cell
+\item \t{M} denotes the initial location of Mecho and the honeypot, which is also a grassy cell
+\item\t{D} denotes the location of Mecho's home, which Mecho can enter, but the bees cannot.
+\item\t{H} denotes the location of a hive
+\end{itemize}
+\end{itemize}
+It is guaranteed that the map will contain exactly one letter \t{M}, exactly one letter \t{D} and at least one letter \t{H}. It is also guaranteed that there is a sequence of adjacent letters \t{G} that connects Mecho to his home, as well as a sequence of adjacent letters G that connects at least one hive to the honeypot (i.e., to Mecho's initial location). These sequences might be as short as length zero, in case Mecho's home or a hive is adjacent to Mecho's initial location. Also, note that the bees cannot pass through or fly over Mecho's home. To them, it is just like a tree.

@@ -1,0 +1,54 @@
+\textbf{Example 1}
+
+Consider the following call:
+
+\t{find\_maximum(2, [[0, 2, 5],[1, 1, 3]])}
+
+This means that:
+\begin{itemize}
+\item there are $k=2$ rounds;
+\item the integers printed on the tickets of colour $0$ are $0$, $2$ and $5$, respectively;
+\item the integers printed on the tickets of colour $1$ are $1$, $1$ and $3$, respectively.
+\end{itemize}
+
+A possible allocation that gives the maximum total prize value is:
+\begin{itemize}
+\item In round $0$, Ringo picks ticket $0$ of colour $0$ (with the integer $0$) and ticket $2$ of colour $1$ (with the integer $3$). The lowest possible value of the prize in this round is $3$. E.g., the game master may choose $b = 1$: $|1 - 0| + |1 - 3| = 1 + 2 = 3$.
+\item In round $1$, Ringo picks ticket $2$ of colour $0$ (with the integer $5$) and ticket $1$ of colour $1$ (with the integer $1$). The lowest possible value of the prize in this round is $4$. E.g., the game master may choose $b = 3$: $|3 - 1| + |3 - 5| = 2 + 2 = 4$.
+\item Therefore, the total value of the prizes would be $3 + 4 = 7$.
+\end{itemize}
+
+To report this allocation, the procedure \t{find\_maximum} should make the following call to \t{allocate\_tickets}:
+\begin{itemize}
+\item \t{allocate\_tickets([[0, -1, 1], [-1, 1, 0]])}
+\end{itemize}
+
+Finally, the procedure \t{find\_maximum} should return $7$.
+
+\textbf{Example 2}
+
+Consider the following call:
+
+\t{find\_maximum(1, [[5, 9], [1, 4], [3, 6], [2, 7]])}
+
+This means that:
+\begin{itemize}
+\item there is only one round,
+\item the integers printed on the tickets of colour $0$ are $5$ and $9$, respectively;
+\item the integers printed on the tickets of colour $1$ are $1$ and $4$, respectively;
+\item the integers printed on the tickets of colour $2$ are $3$ and $6$, respectively;
+\item the integers printed on the tickets of colour $3$ are $2$ and $7$, respectively.
+\end{itemize}
+
+
+A possible allocation that gives the maximum total prize value is:
+\begin{itemize}
+\item In round $0$, Ringo picks ticket $1$ of colour $0$ (with the integer $9$), ticket $0$ of colour $1$ (with the integer $1$), ticket $0$ of colour $2$ (with the integer $3$), and ticket $1$ of colour $3$ (with the integer $7$). The lowest possible value of the prize in this round is $12$, when the game master chooses $b = 3$: $|3 - 9| + |3 - 1| + |3 - 3| + |3 - 7| = 6 + 2 + 0 + 4 = 12$.
+\end{itemize}
+
+To report this solution, the procedure \t{find\_maximum} should make the following call to \t{allocate\_tickets}:
+\begin{itemize}
+\item \t{allocate\_tickets([[-1, 0], [0, -1], [0, -1], [-1, 0]])}
+\end{itemize}
+
+Finally, the procedure \t{find\_maximum} should return $12$.

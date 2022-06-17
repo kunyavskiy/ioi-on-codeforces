@@ -1,0 +1,36 @@
+There are $n$ attractions in Baku, numbered from $0$ to $n-1$.
+There are also $m$ two-way roads, numbered from $0$ to $m-1$.
+Each road connects two different attractions.
+It is possible to travel between any pair of attractions through the roads.
+
+Fatima is planning to visit all of the attractions in three days.
+She already decided that she wants to visit $a$ attractions on the first day, $b$ attractions on the second day, and $c$ attractions on the third day.
+Therefore, she is going to partition the $n$ attractions into three sets $A$, $B$, and $C$ of sizes $a$, $b$, and $c$, respectively.
+Each attraction will belong to exactly one set, so $a + b + c = n$.
+
+Fatima would like to find the sets $A$, $B$, and $C$, so that \texttt{at least two} out of the three sets are \texttt{connected}.
+A set $S$ of attractions is called connected if it is possible to travel between any pair of attractions in $S$ by using the roads and without passing through any attraction not in $S$.
+A partition of attractions into sets $A$, $B$, and $C$ is called \texttt{valid} if it satisfies the conditions described above.
+
+Help Fatima find a valid partition of the attractions (given $a$, $b$, and $c$), or determine that no valid partition exists.
+If there are multiple valid partitions, you may find any of them.
+
+\texttt{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \texttt{int[] find\_split(int n, int a, int b, int c, int[] p, int[] q)}
+\begin{itemize}
+\item $n$: the number of attractions.
+\item $a$, $b$, and $c$: the desired sizes of sets $A$, $B$, and $C$.
+\item $p$ and $q$: arrays of length $m$, containing the endpoints of the roads.
+For each $i$ ($0 \leq i \leq m-1$), $p[i]$ and $q[i]$ are the two attractions connected by road $i$.
+\item This procedure should return an array of length $n$. Denote the array by $s$.
+If there is no valid partition, $s$ should contain $n$ zeros.
+Otherwise, for $0 \leq i \leq n-1$, $s[i]$ should be one of $1$, $2$, or $3$ to denote that attraction $i$ is assigned to set $A$, $B$, or $C$, respectively.
+\end{itemize}
+\end{itemize}
+
+
+

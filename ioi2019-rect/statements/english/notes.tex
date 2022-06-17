@@ -1,0 +1,31 @@
+\textbf{Example 1}
+
+Consider the following call.
+
+\begin{verbatim}
+count_rectangles([[4,  8,  7,  5,  6],
+                  [7,  4,  10, 3,  5],
+                  [9,  7,  20, 14, 2],
+                  [9,  14, 7,  3,  6],
+                  [5,  7,  5,  2,  7],
+                  [4,  5,  13, 5,  6]])
+\end{verbatim}
+
+\includegraphics{1.png}
+
+
+There are $6$ valid areas, listed below:
+\begin{itemize}
+\item $r_1 = r_2 = c_1 = c_2 = 1$
+\item $r_1 = 1, r_2 = 2, c_1 = c_2 = 1$
+\item $r_1 = r_2 = 1, c_1 = c_2 = 3$
+\item $r_1 = r_2 = 4, c_1 = 2, c_2 = 3$
+\item $r_1 = r_2 = 4, c_1 = c_2 = 3$
+\item $r_1 = 3, r_2 = 4, c_1 = c_2 = 3$
+\end{itemize}
+
+For example $r_1 = 1, r_2 = 2, c_1 = c_2 = 1$ is a valid area because both following conditions hold:
+\begin{itemize}
+\item $a[1][1]=4$ is strictly smaller than $a[0][1]=8$, $a[3][1]=14$, $a[1][0]=7$, and $a[1][2]=10$.
+\item $a[2][1]=7$ is strictly smaller than $a[0][1]=8$, $a[3][1]=14$, $a[2][0]=9$, and $a[2][2]=20$.
+\end{itemize}

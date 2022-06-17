@@ -1,0 +1,13 @@
+The first set of lines describes the first maze and its occupants. Subsequently, the second set of lines describes the second maze and its occupants.
+
+The first line of input contains two space-separated integers, $R_1$ and $C_1$, the number of rows and columns in maze 1.
+
+\begin{itemize}
+\item The next $R_1$ lines each contain $C_1$ characters specifying the maze layout. The robot's starting square is specified by an 'X'. A '.' represents an open space and '\#' represents a wall. Each maze will contain exactly one robot. 
+
+\item Following the maze layout is a single line with a single integer $G_1$, the number of guards in the first maze ($0 \le G_1 \le 10$).
+
+\item Each of the next $G_1$ lines describes a guard's patrol as three integers and a character, separated by single spaces. The first two integers specify the row and column of the starting square of the guard. The third integer specifies the number of squares ($2 \ldots 4$) in the guard's patrol path. The character specifies the initial direction the guard is facing: 'N', 'S', 'E', or 'W' (north, south, east, and west, respectively).
+\end{itemize}
+
+The description of the second maze follows the description of the first, in the same format but with potentially different values.

@@ -1,0 +1,16 @@
+There are 11 possible combinations so you should output 11 modulo 7 which is 4.
+The possible combinations are: [1] [1,2] [1,2,3] [1,2,3,3] [1,3] [1,3,3] [2] [2,3] [2,3,3] [3] and [3,3]. (For each combination, we list the gems it contains. For example, [2,3,3] is a combination that consists of one gem of kind 2, and two gems of kind 3.)
+These combinations can be achieved in the following ways:
+\begin{itemize}
+\item [1]: It is possible that you catch the second (or the fourth) fish before it eats any other fish.  
+\item [1,2]: If the second fish eats the first fish, then it would have a gemstone of kind 1 (the one it originally swallowed) and a gemstone of kind 2 (from the stomach of the first fish).
+\item [1,2,3]: One possible way of reaching this combination: the fourth fish eats the first fish, and then the third fish eats the fourth fish. If you now catch the third fish, it will have one gemstone of each kind in its stomach.
+\item [1,2,3,3]: Fourth eats first, third eats fourth, third eats fifth, you catch the third one.
+\item [1,3]: Third eats fourth, you catch it.
+\item [1,3,3]: Third eats fifth, third eats fourth, you catch it.
+\item [2]: You catch the first fish.
+\item [2,3]: Third eats first, you catch it.
+\item [2,3,3]: Third eats first, third eats fifth, you catch it.
+\item [3]: You catch the third fish.
+\item [3,3]: Third eats fifth, you catch it
+\end{itemize}

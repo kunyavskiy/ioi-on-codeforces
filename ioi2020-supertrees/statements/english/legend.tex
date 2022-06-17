@@ -1,0 +1,40 @@
+Gardens by the Bay is a large nature park in Singapore. In the park there are $n$ towers, known as supertrees. These towers are labelled $0$ to $n - 1$. We would like to construct a set of \t{zero or more} bridges. Each bridge connects a pair of distinct towers and may be traversed in \t{either} direction. No two bridges should connect the same pair of towers.
+
+A path from tower $x$ to tower $y$ is a sequence of one or more towers such that:
+
+\begin{itemize}
+\item the first element of the sequence is $x$,
+\item the last element of the sequence is $y$,
+\item all elements of the sequence are \t{distinct}, and
+\item each two consecutive elements (towers) in the sequence are connected by a bridge.
+\end{itemize}
+
+Note that by definition there is exactly one path from a tower to itself and the number of different paths from tower $i$ to tower $j$ is the same as the number of different paths from tower $j$ to tower $i$.
+
+The lead architect in charge of the design wishes for the bridges to be built such that for all $0 \leq i, j \leq n-1$ there are exactly $p[i][j]$ different paths from tower $i$ to tower $j$, where $0 \leq p[i][j] \leq 3$.
+
+Construct a set of bridges that satisfy the architect's requirements, or determine that it is impossible.
+
+\textbf{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \t{int construct(int[][] p)}
+\begin{itemize}
+\item $p$: an $n \times n$ array representing the architect's requirements.
+\item If a construction is possible, this procedure should make exactly one call to \t{build} (see below) to report the construction, following which it should return $1$.
+\item Otherwise, the procedure should return $0$ without making any calls to \t{build}.
+\item This procedure is called exactly once.
+\end{itemize}
+\end{itemize}
+The procedure \t{build} is defined as follows:
+\begin{itemize}
+\item \t{void build(int[][] b)}
+\begin{itemize}
+\item $b$: an $n \times n$ array, with $b[i][j]=1$ if there is a bridge connecting tower $i$ and tower $j$, or $b[i][j]=0$ otherwise.
+\item Note that the array $b$ must satisfy $b[i][j]=b[j][i]$ for all $0 \leq i,j \leq n-1$ and $b[i][i] = 0$ for all $0 \leq i \leq n-1$.
+\end{itemize}
+\end{itemize}
+
+

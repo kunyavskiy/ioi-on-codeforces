@@ -1,0 +1,38 @@
+Consider the case where $N = 3$, and
+$M=[10,30,20]$
+
+Procedure \t{encode(N,M)}, using some strange method, may encode the message as the sequence
+of numbers $[7, 3, 2, 70, 15, 20, 3]$. To report this sequence, it should call the procedure \t{send} as
+follows:
+
+\t{send(7)}
+
+\t{send(3)}
+
+\t{send(2)}
+
+\t{send(70)}
+
+\t{send(15)}
+
+\t{send(20)}
+
+\t{send(3)}
+
+Once all parrots reach their destination, assume we obtain the following list of transcribed numbers: $[3, 20, 70, 15, 2, 3, 7]$. The procedure \t{decode} will then be called with $N=3$, $L=7$, and
+$X=[3, 20, 70, 15, 2, 3, 7]$
+
+The procedure \t{decode} must produce the original message $[10, 30, 20]$. It reports the result by calling the procedure output as follows.
+
+\t{output(10)}
+
+\t{output(30)}
+
+\t{output(20)}
+
+Notes about limits:
+\begin{itemize}
+\item Grading Environment: In the real grading environment, your submissions will be  executed twice, so all your global variables would be cleared between running encode and decode. The first run only calls encode and the second run only calls \t{decode}.
+\item Limits: The first run will make at most $50$ calls to procedure encode. The second run will make at most $50$ calls to procedure \t{decode}.
+\item Each run must use cpu and memory within time and memory limit. They are checked independently.  
+\end{itemize}

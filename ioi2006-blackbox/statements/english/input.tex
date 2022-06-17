@@ -1,0 +1,51 @@
+You are given a grader that provides the following functions
+
+\begin{verbatim}
+int throwBall(int holeIn, int sideIn, int &holeOut, int &sideOut);
+\end{verbatim}
+
+Throws a ball into the box through hole number holeIn in side sideIn, sides are numbered as 1 --- Top, 2 --- Right, 3 --- Bottom and 4 --- Left. Holes are numbered from left to right and from top to bottom starting from number 1 in
+each side. In holeOut and sideOut you'll receive the hole and side number where the ball exits the box. The function throwBall returns the number of beeps caused
+by the ball hitting a deflector.
+
+\begin{verbatim}
+void ResetBox();
+\end{verbatim}
+
+Resets every deflector in the box to its initial position.
+
+\begin{verbatim}
+void ToggleDeflectors();
+\end{verbatim}
+
+Toggles every deflector in the box.
+
+You need to implement function
+
+\begin{verbatim}
+void solve(vector<string>& ans);
+\end{verbatim}
+
+This function should put answer in to given vector. $ans[i][j]$ should be equal to content of cell $(i, j)$ with same symbols, that are used for input below. If you can't determinate content of cell, you can fill it with \t{?}, and still receive part of points. Size of vector is equal to size of field. Initially all elements are filled with \t{?}
+
+A sample interaction for the box in the previous figure could be:
+
+throwBall(3, 4, holeOut, sideOut);
+
+A ball is thrown into hole number 3 (third from the top) on the left side. Returns 1, indicating that the ball hit 1 deflector. When the function returns, holeOut will equal 2 and sideOut will equal 3 indicating that the ball exited through hole 2 (second from the left) of the bottom side of the box.
+
+
+Grader will read input in following format:
+
+LINE 1: Contains n, the number of holes on each side.
+
+n LINES: Each line describes a row of the box, starting from the topmost row 
+to the bottom row. Each line must contain exactly n characters; each 
+character corresponds to a column (running from left to right). 
+\begin{itemize}
+\item ``\t{.}'' means that the square is empty.
+\item ``\t{/}'' means the square contains a deflector with initial position ``/''
+\item ``\t{\textbackslash}'' means the square contains a deflector with initial position ``\t{\textbackslash}''
+\end{itemize}
+
+Input for test 01 can be found in problem graders archive. Solving it will not be rewarded by any points. 

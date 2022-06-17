@@ -1,0 +1,25 @@
+Suppose the coins are ordered $3\ 4\ 6\ 2\ 1\ 5$ from the lightest to the heaviest.
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ |c|c|c| }
+\hline
+Function call & Returns & Explanation\\
+\hline
+\t{getMedian(4, 5, 6)} & 6 & Coin $6$ is the median among coins $4$, $5$, and $6$.\\
+\hline
+\t{getHeaviest(3, 1, 2)} & 1 & Coin $1$ is the heaviest among coins $1$, $2$, and $3$.\\
+\hline
+\t{getNextLightest(2, 3, 4, 5)} & 3 & \parbox{10cm}{\centering \vspace{2mm}Coins $2$, $3$, $4$ and are all lighter than coin $5$, so the lightest among them $(3)$ is returned. \\\vspace{2mm}}\\
+\hline
+\t{getNextLightest(1, 6, 3, 4)} & 6 & \parbox{10cm}{\centering \vspace{2mm}Coins $1$ and $6$ are both heavier than coin $4$. Among coins $1$ and $6$, coin $6$ is the lightest one. \\\vspace{2mm}}\\
+\hline
+\t{getHeaviest(3, 5, 6)} & 5 & Coin $5$ is the heaviest among coins $3$, $5$ and $6$.\\
+\hline
+\t{getMedian(1, 5, 6)} & 1 & Coin $1$ is the median among coins $1$, $5$ and $6$.\\
+\hline
+\t{getMedian(2, 4, 6)} & 6 & Coin $6$ is the median among coins $2$, $4$ and $6$.\\
+\hline
+\t{answer([3, 4, 6, 2, 1, 5])} &  &The program found the right answer fot this test case.\\
+\hline
+\end{tabular}
+\end{center}

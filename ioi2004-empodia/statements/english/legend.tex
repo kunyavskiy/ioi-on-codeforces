@@ -1,0 +1,16 @@
+{\bf Note that tests of this problem were significantly improved as compared to the once, given on the IOI. Grading system is also changed. }
+
+The ancient mathematician and philosopher Pythagoras believed that reality is mathematical in nature. Present-day biologists study properties of biosequences. A biosequence is a sequence of M integers, which 
+\begin{itemize}
+\item contains each of the numbers $0,1, \ldots ,M-1$,
+\item starts with $0$ and ends with $M-1$, and
+\item has no two elements $E$,$E+1$ in adjacent positions in this order.
+\end{itemize}
+
+A subsequence consisting of adjacent elements of a biosequence is called a segment.
+
+A segment of a biosequence is called a \textbf{framed interval} if it includes all integers whose values are between the value of the first element, which must be the smallest element in the segment, and the last element, which must be the largest and different from the first. A framed interval is called an \textbf{empodio} if it does not contain any shorter framed intervals. 
+
+As an example, consider the biosequence $(0,3,5,4,6,2,1,7)$. The whole biosequence is a framed interval. However, it contains another framed interval $(3,5,4,6)$ and therefore it is not an empodio. The framed interval $(3,5,4,6)$ does not contain a shorter framed interval, so it is an empodio. Furthermore, it is the only empodio in that biosequence. 
+
+You are to write a program that, given a biosequence, finds all empodia (plural for empodio) in that biosequence. 

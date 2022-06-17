@@ -1,0 +1,21 @@
+The grader reads input in the following format:
+\begin{itemize}
+\item line $1$: $R\ C$
+\item line $2$: $H[0][0]\dots H[0][C­-2]$
+\item \dots
+\item line $(R + 1)$: $H[R­-1][0] \dots H[R­-1][C­-2]$
+\item line $(R + 2)$: $V[0][0] \dots V[0][C­-1]$
+\item \dots
+\item line $2R$: $V[R­-2][0] \dots V[R­-2][C­-1]$
+\item next line: $E$
+\item next $E$ lines: one event per line, in the order in which events occur
+\end{itemize}
+
+If $C = 1$, the empty lines containing the number of wombats on horizontal roads (lines $2$ through $R + 1$) are not necessary.
+
+The line for each event must be in one of the following formats:
+\begin{itemize}
+\item to indicate \t{changeH(P, Q, W)}: $1\ P\ Q\ W$
+\item to indicate \t{changeV(P, Q, W)}: $2\ P\ Q\ W$
+\item to indicate \t{escape(V1, V2)}: $3\ V1\ V2$
+\end{itemize}

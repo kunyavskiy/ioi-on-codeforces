@@ -1,0 +1,40 @@
+Consider the following input:
+
+\begin{verbatim}
+4 5 5
+....#
+.#..#
+...#.
+....#
+\end{verbatim}
+
+
+Below is a possible valid output:
+
+\begin{verbatim}
+.X.X#
+.#..#
+...#X
+XX..#
+\end{verbatim}
+
+Since $l = 4$ kids can hide in this maze, this solution will receive $10 \cdot 4 / 5 = 8$ points. The cells in which kids can hide are marked with `O' below:
+
+
+\begin{verbatim}
+OXOX#
+.#.O#
+...#X
+XX.O#
+\end{verbatim}
+
+The following three outputs are not valid:
+
+\begin{verbatim}
+.XXX#        ...X#        XXXX#
+.#XX#        .#.X#        X#XX#
+...#.        ...#X        ..X#X
+XX..#        XXXX#        ..XX#
+\end{verbatim}
+
+In the left output there is no simple path between the free cell in the top left corner and the free cell in the rightmost column. In the two other outputs, for each pair of distinct free cells there are exactly two distinct simple paths between them.

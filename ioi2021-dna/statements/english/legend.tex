@@ -1,0 +1,35 @@
+Grace is a biologist working in a bioinformatics firm in Singapore. As part of her job, she analyses the
+DNA sequences of various organisms. A DNA sequence is defined as a string consisting of
+characters ``A'', ``T'', and ``C''. Note that in this task DNA sequences \textbf{do not contain character ``G''}.
+
+We define a mutation to be an operation on a DNA sequence where two elements of the sequence
+are swapped. For example a single mutation can transform ``A\textbf{C}T\textbf{A}'' into ``A\textbf{A}T\textbf{C}'' by swapping the
+highlighted characters ``A'' and ``C''.
+
+The mutation distance between two sequences is the minimum number of mutations required to
+transform one sequence into the other, or $-1$ if it is not possible to transform one sequence into the
+other by using mutations.
+
+Grace is analysing two DNA sequences $a$ and $b$, both consisting of $n$ elements with indices from $0$ to $n - 1$. Your task is to help Grace answer $q$ questions of the form: what is the mutation distance between the substring $a[x\ldots y]$ and the substring $b[x\ldots y]$? Here, a substring $s[x\ldots y]$ of a DNA
+sequence $s$ is defined to be a sequence of consecutive characters of $s$, whose indices are $x$ to $y$
+inclusive. In other words, $s[x\ldots y]$ is the sequence $s[x]s[x+1]\ldots s[y]$.
+
+\textbf{Implementation details}
+
+You should implement the following procedures:
+
+\begin{itemize}
+\item \texttt{void init(string a, string b)}
+\begin{itemize}
+
+\item $a$, $b$: strings of length $n$, describing the two DNA sequences to be analysed.
+\item This procedure is called exactly once, before any calls to \texttt{get\_distance}.
+\end{itemize}
+
+\item \texttt{int get\_distance(int x, int y)}
+\begin{itemize}
+\item $x$, $y$: starting and ending indices of the substrings to be analysed.
+\item The procedure should return the mutation distance between substrings $a[x..y]$ and $b[x..y]$.
+\item This procedure is called exactly $q$ times.
+\end{itemize}
+\end{itemize}

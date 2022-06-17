@@ -1,0 +1,36 @@
+The Mountain Amusement Park has opened a brand-new simulated roller coaster. The simulated track consists of $n$ rails attached end-to-end with the beginning of the first rail fixed at elevation $0$. Byteman, the
+operator, can reconfigure the track at will by adjusting the elevation change over a number of consecutive
+rails. The elevation change over other rails is not affected. Each time rails are adjusted, the following track is
+raised or lowered as necessary to connect the track while maintaining the start at elevation $0$. The figure on
+the next page illustrates two example track reconfigurations.
+
+Each ride is initiated by launching the car with sufficient energy to reach height $h$. That is, the car will
+continue to travel as long as the elevation of the track does not exceed $h$, and as long as the end of the track
+is not reached.
+
+Given the record for all the day's rides and track configuration changes, compute for each ride the number
+of rails traversed by the car before it stops.
+
+Internally, the simulator represents the track as a sequence of $n$ elevation changes, one for each rail. The
+$i$-th number $d_i$ represents the elevation change (in centimetres) over the $i$-th rail. Suppose that after traversing
+$i-1$ rails the car has reached an elevation of $h$ centimetres. After traversing $i$ rails the car will have reached
+an elevation of $h+d_i$ centimetres.
+
+Initially the rails are horizontal;  that is, $d_i = 0$ for all $i$. Rides and reconfigurations are interleaved through
+out the day. Each reconfiguration is specified by three numbers: $a$, $b$ and $D$. The segment to be adjusted
+consists of rails a through $b$ (inclusive). The elevation change over each rail in the segment is set to $D$. That
+is, $d_i = D$ for all $a \le i \le b$.
+
+
+
+Each ride is specified by one number $h$~--- the maximum height that the car can reach.
+
+Write a program that:
+
+\begin{itemize}
+\item reads from the standard input a sequence of interleaved reconfigurations and rides,
+
+\item for each ride computes the number of rails traversed by the car,
+
+\item writes the results to the standard output.
+\end{itemize}

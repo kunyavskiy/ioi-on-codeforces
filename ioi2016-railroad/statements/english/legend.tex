@@ -1,0 +1,32 @@
+Anna is working in an amusement park and she is in charge of building the railroad for a new roller coaster. She has already designed $n$ special sections (conveniently numbered from $0$ to $n - 1$) that affect the speed of a roller coaster train. She now has to put them together and propose a final design of the roller coaster. For the purpose of this problem you may assume that the length of the train is zero.
+
+For each $i$ between $0$ and $n - 1$, inclusive, the special section $i$ has two properties:
+\begin{itemize}
+\item when entering the section, there is a speed limit: the speed of the train must be \textbf{less or equal to} $s_i$ km/h (kilometers per hour),
+\item when leaving the section, the speed of the train is \textbf{exactly} $t_i$ km/h, regardless of the speed at which the train entered the section.
+\end{itemize}
+
+The finished roller coaster is a single railroad line that contains the $n$ special sections in some order. Each of the $n$ sections should be used exactly once. Consecutive sections are connected with tracks. Anna should choose the order of the $n$ sections and then decide the lengths of the tracks. The length of a track is measured in meters and may be equal to any non-negative integer (possibly zero).
+
+Each meter of the track between two special sections slows the train down by $1$ km/h. At the beginning of the ride, the train enters the first special section in the order selected by Anna, going at $1$ km/h. 
+
+The final design must satisfy the following requirements:
+\begin{itemize}
+\item the train does not violate any speed limit when entering the special sections;
+\item the speed of the train is positive at any moment.
+\end{itemize}
+
+In all subtasks except subtask 3, your task is to find the minimum possible total length of tracks between sections. In subtask 3 you only need to check whether there exists a valid roller coaster design, such that each track has zero length.
+
+\textbf{Implementation details}
+
+You should implement the following function (method):
+\begin{itemize}
+\item \texttt{ int64 plan\_roller\_coaster(int[] s, int[] t)}. 
+\begin{itemize}
+	\item \texttt{s}: array of length $n$, maximum allowed entry speeds.
+	\item \texttt{t}: array of length $n$, exit speeds.
+	\item In all subtasks except subtask 3, the function should return the minimum possible total length of all tracks. In subtask 3 the function should return $0$ if there exists a valid roller coaster design such that each track has zero length, and any positive integer if it does not exist.
+\end{itemize}
+\end{itemize}
+

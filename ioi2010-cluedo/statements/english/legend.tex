@@ -1,0 +1,68 @@
+Dr. Black has been murdered. Detective Jill must determine the murderer, the location, and the weapon. There are six possible murderers, numbered 1 to 6. There are ten possible locations, numbered 1 to 10. There are six possible weapons, numbered 1 to 6.
+
+For illustration only, we show the names of the possible murderers, locations and weapons. The names are not required to solve the task.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Murderer & Location & Weapon \\
+\hline
+\parbox{5cm}{\centering \vspace{2mm}
+\begin{enumerate}
+\item Professor Plum
+\item Miss Scarlet
+\item Colonel Mustard
+\item Mrs. White
+\item Reverend Green
+\item Mrs. Peacock
+\end{enumerate}---\\
+\vspace{2mm}} & 
+\parbox{5cm}{\centering \vspace{2mm}
+\begin{enumerate}
+\item Ballroom
+\item Kitchen
+\item Conservatory
+\item Dining Room
+\item Billiard Room
+\item Library
+\item Lounge
+\item Hall
+\item Study
+\item Cellar
+\end{enumerate}~--- \\
+\vspace{2mm}} &
+\parbox{5cm}{\centering \vspace{2mm}
+\begin{enumerate}
+\item Lead pipe
+\item Dagger
+\item Candlestick
+\item Revolver
+\item Rope
+\item Spanner
+\end{enumerate}~--- \\
+\vspace{2mm}} \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+Jill repeatedly tries to guess the correct combination of murderer, location and weapon. Each guess is called a theory. She asks her assistant Jack to confirm or to refute each theory in turn. When Jack confirms a theory, Jill is done. When Jack refutes a theory, he reports to Jill that one of the murderer, location or weapon is wrong.
+
+You are to implement the procedure \t{Solve} that plays Jill's role. The grader will call \t{Solve} many times, each time with a new case to be solved. \t{Solve} must repeatedly call \t{Theory(M,L,W)}, which is implemented by the grader. \t{M}, \t{L} and \t{W} are numbers denoting a particular combination of murderer, location and weapon. \t{Theory(M,L,W)} returns 0 if the theory is correct. If the theory is wrong, a value of 1, 2 or 3 is returned. 1 indicates that the murderer is wrong; 2 indicates that the location is wrong; 3 indicates that the weapon is wrong. If more than one is wrong, Jack picks one arbitrarily between the wrong ones (not necessarily in a deterministic way). When \t{Theory(M,L,W)} returns 0, \t{Solve} should return.
+
+Example
+
+As example, assume that Miss Scarlet committed the murder (Murderer 2) in the conservatory (Location 3) using a revolver (Weapon 4). When procedure \t{Solve} makes the following calls to function \t{Theory}, the results in the second column could be returned.
+
+\begin{tabular}{|l|l|l|}
+\hline
+Call & Returned value & Explanation \\ \hline
+\t{Theory(1, 1, 1)} & 1, or 2, or 3 & All three are wrong \\ \hline
+\t{Theory(3, 3, 3)} & 1, or 3 & Only the location is correct \\ \hline
+\t{Theory(5, 3, 4)} & 1 & Only the murderer is wrong \\ \hline
+\t{Theory(2, 3, 4)} & 0 & All are correct \\ \hline
+\end{tabular}
+
+

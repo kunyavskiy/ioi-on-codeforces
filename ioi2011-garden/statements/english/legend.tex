@@ -1,0 +1,28 @@
+Botanist Somhed regularly takes groups of students to one of Thailand's largest tropical gardens. The landscape of this garden is composed of $N$ fountains (numbered $0, 1, \ldots, N-1$) and $M$ trails. Each trail connects a different pair of distinct fountains, and can be traveled in either direction. There is at least one trail leaving each fountain. These trails feature beautiful botanical collections that Somhed would like to see. Each group can start their trip at any fountain.
+
+
+Somhed loves beautiful tropical plants. Therefore, from any fountain he and his students will take the most beautiful trail leaving that fountain, unless it is the most recent trail taken and there is an alternative. In that case, they will take the second most beautiful trail instead. Of course, if there is no alternative, they will walk back, using the same trail for the second time. Note that since Somhed is a professional botanist, no two trails are considered equally beautiful for him.
+
+His students are not very interested in the plants. However, they would love to have lunch at a premium restaurant located beside fountain number $P$. Somhed knows that his students will become hungry after taking exactly $K$ trails, where $K$ could be different for each group of students.
+
+Somhed wonders how many different routes he could choose for each group, given that:
+\begin{itemize}
+\item each group can start at any fountain;
+\item the successive trails must be chosen in the way described above; and
+\item each group must finish at fountain number $P$ after traversing exactly $K$ trails.
+\end{itemize}
+
+Note that they may pass fountain number $P$ earlier on their route, although they still need to finish their route at fountain number $P$.
+
+Given the information on the fountains and the trails, you have to find the answers for $Q$ groups of students; that is, $Q$ values of $K$.
+Write a procedure \t{count\_routes(N,M,P,R,Q,G)} that takes the following parameters:
+\begin{itemize}
+\item $N$~--- the number of fountains. The fountains are numbered $0$ through $N-1$.
+\item $M$~--- the number of trails. The trails are numbered $0$ through $M-1$. The trails will be given in decreasing order of beauty: for $0 \le i < M-1$, trail $i$ is more beautiful than trail $i+1$.
+\item $P$~--- the fountain at which the premium restaurant is located.
+\item $R$~--- a two-dimensional array representing the trails. For $0 \le i < M$, trail $i$ connects the fountains $R[i][0]$ and $R[i][1]$. Recall that each trail joins a pair of distinct fountains, and no two trails join the same pair of fountains.
+\item $Q$~--- the number of groups of students.
+\item $G$~--- a one-dimensional array of integers containing the values of $K$. For $0 \le i < Q$, $G[i]$ is the number of trails $K$ that the $i$-th group will take.
+\end{itemize}
+
+For $0 \le i < Q$, your procedure must find the number of possible routes with exactly $G[i]$ trails that group $i$ could possibly take to reach fountain $P$. For each group $i$, your procedure should call the procedure \t{answer(X)} to report that the number of routes is $X$. The answers must be given in the same order as the groups. If there are no valid routes, your procedure must call \t{answer(0)}.

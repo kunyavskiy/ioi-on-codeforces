@@ -1,0 +1,45 @@
+\bf{Example 1}
+
+Let $N = 4$, so we have 4 colors (numbered from $0$ to $3$) and 4 requests. Let the sequence of requests be $C = (2, 0, 3, 0).$ Also, assume that $K = 2$. That is, Leonardo has a scaffold capable of holding 2 colors at any time. As stated above, the scaffold initially contains the colors $0$ and $1$. We will write the content of the scaffold as follows: $[0, 1]$. One possible way that the assistant could handle the requests is as follows.
+
+\begin{itemize}
+
+\item The first requested color (number $2$) is not on the scaffold. The assistant puts it there and decides to remove color $1$ from the scaffold. The current scaffold is $[0, 2]$.
+
+\item The next requested color (number $0$) is already on the scaffold, so the assistant can rest.
+
+\item For the third request (number $3$), the assistant removes color 0, changing the scaffold to $[3, 2]$.
+
+\item Finally, the last requested color (number $0$) has to be taken from the shelf to the scaffold. The assistant decides to remove color $2$, and the scaffold now becomes $[3, 0]$.
+
+\end{itemize}
+
+Note that in the above example the assistant did not follow Leonardo's optimal strategy. The optimal strategy would remove the color $2$ in the third step, so the assistant could then rest again in the final step.
+
+\bf{Example 2}
+
+In the morning, the assistant can take Leonardo's paper with the sequence $C$, read the sequence, and make all the necessary choices. One thing he might choose to do would be to examine the state of the scaffold after each of the requests. For example, when using the (sub-optimal) strategy given in Example 1, the sequence of scaffold states would be $[0, 2]$, $[0, 2]$, $[3, 2]$, $[3, 0]$. (Recall that he knows that the initial state of the scaffold is $[0, 1]$.) 
+
+Now assume that we have $M = 16$, so the assistant is able to remember up to 16 bits of information. As $N = 4$, we can store each color using 2 bits. Therefore 16 bits are sufficient to store the above sequence of scaffold states. Thus the assistant computes the following advice sequence: $A = (0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0)$.
+
+Later in the day, the assistant can decode this advice sequence and use it to make his choices.
+
+(Of course, with $M = 16$ the assistant can also choose to remember the entire sequence $C$ instead, using only $8$ of the available $16$ bits. In this example we just wanted to illustrate that he may have other options, without giving away any good solution.)
+
+\bf{Example 3}
+
+Continuing \bf{Example 2}, assume that in \t{ComputeAdvice} you computed $A = (0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0)$. In order to communicate it to the system, you would have to make the following sequence of calls: 
+
+\t{WriteAdvice(0)}, \t{WriteAdvice(0)}, \t{WriteAdvice(1)}, \t{WriteAdvice(0)}, \t{WriteAdvice(0)}, \t{WriteAdvice(0)}, \t{WriteAdvice(1)}, \t{WriteAdvice(0)}, \t{WriteAdvice(1)}, \t{WriteAdvice(1)}, \t{WriteAdvice(1)}, \t{WriteAdvice(0)}, \t{WriteAdvice(1)}, \t{WriteAdvice(1)}, \t{WriteAdvice(0)}, \t{WriteAdvice(0)}
+
+Your second routine \t{Assist} would then be executed, receiving the above sequence $A$, and the values $N = 4, K = 2$, and $R = 16$. The routine \t{Assist} then has to perform exactly $N = 4$ calls to GetRequest. Also, after some of those requests, \t{Assist} will have to call \t{PutBack(T)} with a suitable choice of T.
+
+The table below shows a sequence of calls that corresponds to the (sub-optimal) choices from \bf{Example 1}. The hyphen denotes no call to Action.
+
+\begin{tabular}{cc}
+\bf{\t{GetRequest()}}&\bf{Action}\\
+2 &PutBack(1)\\
+0 &-\\
+3 &PutBack(0)\\
+0 &PutBack(2)\\
+\end{tabular}

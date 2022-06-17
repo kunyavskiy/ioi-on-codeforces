@@ -1,0 +1,43 @@
+In a nearby park, there are $n$ \textbf{fountains}, labeled from $0$ to $n-1$. We model the fountains as points on a two-dimensional plane. Namely, fountain $i$ ($0\leq i\leq n-1$) is a point $(x[i],y[i])$ where $x[i]$ and $y[i]$ are \textbf{even integers}. The locations of the fountains are all distinct.
+
+Timothy the architect has been hired to plan the construction of some \textbf{roads} and the placement of one \textbf{bench} per road. A road is a \textbf{horizontal} or \textbf{vertical} line segment of length $2$, whose endpoints
+are two distinct fountains. The roads should be constructed such that one can travel between any two
+fountains by moving along roads. Initially, there are no roads in the park.
+
+For each road, \textbf{exactly} one bench needs to be placed in the park and \textbf{assigned to} (i.e., face) that road. Each bench must be placed at some point $(a, b)$ such that $a$ and $b$ are \textbf{odd integers}. The locations of the benches must be all \textbf{distinct}. A bench at $(a,b)$ can only be assigned to a road if
+\textbf{both} of the road's endpoints are among $(a-1,b-1)$, $(a-1,b+1)$, $(a+1,b-1)$ and
+$(a+1,b+1)$. For example, the bench at $(3,3)$ can only be assigned to a road, which is one of the four line segments $(2,2)$~--- $(2,4)$, $(2,4)$~--- $(4,4)$, $(4,4)$~--- $(4,2)$, $(4,2)$~--- $(2,2)$.
+
+Help Timothy determine if it is possible to construct roads, and place and assign benches satisfying all
+conditions given above, and if so, provide him with a feasible solution. If there are multiple feasible
+solutions that satisfy all conditions, you can report any of them.
+
+\textbf{Implementation Details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \texttt{int construct\_roads(int[] x, int[] y)}
+\begin{itemize}
+\item $x,y$: two arrays of length $n$. For each $i$ ($0\leq i\leq n-1$), fountain $i$ is a point $(x[i],y[i])$, where $x[i]$ and $y[i]$ are even integers.
+\item If a construction is possible, this procedure should make exactly one call to \texttt{build} (see below) to report a solution, following which it should return $1$.
+\item Otherwise, the procedure should return $0$ without making any calls to  \texttt{build}.
+\item This procedure is called exactly once
+\end{itemize}
+\end{itemize}
+
+Your implementation can call the following procedure to provide a feasible construction of roads and a
+placement of benches:
+
+\begin{itemize}
+
+\item \texttt{void build(int[] u, int[] v, int[] a, int[] b)}
+\begin{itemize}
+
+\item Let $m$ be the total number of roads in the construction.
+\item $u,v$: two arrays of length $m$, representing the roads to be constructed. These roads are labeled from $0$ to $m-1$. For each $j$ ($0 \leq j \leq m-1$) road $j$ connects fountains $u[j]$ and $v[j]$. Each road must be a horizontal or vertical line segment of length $2$. Any two distinct roads can have at most one point in common (a fountain). Once the roads are constructed, it should be possible to travel between any two fountains by moving along roads.
+\item $a,b$: two arrays of length $m$, representing the benches. For each $j$ ($0 \leq j \leq m-1$), a
+bench is placed at $(a[j],b[j])$, and is assigned to road $j$. No two distinct benches can have
+the same location.
+\end{itemize}
+\end{itemize}

@@ -1,0 +1,65 @@
+Bazza and Shazza are playing a game. The board is a grid of cells, with $R$ rows numbered $0, \dots, R - 1$, and $C$ columns numbered $0, \dots, C - 1$. We let $(P, Q)$ denote the cell in row $P$ and column $Q$ Each cell contains a non-negative integer, and at the beginning of the game all of these integers are zero.
+
+The game proceeds as follows. At any time, Bazza may either:
+
+\begin{itemize}
+\item update a cell $(P, Q)$, by assigning the integer that it contains;
+\item ask Shazza to calculate the greatest common divisor (GCD) of all integers within a rectangular block of cells, with opposite corners $(P, Q)$ and $(U, V)$ inclusive.
+\end{itemize}
+
+Bazza will take no more than $(N_U + N_Q)$ actions (updating cells $N_U$ times and asking questions $N_Q$ times) before he gets bored and goes outside to play cricket.
+
+Your task is to work out the correct answers.
+
+You should submit a file implementing the procedures \t{init()} and \t{update()} 
+and the function \t{calculate()}, as described below.
+
+Your Procedure \t{init()}:
+
+\t{void init(int R, int C);}
+
+Your submission must implement this procedure.
+
+This procedure gives you the initial size of the grid, and allows you to initialise any global variables and data structures. It will be called only once, before any calls to \t{update()} or \t{calculate()}.
+
+Parameters:
+\begin{itemize}
+\item $R$: The number of rows.
+\item $C$: The number of columns.
+\end{itemize}
+
+Your Procedure \t{update()}:
+
+\t{void update(int P, int Q, long long K);}
+
+Your submission must implement this procedure.
+
+This procedure will be called when Bazza assigns the number in some grid cell. 
+
+Parameters:
+\begin{itemize}
+\item $P$: The row of the grid cell $( 0 \leq P \leq R - 1 )$.
+\item $Q$: The column of the grid cell $( 0 \leq Q \leq C - 1 )$.
+\item $K$: The new integer in this grid cell $( 0 \leq K \leq 10^{18} )$. May be the same as the current value.
+\end{itemize}
+
+
+Your Function \t{calculate()}:
+
+\t{long long calculate(int P, int Q, int U, int V);}
+
+Your submission must implement this function.
+
+This function should calculate the greatest common divisor of all integers in the rectangle with opposite corners $(P, Q)$ and $(U, V)$. This range is inclusive, i.e., the cells $(P, Q)$ and $(U, V)$ are included in the rectangle.
+
+If all integers in this rectangle are zero, then this function should return zero also.
+
+Parameters:
+\begin{itemize}
+\item $P$: The row of the top-left cell in the rectangle $( 0 \leq P \leq R - 1)$.
+\item $Q$: The column of the top-left cell in the rectangle $( 0 \leq Q \leq C - 1)$.
+\item $U$: The row of the bottom-right cell in the rectangle $( P \leq U \leq C - 1)$.
+\item $V$: The column of the bottom-right cell in the rectangle $( Q \leq V \leq C - 1)$.
+\item \textit{Returns}: The GCD of all integers in the rectangle, or $0$ if all of those integers are zero.
+\end{itemize}
+

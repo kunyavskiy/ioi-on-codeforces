@@ -1,0 +1,23 @@
+The procedure \texttt{count\_common\_roads} in C++ uses the \texttt{pass by reference} method for efficiency reasons. You can still call the procedure in the usual way. The grader is guaranteed not to change the value of $r$.
+
+\texttt{find\_roads(4, [0, 0, 0, 1, 1, 2], [1, 2, 3, 2, 3, 3])}
+
+
+\includegraphics[scale=0.7]{1.png}
+
+In this example there are $4$ cities and $6$ roads. We denote by $(a, b)$ a road connecting cities $a$ and $b$. The roads are labeled from $0$ to $5$ in the following order: $(0, 1)$, $(0, 2)$, $(0, 3)$, $(1, 2)$, $(1, 3)$, and $(2, 3)$. Every golden set has $n - 1 = 3$ roads.
+
+Assume that the royal roads are the roads labeled $0$, $1$, and $5$, that is, the roads $(0, 1)$, $(0, 2)$, and $(2, 3)$. Then:
+\begin{itemize}
+\item \texttt{count\_common\_roads([0, 1, 2])} returns $2$. This query is about roads labeled $0, 1$, and $2$, that is, roads $(0, 1)$, $(0, 2)$ and $(0,3)$. Two of them are royal roads.
+\item \texttt{count\_common\_roads([5, 1, 0])} returns $3$. This query is about the set of all royal roads.
+\end{itemize}
+
+The procedure \texttt{find\_roads} should return $[5, 1, 0]$ or any other array of length $3$ that contains these three elements.
+
+Note that the following calls are not allowed:
+\begin{itemize}
+\item \texttt{count\_common\_roads([0, 1])}: here the length of $r$ is not $3$.
+\item \texttt{count\_common\_roads([0, 1, 3])}: here $r$ does not describe a golden set,
+because it is impossible to travel from city $0$ to $3$ only using the roads $(0,1)$, $(0,2)$, $(1,2)$.
+\end{itemize}

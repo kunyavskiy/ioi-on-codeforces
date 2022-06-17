@@ -1,0 +1,135 @@
+Christopher the engineer is working on a new type of computer processor.
+
+The processor has access to $m$ different $b$-bit memory cells (where $m = 100$ and $b=2000$),
+which are \textbf{called} registers, and are numbered from $0$ to $m-1$. We denote the registers by $r[0], r[1], \ldots, r[m-1]$.
+Each register is an array of $b$ bits, numbered from $0$ (the rightmost bit) to
+$b-1$ (the leftmost bit). For each $i$ $(0\leq i \leq m-1)$ and each $j$ $(0 \leq j \leq b-1)$ we denote the $j$-th bit of register $i$ by $r[i][j]$.
+
+For any sequence of bits $d\_0, d\_1, \ldots, d\_{l-1}$ (of arbitrary length $l$) the \textbf{integer value} of the sequence
+is equal to $2^0 \cdot d\_0 + 2^1 \cdot d\_1 + \ldots + 2^{l-1} \cdot d\_{l-1}$.
+We say that the \textbf{integer value stored in a register}
+$i$ is the integer value of the sequence of its bits, i.e., it is $2^0 \cdot r[i][0] + 2^1 \cdot r[i][1] + \ldots + 2^{b-1} \cdot r[i][b-1]$.
+
+The processor has $9$ types of \textbf{instructions} that can be used to modify the bits in the registers. Each
+instruction operates on one or more registers and stores the output in one of the registers. In the
+following, we use $x := y$ to denote an operation of changing the value of $x$ such that it becomes
+equal to $y$. The operations performed by each type of instruction are described below
+\begin{itemize}
+\item $move(t,y)$: copy the array of bits in register $y$ to register $t$. For each $j$ $(0 \leq j \leq b-1)$ set $r[t][j] := r[y][j]$.
+
+\item $store(t,v)$: set register $t$ to be equal to $v$, where $v$ is an array of $b$ bits. For each $j$ $(0 \leq j \leq b-1)$ set $r[t][j] := v[j]$.
+
+\item $and(t,x,y)$: take the bitwise-AND of registers $x$ and $y$, and store the result in register $t$. For
+each  $j$ $(0 \leq j \leq b-1)$ set $r[t][j] := 1$ if \textbf{both} $r[x][j]$ and $r[y][j]$ are $1$, and set $r[t][j] := 0$ otherwise.
+
+\item $or(t,x,y)$: Take the bitwise-OR of registers $x$ and $y$, and store the result in register $t$. For each $j$ $(0 \leq j \leq b-1)$ set $r[t][j] := 1$ if \textbf{at least one} of $r[x][j]$ and $r[y][j]$ are $1$, and
+set $r[t][j] := 0$ otherwise.
+
+\item $xor(t,x,y)$: Take the bitwise-XOR of registers $x$ and $y$, and store the result in register $t$. For
+each  $j$ $(0 \leq j \leq b-1)$ set $r[t][j] := 1$ if \textbf{exactly one} of $r[x][j]$ and $r[y][j]$ is $1$, and set $r[t][j] := 0$ otherwise.
+
+\item $not(t,x)$: Take the bitwise-NOT of register $x$, and store the result in register $t$. For each $j$ $(0 \leq j \leq b-1)$ set $r[t][j] := 1-r[x][j]$.
+
+\item $left(t,x,p)$: Shift all bits in register $x$ to the left by $p$, and store the result in register $t$. The
+result of shifting the bits in register $x$ to the left by $p$ is an array $v$ consisting of $b$ bits. For each $j$ $(0 \leq j \leq b-1)$, $v[j] = r[x][j-p]$, if $j \geq p$, and $v[j] = 0$ otherwise. For all $j$ $(0 \leq j \leq b-1)$ set $r[t][j] := v[j]$.
+
+\item $right(t,x,p)$: Shift all bits in register $x$ to the right by $p$, and store the result in register $t$. The result of shifting the bits in register $x$ to the right by $p$ is an array $v$ consisting of $b$ bits. For
+each  $j$ $(0 \leq j \leq b-1)$ $v[j] = r[x][j+p]$, if $j \leq b - 1 - p$, and $v[j] = 0$ otherwise. For all $j$ $(0 \leq j \leq b-1)$ set $r[t][j] := v[j]$.
+
+\item $add(t,x,y)$: Add the integer values stored in register $x$ and register $y$, and store the result in register $t$. The addition is carried out modulo $2^b$.
+Formally, let $X$ be the integer value stored in
+register $x$, and $Y$ be the integer value stored in register $y$ before the operation. Let $T$ be the
+integer value stored in register $t$ after the operation. If  $X+Y < 2^b$,  set the bits of $t$, such that $T = X+Y$.
+Otherwise, set the bits of $t$, such that $T=X+Y-2^b$.
+\end{itemize}
+
+
+Christopher would like you to solve two types of tasks using the new processor. The type of a task is
+denoted by an integer $s$. For both types of tasks, you need to produce a \textbf{program}, that is a sequence
+of instructions defined above.
+
+The \textbf{input} to the program consists of $n$ integers $a[0],a[1],\ldots,a[n-1]$each having $k$ bits, i.e., $a[i] < 2^k$ ($0 \leq i \leq n-1$).
+Before the program is executed, all of the input numbers are stored
+sequentially in register $0$, such that for each $i$ $(0 \leq i \leq n-1)$ the integer value of the sequence of $k$ bits $r[0][i \cdot k], r[0][i \cdot k + 1], \ldots, r[0][(i+1) \cdot k - 1]$ is equal to $a[i]$. Note that $n \cdot k \leq b$.
+All other bits in register $0$ (i.e., those with indices between $n \cdot k$ and$b-1$, inclusive) and all bits in all
+other registers are initialized to $0$.
+
+Running a program consists in executing its instructions in order. After the last instruction is executed,
+the \textbf{output} of the program is computed based on the final value of bits in register $0$. Specifically, the
+output is a sequence of $n$ integers $c[0], c[1], \ldots, c[n-1]$, where for each $i$ ($0 \leq i \leq n-1$) $c[i]$ is the integer value of a sequence consisting of bits $i\cdot k$ to $(i + 1)\cdot k-1$ of register $0$.
+Note that
+after running the program the remaining bits of register $0$ (with indices at least $n \cdot k$) and all bits of all
+other registers can be arbitrary.
+
+\begin{itemize}
+\item The first task $(s=0)$ s to find the smallest integer among the input integers $a[0],a[1],\ldots,a[n-1]$. Specifically, $c[0]$ must be the minimum of $a[0], a[1], \ldots, a[n-1]$. The values of $c[1], c[2], \ldots, c[n-1]$ can be arbitrary.
+
+\item The second task $(s=1)$ is to sort the input integers $a[0],a[1],\ldots,a[n-1]$ in
+nondecreasing order. Specifically, for each $i$ ($0\leq i\leq n-1$), $c[i]$ should be equal to the $(1+i)$-th smallest integer among $a[0],a[1],\ldots, a[n-1]$ (i.e., $c[0]$ is the smallest integer among the input integers).
+\end{itemize}
+
+
+Provide Christopher with programs, consisting of at most $q$ instructions each, that can solve these
+tasks.
+
+\textbf{Implementation Details}
+
+You should implement the following procedure:
+\begin{itemize}
+\item \texttt{void construct\_instructions(int s, int n, int k, int q)}
+\begin{itemize}
+\item $s$: type of task.
+\item $n$: number of integers in the input
+\item $k$: number of bits in each input integer.
+\item $q$: maximum number of instructions allowed.
+\item This procedure is called exactly once and should construct a sequence of instructions to perform
+the required task.
+\end{itemize}
+\end{itemize}
+
+This procedure should call one or more of the following procedures to construct a sequence of
+instructions:
+
+\begin{itemize}
+\item \texttt{void append\_move(int t, int y)}
+\item \texttt{void append\_store(int t, bool[] v)}
+\item \texttt{void append\_and(int t, int x, int y)}
+\item \texttt{void append\_or(int t, int x, int y)}
+\item \texttt{void append\_xor(int t, int x, int y)}
+\item \texttt{void append\_not(int t, int x)}
+\item \texttt{void append\_left(int t, int x, int p)}
+\item \texttt{void append\_right(int t, int x, int p)}
+\item \texttt{void append\_add(int t, int x, int y)}
+\begin{itemize}
+\item Each procedure appends a $move(t,y)$ $store(t,v)$, $and(t,x,y)$, $or(t,x,y)$, $xor(t,x,y)$, $not(t,x)$, $left(t,x,p)$, $right(t,x,p)$ or $add(t,x,y)$ instruction to the program,
+respectively.
+\item For all relevant instructions, $t$, $x$, $y$ must be at least $0$ and at most $m-1$.
+\item For all relevant instructions, $t$, $x$, $y$ are not necessarily pairwise distinct.
+\item For $left$ and $right$ instructions, $p$ must be at least $0$ and at most $b$.
+\item For $store$ instructions, the length of $v$ must be $b$.
+\end{itemize}
+\end{itemize}
+
+You may also call the following procedure to help you in testing your solution:
+
+\begin{itemize}
+\item \texttt{void append\_print(int t)}
+\begin{itemize}
+\item Any call to this procedure will be ignored during the grading of your solution.
+\item In the sample grader, this procedure appends a $print(t)$ operation to the program
+\item When the sample grader encounters a $print(t)$ operation during the execution of a program, it
+prints $n$ $k$-bit integers formed by the first $n \cdot k$ bits of register $t$ (see ``Sample Grader'' section
+for details).
+\item $t$ must satisfy $0 \leq t \leq m-1$.
+\item Any call to this procedure does not add to the number of constructed instructions.
+\end{itemize}
+\end{itemize}
+
+After appending the last instruction, \texttt{construct\_instructions} should return. The program is then
+evaluated on some number of test cases, each specifying an input consisting of $n$ $k$-bit integers $a[0], a[1], \ldots, a[n-1]$.
+Your solution passes a given test case if the output of the program $c[0], c[1], \ldots, c[n-1]$  for the provided input satisfies the following conditions:
+\begin{itemize}
+\item if $s = 0$, $c[0]$ should be the smallest value among $a[0], a[1], \ldots, a[n-1]$.
+\item if $s = 1$, for all $i$ ($0\leq i\leq n-1$) $c[i]$ should be the $(1+i)$-th smallest integer among $a[0],a[1],\ldots, a[n-1]$.
+\end{itemize}
+

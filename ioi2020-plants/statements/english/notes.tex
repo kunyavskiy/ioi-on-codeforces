@@ -1,0 +1,19 @@
+\textbf{Example 1}
+
+Consider the following call:
+
+\t{init(3, [0, 1, 1, 2])}
+
+Let's say the grader calls \t{compare\_plants(0, 2)}. Since $r[0] = 0$ we can immediately infer that plant $2$ is not taller than plant $0$. Therefore, the call should return $1$.
+
+Let's say the grader calls \t{compare\_plants(1, 2)} next. For all possible configurations of heights that fit the constraints above, plant $1$ is shorter than plant $2$.  Therefore, the call should return $-1$.
+
+\textbf{Example 2}
+
+Consider the following call:
+
+\t{init(2, [0, 1, 0, 1])}
+
+Let's say the grader calls \t{compare\_plants(0, 3)}. Since $r[3] = 1$, we know that plant $0$ is taller than plant $3$. Therefore, the call should return $1$.
+
+Let's say the grader calls \t{compare\_plants(1, 3)} next. Two configurations of heights $[3,1,4,2]$ and $[3,2,4,1]$ are both consistent with Hazel's measurements. Since plant $1$ is shorter than plant $3$ in one configuration and taller than plant $3$ in the other, this call should return $0$.

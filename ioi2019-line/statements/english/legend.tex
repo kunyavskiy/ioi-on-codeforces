@@ -1,0 +1,27 @@
+This is an output-only problem. That means, that you don't need to submit your solution, but only need to submit outputs for given set of inputs. You can download test data in a problem materials section. It is an archive containing input files 01, 02, 03, \dots. You need to submit a single zip-archive containing your outputs 01.out, 02.out, 03.out, \dots in the root of the archive.  An archive can contain no answers for some of tests, you'll receive ``\t{Wrong Answer}'' verdict in these tests.
+
+Azerbaijan is famous for its carpets.
+As a master carpet designer you want to make a new design by drawing a \texttt{broken line}.
+A broken line is a sequence of $t$ line segments in a two-dimensional plane, which is defined by a sequence of $t+1$ points $p_0, \ldots, p_t$ as follows.
+For each $0 \leq j \leq t-1$ there is a segment connecting points $p_j$ and $p_{j+1}$.
+
+In order to make the new design, you have already marked $n$ \texttt{dots} in a two-dimensional plane.
+The coordinates of dot $i$ ($1 \leq i \leq n$) are $(x[i], y[i])$.
+\texttt{No two dots have the same $x$ or the same $y$ coordinate.}
+
+You now want to find a sequence of points $(sx[0], sy[0]), (sx[1], sy[1]), \ldots, (sx[k], sy[k])$, which defines a broken line that
+\begin{itemize}
+\item starts at $(0,0)$ (that is, $sx[0]=0$ and $sy[0]=0$),
+\item contains all of the dots (not necessarily as the endpoints of the segments), and
+\item consists solely of horizontal or vertical segments (two consecutive points defining the broken line have an equal x or y coordinate).
+\end{itemize}
+
+The broken line is allowed to intersect or overlap itself in any way. Formally, each point of the plane may belong to any number of segments of the broken line.
+
+This is an output-only task with partial scoring.
+You are given $10$ input files specifying the locations of dots.
+For each input file, you should submit an output file describing a broken line with the required properties.
+For each output file that describes a valid broken line your score depends on the \texttt{number of segments} in the broken line (see Scoring below).
+
+You are not supposed to submit any source code for this task.
+

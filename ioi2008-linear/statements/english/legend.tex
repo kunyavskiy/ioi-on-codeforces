@@ -1,0 +1,12 @@
+Ramesses II has just returned victorious from battle. To commemorate his victory, he has decided to build a majestic garden. The garden will contain a long line of plants that will run all the way from his palace at Luxor to the temple of Karnak. It will consist only of lotus plants and papyrus plants, since they symbolize Upper and Lower Egypt respectively.  
+
+The garden must contain exactly $N$ plants. Also, it must be balanced: in any contiguous section of the garden, the numbers of lotus and papyrus plants must not differ by more than 2. 
+
+A garden can be represented as a string of letters ``\t{L}'' (lotus) and ``\t{P}'' (papyrus). For example, for $N = 5$ there are 14 possible balanced gardens. In alphabetical order, these are:\texttt{LLPLP}, \texttt{LLPPL}, \texttt{LPLLP}, \texttt{LPLPL}, \texttt{LPLPP},
+\texttt{LPPLL}, \texttt{LPPLP}, \texttt{PLLPL}, \texttt{PLLPP}, \texttt{PLPLL},
+\texttt{PLPLP}, \texttt{PLPPL}, \texttt{PPLLP} and \texttt{PPLPL}.
+
+
+The possible balanced gardens of a certain length can be ordered alphabetically, and then numbered starting from 1. For example, for $N = 5$, garden number $12$ is the garden \t{PLPPL}.
+
+Write a program that, given the number of plants $N$ and a string that represents a balanced garden, calculates the number assigned to this garden modulo some given integer $M$. Note that for solving the task, the value of $M$ has no importance other than simplifying computations.

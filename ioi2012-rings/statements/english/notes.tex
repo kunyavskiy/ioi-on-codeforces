@@ -1,0 +1,20 @@
+Consider our figure with $N = 7$ rings and suppose that they are initially unlinked. We show a possible sequence of calls, where after the last call we obtain the situation depicted in our figure.
+
+\begin{tabular}{|l|l|}
+\hline
+\bf{Call}&\bf{Returns}\\\hline
+\t{Init(7)}&\\\hline
+\t{CountCritical()}&7\\\hline
+\t{Link(1, 2)}&\\\hline
+\t{CountCritical()}&7\\\hline
+\t{Link(0, 5)}&\\\hline
+\t{CountCritical()}&7\\\hline
+\t{Link(2, 0)}&\\\hline
+\t{CountCritical()}&7\\\hline
+\t{Link(3, 2)}&\\\hline
+\t{CountCritical()}&4\\\hline
+\t{Link(3, 5)}&\\\hline
+\t{CountCritical()}&3\\\hline
+\t{Link(4, 3)}&\\\hline
+\t{CountCritical()}&2\\\hline
+\end{tabular}

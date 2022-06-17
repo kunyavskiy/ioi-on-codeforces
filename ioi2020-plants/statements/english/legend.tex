@@ -1,0 +1,47 @@
+Hazel the botanist visited a special exhibition in the Singapore Botanical Gardens. In this exhibition, $n$ plants of \t{distinct heights} are placed in a circle. These plants are labelled from $0$ to $n - 1$ in clockwise order, with plant $n-1$ beside plant $0$.
+
+For each plant $i$ ($0 \leq i \leq n-1$), Hazel compared plant $i$ to each of the next $k-1$ plants in clockwise order, and wrote down the number $r[i]$ denoting how many of these $k-1$ plants are taller than plant $i$. Thus, each value $r[i]$ depends on the relative heights of some $k$ consecutive plants.
+
+For example, suppose $n=5$, $k=3$ and $i=3$. The next $k-1 = 2$ plants in clockwise order from plant $i = 3$ would be plant $4$ and plant $0$. If plant $4$ was taller than plant $3$ and plant $0$ was shorter than plant $3$, Hazel would write down $r[3] = 1$.
+
+You may assume that Hazel recorded the values $r[i]$ correctly. Thus, there is at least one configuration of distinct heights of plants consistent with these values.
+
+You were asked to compare the heights of $q$ pairs of plants. Sadly, you do not have access to the exhibition. Your only source of information is Hazel's notebook with the value $k$ and the sequence of values $r[0], \ldots, r[n-1]$.
+
+For each pair of different plants $x$ and $y$ that need to be compared, determine which of the three following situations occurs:
+
+\begin{itemize}
+\item  Plant $x$ is definitely taller than plant $y$: in any configuration of distinct heights $h[0], \ldots, h[n - 1]$ consistent with the array $r$ we have $h[x] > h[y]$.
+\item  Plant $x$ is definitely shorter than plant $y$: in any configuration of distinct heights $h[0], \ldots, h[n - 1]$ consistent with the array $r$ we have $h[x] < h[y]$.
+\item  The comparison is inconclusive: neither of the previous two cases applies.
+\end{itemize}
+
+\textbf{Implementation details}
+
+You should implement the following procedures:
+
+\begin{itemize}
+\item \t{void init(int k, int[] r)}
+
+\begin{itemize}
+\item $k$: the number of consecutive plants whose heights determine each individual value $r[i]$.
+\item $r$: an array of size $n$, where $r[i]$ is the number of plants taller than plant $i$ among the next $k-1$ plants in clockwise order.
+\item This procedure is called exactly once, before any calls to \t{compare\_plants}.
+\end{itemize}
+
+\item \t{int compare\_plants(int x, int y)}
+\begin{itemize}
+\item $x$, $y$: labels of the plants to be compared.
+\item This procedure should return:
+\begin{itemize}
+  \item $1$ if plant $x$ is definitely taller than plant $y$,
+  \item $-1$ if plant $x$ is definitely shorter than plant $y$,
+  \item $0$ if the comparison is inconclusive.
+\end{itemize}
+\item This procedure is called exactly $q$ times.
+\end{itemize}
+\end{itemize}
+
+
+
+

@@ -1,0 +1,43 @@
+{\bf Subtask 1 [9 points] }
+
+At the beginning there are $x$ pebbles in cell $(0, 0)$ and $y$ in cell $(0, 1)$, whereas all the other cells are empty. Remember that there can be at most 15 pebbles in any cell. Write a program that terminates with the odometer in cell $(0, 0)$ if $x \le y$, and in cell $(0, 1)$ otherwise. (We do not care about the direction the odometer is facing at the end; we also do not care about how many pebbles are present at the end on the grid, or where they are located.)
+
+Limits: program size $\le 100$, execution length $\le 1 000$.
+
+{\bf Subtask 2 [12 points] }
+
+Same task as above but when the program ends, the cell $(0, 0)$ must contain exactly $x$ pebbles and cell $(0, 1)$ must contain exactly $y$ pebbles.
+Limits: program size $\le 200$, execution length $\le 2 000$.
+
+{\bf Subtask 3 [19 points] }
+There are exactly two pebbles somewhere in row 0: one is in cell $(0, x)$, the other in cell $(0, y)$; $x$ and $y$ are distinct, and $x + y$ is even. Write a program that leaves the odometer in cell $(0, (x + y) / 2)$, i.e., exactly in the midpoint between the two cells containing the pebbles. The final state of the grid is not relevant.
+
+Limits: program size $\le 100$, execution length $\le 200 000$.
+
+{\bf Subtask 4 [up to 32 points]}
+
+There are at most 15 pebbles in the grid, no two of them in the same cell. Write a program that collects them all in the north-west corner; more precisely, if there were x pebbles in the grid at the beginning, at the end there must be exactly x pebbles in cell (0, 0) and no pebbles elsewhere. 
+
+The score for this subtask depends on the execution length of the submitted program. More
+precisely, if L is the maximum of the execution lengths on the various test cases, your score will be:
+\begin{itemize}
+\item $32$ points if $L \le 200\,000$;
+\item $32 - 32 \log_{10} (L / 200\,000)$ points if $200\,000 < L < 2\,000\,000$;
+\item $0$ points if $L \ge 2\,000\,000$.
+\end{itemize}
+
+Limits: program size $\le 200$.
+
+
+{\bf Subtask 5 [up to 28 points] }
+
+There may be any number of pebbles in each cell of the grid (of course, between 0 and 15). Write a program that finds the minimum, i.e., that terminates with the odometer in a cell $(i, j)$ such that every other cell contains at least as many pebbles as (i, j). After running the program, the number of pebbles in each cell must be the same as before running the program. The score for this subtask depends on the program size P of the submitted program. 
+
+More precisely, your score will be:
+\begin{itemize}
+\item $28$ points if $P \le 444$;
+\item $28 - 28 \log_{10} (P / 444)$ points if $444 < P < 4 440$;
+\item $0$ points if $P \ge 4\,440$.
+\end{itemize}
+
+Limits: execution length $\le 44\,400\,000$.

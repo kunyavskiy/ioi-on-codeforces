@@ -1,0 +1,35 @@
+The sample grader first calls \texttt{construct\_instructions(s, n, k, q)}.  If this call violates some
+constraint described in the problem statement, the sample grader prints one of the error messages listed at the end of this section and exits. Otherwise, the sample grader first
+prints each instruction appended by \texttt{construct\_instructions(s, n, k, q)}, in order. For $store$
+instructions, $v$ is printed from index $0$ to index $b-1$.
+
+Then, the sample grader processes test cases in order. For each test case, it runs the constructed
+program on the input of the test case.
+
+For each $print(t)$ operation, let $d[0], d[1], \ldots, d[n-1]$ be a sequence of integers, such that for each $i$ ($0 \leq i \leq n-1$) $d[i]$  is the integer value of the sequence of bits $i\cdot k$ to $(i + 1)\cdot k-1$ of
+register $t$ (when the operation is executed). The grader prints this sequence in the following format: \texttt{register} $t$: $d[0]\ d[1]\ldots \ d[n-1]$.
+
+Once all instructions have been executed, the sample grader prints the output of the program.
+
+If $s = 0$, the output of the sample grader for each test case is in the following format:
+\begin{itemize}
+\item $c[0]$.
+\end{itemize}
+
+If $s = 1$, the output of the sample grader for each test case is in the following format:
+\begin{itemize}
+\item $c[0]\ c[1]\ldots \ c[n-1]$.
+\end{itemize}
+
+After executing all test cases, the grader prints \texttt{number of instructions}: $X$, where $X$ is the number of instructions in your program.
+
+
+The grading of your solution may result in one of the following error messages:
+
+\begin{itemize}
+\item \texttt{Invalid index}: an incorrect (possibly negative) register index was provided as parameter $t$,
+$x$ or $y$ for some call of one of the procedures.
+\item \texttt{Value to store is not b bits long}: the length of $v$ given to  \texttt{append\_store}, is not equal to $b$.
+\item \texttt{Invalid shift value}: the value of $p$ given to \texttt{append\_left} or \texttt{append\_right}, is not between $0$ and $b$ inclusive.
+\item \texttt{Too many instructions}: your procedure attempted to append more than $q$ instructions.
+\end{itemize}

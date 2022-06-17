@@ -1,0 +1,21 @@
+\textbf{Example}
+
+Consider the following call:
+
+\texttt{init("ATACAT", "ACTATA")}
+
+Let's say the grader call \texttt{get\_distance(1, 3)}.
+This call should return the mutation distance
+between $a[1\ldots 3]$ and $b[1\ldots 3]$, that is, the sequences ``TAC'' and ``CTA''. ``TAC'' can be transformed into ``CTA'' via $2$ mutations: ``\textbf{T}A\textbf{C}'' $\rightarrow$ ``\textbf{C}A\textbf{T}'', followed by C\textbf{AT}>> $\rightarrow$ <<C\textbf{TA}>>, and the transformation is impossible with fewer than $2$ mutations.
+
+Therefore, this call should return $2$.
+
+Let's say the grader calls \texttt{get\_distance(4, 5)}.
+This call should return the mutation distance
+between sequences ``AT'' and ``TA''. ``AT'' can be transformed into ``TA'' through a single mutation, and
+clearly at least one mutation is required.
+
+Therefore, this call should return $1$.
+
+Finally, let's say the grader calls \texttt{get\_distance(3, 5)}. Since there is \textbf{no way} for the sequence ``CAT'' to be transformed into ``ATA'' via any sequence of mutations, this call should return $-1$.
+

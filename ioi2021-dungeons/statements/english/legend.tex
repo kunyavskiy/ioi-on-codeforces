@@ -1,0 +1,50 @@
+Robert is designing a new computer game. The game involves one hero, $n$ opponents and $n+1$
+dungeons. The opponents are numbered from $0$ to $n-1$ and the dungeons are numbered from $0$
+to $n$. Opponent $i$ ($0 \leq i \leq n-1$) is located in dungeon $i$ and has strength $s[i]$. There is no
+opponent in dungeon $n$.
+
+The hero starts off entering dungeon $x$, with strength $z$. Every time the hero enters any dungeon $i$ ($0 \leq i \leq n-1$), they confront opponent $i$, and one of the following occurs:
+\begin{itemize}
+\item If the hero's strength is greater than or equal to the opponent's strength $s[i]$, the hero wins. This
+causes the hero's strength to \textbf{increase} by $s[i]$ ($s[i] \geq 1$). In this case the hero enters dungeon $w[i]$ next ($w[i] > i$).
+\item Otherwise, the hero loses. This causes the hero's strength to \textbf{increase} by $p[i]$ ($p[i] \geq 1$). In
+this case the hero enters dungeon $l[i]$ next.
+\end{itemize}
+
+Note $p[i]$ may be less than, equal to, or greater than $s[i]$. Also, $l[i]$ may be less than, equal to, or
+greater than $i$. Regardless of the outcome of the confrontation, the opponent remains in dungeon $i$ and maintains strength $s[i]$.
+
+The game ends when the hero enters dungeon $n$. One can show that the game ends after a finite
+number of confrontations, regardless of the hero's starting dungeon and strength.
+
+Robert asked you to test his game by running $q$ simulations. For each simulation, Robert defines a
+starting dungeon $x$ and starting strength $z$. Your task is to find out, for each simulation, the hero's
+strength when the game ends.
+
+\textbf{Implementation details}
+
+You should implement the following procedures:
+
+\begin{itemize}
+\item \texttt{void init(int n, int[] s, int[] p, int[] w, int[] l)}
+\begin{itemize}
+\item $n$: number of opponents.
+\item $s$, $p$, $w$, $l$: arrays of length $n$. For $0 \leq i \leq n-1$:
+  \begin{itemize}
+  \item $s[i]$ is the strength of the opponent $i$. It is also the strength gained by the hero after
+winning against opponent $i$.
+  \item $p[i]$ is the strength gained by the hero after losing against opponent  $i$.
+  \item $w[i]$ is the dungeon the hero enters after winning against opponent $i$.
+  \item $l[i]$ is the dungeon the hero enters after losing against opponent $i$.
+\end{itemize}
+\item This procedure is called exactly once, before any calls to \texttt{simulate} (see below)
+\end{itemize}
+\item \texttt{int64 simulate(int x, int z)}
+\begin{itemize}
+\item $x$: the dungeon the hero enters first.
+\item $z$: the hero's starting strength.
+\item This procedure should return the hero's strength when the game ends, assuming the hero starts
+the game by entering dungeon $x$, having strength $z$.
+\item The procedure is called exactly $q$ times.
+\end{itemize}
+\end{itemize}

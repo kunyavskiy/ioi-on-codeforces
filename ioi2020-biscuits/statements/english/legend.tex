@@ -1,0 +1,21 @@
+Aunty Khong is organising a competition with $x$ participants, and wants to give each participant a \t{bag of biscuits}. There are $k$ different types of biscuits, numbered from $0$ to $k-1$. Each biscuit of type $i$ ($0 \leq i \leq k-1$) has a \t{tastiness value} of $2^i$. Aunty Khong has $a[i]$ (possibly zero) biscuits of type $i$ in her pantry.
+
+Each of Aunty Khong's bags will contain zero or more biscuits of each type. The total number of biscuits of type $i$ in all the bags must not exceed $a[i]$. The sum of tastiness values of all biscuits in a bag is called the \t{total tastiness} of the bag.
+
+Help Aunty Khong find out how many different values of $y$ exist, such that it is possible to pack $x$ bags of biscuits, each having total tastiness equal to $y$. 
+
+\textbf{Implementation Details}
+
+You should implement the following proceedure:
+
+\begin{itemize}
+\item \t{int64 count\_tastiness(int64 x, int64[] a)}
+\begin{itemize}
+\item $x$: the number of bags of biscuits to pack.
+\item $a$: an array of length $k$. For $0 \leq i \leq k-1$, $a[i]$ denotes the number of biscuits of type $i$ in the pantry.
+\item The procedure should return the number of different values of $y$, such that Aunty can pack $x$ bags of biscuits, each one having a total tastiness of $y$.
+\item The procedure is called a total of $q$ times (see Constraints and Subtasks sections for the allowed values of $q$). Each of these calls should be treated as a separate scenario.
+\end{itemize}
+\end{itemize}
+
+

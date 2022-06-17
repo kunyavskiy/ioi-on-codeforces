@@ -1,0 +1,12 @@
+The sample grader is not adaptive. Instead, it just reads and uses a fixed array $p$ of prize types. For all $0 \leq b \leq n - 1$, the type of the prize in box $b$ is given as $p[b]$. The sample grader expects input in the following format:
+
+\begin{itemize}
+\item line 1: $n$ ($3 \leq n \leq 200\,000$)
+\item line 2: $p[0], p[1], \ldots, p[n - 1]$
+\end{itemize}
+
+The type of the prize in each box is between $1$ and $v$, inclusive.
+
+There is exactly one prize of type $1$.
+
+For all $2 \le t \le v$, if there are $k$ prizes of type $t - 1$, there are \texttt{strictly} more than $k ^ 2$ prizes of type $t$.

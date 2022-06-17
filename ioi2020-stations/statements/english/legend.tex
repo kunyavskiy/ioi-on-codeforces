@@ -1,0 +1,70 @@
+Singapore's Internet Backbone (SIB) consists of $n$ stations, which are assigned \t{indices} from $0$ to $n-1$. There are also $n-1$ bidirectional links, numbered from $0$ to $n-2$. Each link connects two distinct stations. Two stations connected with a single link are called neighbours.
+
+A path from $x$ station to $y$ station is a sequence of distinct stations $a_0,a_1,\cdots,a_p$, such that $a_0=x$, $a_p=y$, and every two consecutive stations in the path are neighbours. There is \t{exactly one} path from any station $x$ to any other station $y$.
+
+Any station $x$ can create a packet (a piece of data) and send it to any other station $y$, which is called the packet's \t{target}. This packet must be routed along the unique path from $x$ to $y$ as follows. Consider a station $z$ that currently holds a packet, whose target station is $y$ ($z \neq y$). In this situation
+station $z$:
+\begin{enumerate}
+\item executes a \t{routing procedure} that determines the neighbour of $z$ which is on the unique path from $z$ to $y$, and
+\item forwards the packet to this neighbour.
+\end{enumerate}
+
+However, stations have limited memory and do not store the entire list of the links in SIB to use it in
+the routing procedure.
+
+Your task is to implement a routing scheme for SIB, which consists of two procedures.
+
+\begin{itemize}
+\item The first procedure is given $n$, the list of the links in the SIB and an integer $k \geq n-1$ as the inputs. It assigns each station a \t{unique} integer \t{label} between $0$ and $k$, inclusive.
+\item The second procedure is the routing procedure, which is deployed to all stations after labels are assigned. It is given \t{only} the following inputs:
+\begin{itemize}
+\item $s$, the \t{label} of the station that currently holds a packet,
+\item $t$, the \t{label} of the packet's target station ($t \neq s$),
+\item $c$, the list of the \t{labels} of all neighbours of $s$.
+\end{itemize}
+It should return the \t{label} of the neighbour of $s$ that the packet should be forwarded to.
+
+\end{itemize}
+
+In one subtask, the score of your solution depends on the value of the maximum label assigned to any station (in general, smaller is better).
+
+\textbf{Implementation details}
+
+You should implement the following procedures:
+
+\begin{itemize}
+\item \t{int[] label(int n, int k, int[] u, int[] v)}
+\begin{itemize}
+\item $n$: number of stations in the SIB.
+\item $k$: maximum label that can be used.
+\item $u$ and $v$:  arrays of size $n-1$, describing the links. For each $i$ ($0 \leq i \leq n-2$), link $i$ connects stations with indices $u[i]$ and $v[i]$.
+\item This procedure should return a single array $L$ of size $n$. For each $i$ ($0 \leq i \leq n-1$) $L[i]$ is the label assigned to station with index $i$. All elements of array $L$ must be unique and between $0$ and $k$, inclusive.
+\end{itemize}
+\item \t{int find\_next\_station(int s, int t, int[] c)}
+\begin{itemize}
+
+\item $s$: label of the station holding a packet.
+\item $t$: label of the packet's target station.
+\item $c$: an array giving the list of the labels of all neighbours of $s$. The array $c$ is sorted in ascending order.
+\item This procedure should return the label of a neighbour of $s$ that the packet should be forwarded to.
+\end{itemize}
+\end{itemize}
+
+Each test case involves one or more independent scenarios (i.e., different SIB descriptions). For a test case involving $r$ scenarios, a \t{program} that calls the above procedures is run exactly two times,
+as follows.
+
+During the first run of the program:
+\begin{itemize}
+\item \t{label} procedure is called $r$ times,
+\item the returned labels are stored by the grading system, and
+\item \t{find\_next\_station} is not called.
+\end{itemize}
+
+During the second run of the program:
+\begin{itemize}
+\item \t{find\_next\_station} may be called multiple times. In each call, an \t{arbitrary} scenario is chosen, and the labels returned by the call to \t{label} procedure in that scenario are used as the inputs to \t{find\_next\_station}.
+\item \t{label} is not called.
+\end{itemize}
+
+In particular, any information saved to static or global variables in the first run of the program is not available within \t{find\_next\_station} procedure.
+

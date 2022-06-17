@@ -1,0 +1,19 @@
+An archery tournament is held according to the following rules. There are $N$ targets arranged in a line and numbered from $1$ to $N$ inclusive according to their place on the line (the leftmost target being target $1$, and the rightmost target being target $N$). There are also $2 \cdot N$ archers. At any time during the tournament, there are two archers on each target. Every round of the tournament goes according to the following procedure:
+\begin{itemize}
+\item The two archers on each target compete with each other and determine a winner and a loser between them. Then all archers are rearranged as follows:
+\begin{itemize}
+\item The winners on targets $2$ to $N$ inclusive move to the target on their left (i.e., targets $1$ to $N - 1$ respectively).
+\item The losers on targets $2$ to $N$ inclusive, as well as the winner on target $1$, remain on the same target.
+\item The loser on target $1$ moves to target $N$.
+\end{itemize}
+\end{itemize}
+
+The tournament continues for $R$ rounds, with the number of rounds being at least as many as the number of archers (i.e., $R \ge 2 \cdot N$).
+
+You are the only archer to arrive for the tournament exactly on time. All other $2 \cdot N - 1$ archers have arrived early and are already standing in a line. What you have to do now is to insert yourself somewhere into the line among them. You know that after you take your position, the two leftmost archers in the line will start the tournament on target $1$, the next two will start on target $2$ and so on, with the two rightmost archers starting on target $N$.
+
+All the $2 \cdot N$ archers in the tournament (including yourself) are ranked by skill, where a smaller rank corresponds to better skill. No two archers have the same rank. Also, whenever two archers compete, the one with the smaller rank will always win.
+
+Knowing how skilled each of your competitors is, you want to insert yourself in such a way as to ensure that you will finish the tournament on a target with as small a number as possible. If there are multiple ways to do this, you prefer the one that starts at a target with as large a number as possible.
+
+Write a program that, given the ranks of all archers, including yourself, as well as your competitors' arrangement on the line, determines on which target you should start the tournament, so that you can achieve your goals as defined above. 

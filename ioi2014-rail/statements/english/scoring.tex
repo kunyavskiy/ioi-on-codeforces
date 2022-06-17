@@ -1,0 +1,19 @@
+In allsubtasks the number of blocks $m$ is no more than $1\,000\,000$. In some subtasks the number of calls to \texttt{getDistance} is limited. The limit varies by subtask. Your program will receive `wrong answer` if it exceeds this limit.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ |c|c|c|c|c| }
+\hline
+Subtask & Points & $n$ & getDistance calls & note\\
+\hline
+1 & 8 & $1 \le n \le 100$ & unlimited & Allstations except $0$ are in type $D$ blocks.\\
+\hline
+2 & 22 & $1 \le n \le 100$ & unlimited & \parbox{6cm}{\centering \vspace{2mm}Allstations to the right of station $0$ are in type $D$ blocks, and allstations to the left of station $0$
+are in type $C$ blocks. \\\vspace{2mm}}\\
+\hline
+3 & 26 & $1 \le N \le 5\,000$ & $n(n - 1) / 2$ & No additional limits\\
+\hline
+4 & 44 & $1 \le N \le 5\,000$ & $3(n - 1)$ & No additional limits\\
+\hline
+\end{tabular}
+\end{center}

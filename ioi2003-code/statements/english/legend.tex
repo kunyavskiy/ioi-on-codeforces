@@ -1,0 +1,16 @@
+Racine Business Networks (RBN) has taken the Heuristic Algorithm Languages (HAL) company to court, claiming that HAL has taken source code from RBN UNIX and contributed it to the open-source operating system HALnix.
+
+RBN and HAL both use a programming language with one statement per line, each of the form: $STOREA = STOREB + STOREC$ where $STOREA$, $STOREB$, and $STOREC$ are variable names. In particular, the first variable name starts in the first column and is followed by a space, an equals sign, a space, a second variable name, a space, the addition symbol, a space, and a third variable name. The same variable name might appear more than one time on a single line. Variable names consist of $1 \ldots 8$ uppercase
+ASCII letters (`\texttt{A}' \ldots `\texttt{Z}').
+
+RBN claims that HAL copied a consecutive sequence of lines directly from RBN's source code, making only minor modifications:
+
+\begin{itemize}
+\item RBN claims that HAL changed some of the variable names in order to disguise their crime. That is, HAL took a series of lines from RBN's program and, for each variable in it, changed all occurrences of that variable to a new variable name, although the new variable name might be the same as the original. Of course, no two variables were changed to the same new variable name.
+
+\item RBN also claims HAL might have changed the order of the right-hand side of some lines: $STOREA = STOREB + STOREC$ might have been changed to $STOREA = STOREC + STOREB$.
+
+\item RBN claims that HAL did not change the order of the lines of RBN's source code.
+\end{itemize}
+
+Given source code for programs from RBN and HAL, find the longest consecutive sequence of lines from HAL's program that could have come from a consecutive sequence of lines from RBN's program using the modifications above. Note that the sequences of lines from the two programs do not have to start at the same line number in both files.

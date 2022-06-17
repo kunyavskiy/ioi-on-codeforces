@@ -1,0 +1,13 @@
+The sample grader reads the input in the following format:
+\begin{itemize}
+\item line 1: $n$, $m$ ($1 \leq n \leq 5000$, $n \leq m \leq 20\,000$)
+\item line 2: $a[0], a[1], \ldots, a[n - 1]$
+\item line 3: $r[0], r[1], \ldots, r[n - 1]$
+\item line $4 + i$ (for $0 \le i \le m - 1$): $u[i]$, $v[i]$ ($0 \le u[i], v[i] \le n - 1$)
+\end{itemize}
+
+There is at least one charging station. There is at least one track starting at each station.
+
+There might be tracks that start and end at the same station (i.e., $u[i] = v[i]$).
+
+Each track is distinct. In other words, there are no such two indices $i$ and $j$ ($0 \le i < j \le m - 1$) that $u[i] = u[j]$ and $v[i] = v[j]$.

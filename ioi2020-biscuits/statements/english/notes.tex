@@ -1,0 +1,38 @@
+\t{Example 1}
+
+Consider the following call:
+
+\t{count\_tastiness(3, [5, 2, 1])}
+
+This means that Aunty wants to pack $3$ bags, and there are $3$ types of biscuits in the shop:
+\begin{itemize}
+\item $5$ biscuits of type $0$, each having a tastiness value $1$,
+\item $2$ biscuits of type $1$, each having a tastiness value $2$,
+\item $1$ biscuit of type $2$, each having a tastiness value $4$.
+\end{itemize}
+
+The possible values of $y$ are $[0, 1, 2, 3, 4]$. For instance, in order to pack $3$ bags of total tastiness $3$, Aunty can pack:
+\begin{itemize}
+ \item one bag containing three biscuits of type $0$, and
+ \item two bags, each containing one biscuit of type $0$ and one biscuit of type $1$. 
+\end{itemize}
+
+Since there are $5$ possible values of $y$, the procedure should return $5$.
+
+\includegraphics[scale=0.8]{1.png}
+
+\textbf{Example 2}
+
+Consider the following call:
+
+\t{count\_tastiness(2, [2, 1, 2])}
+
+This means that Aunty wants to pack $2$ bags, and there are $3$ types of biscuits in the shop:
+\begin{itemize}
+\item $2$ biscuits of type $0$, each having a tastiness value $1$,
+\item $1$ biscuits of type $1$, each having a tastiness value $2$,
+\item $2$ biscuits of type $2$, each having a tastiness value $4$.
+\end{itemize}
+
+The possible values of $y$ are $[0,1,2,4,5,6]$. Since there are $6$ possible values of $y$, the procedure should return $6$.
+

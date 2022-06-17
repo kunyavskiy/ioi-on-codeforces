@@ -1,0 +1,193 @@
+Вам необходимо написать интерактивную программу, которая для данной последовательности цитат из Википедии (см. пример ниже) угадывает для каждой из них язык, на котором она написана, в порядке их очерёдности. После каждой догадки вашей программе даётся правильный ответ, который может быть использован для улучшения предположений вашей программы на протяжении её выполнения.
+
+Каждый язык задаётся целым числом $L$ от $0$ до $55$. Каждая цитата состоит ровно из $100$ символов и представляет собой массив, элементами которого являются $100$ целых чисел в пределах от $1$ до $65535$. Эти целые числа от $1$ до $65535$ назначаются произвольным образом, и не соответствуют никакой стандартной кодировке
+
+Вам необходимо реализовать процедуру \t{excerpt(E)}, где $E$ --- это массив из $100$ чисел, представляющий собой цитату из Википедии в описанном выше формате. Каждый вызов процедуры \t{excerpt(E)}, должен вызывать процедуру \t{language(L)} ровно один раз, где $L$ --- предполагаемый язык статьи Википедии, из которой была полученная данная цитата $E$. Система оценивания реализует процедуру \t{language(L)}, которая оценивает вашу догадку и возвращает правильный язык данной статьи. Таким образом, ваше предположение является правильным, если $language(L) = L$.
+
+Система оценивания вызывает процедуру \t{excerpt(E)} $10\,000$ раз, один раз для каждой цитаты из входного файла. Точность вашего решения будет определяться как отношение $\frac{P}{Q}$, где $P$ --- количество цитат, для которых реализованная вами процедура \t{excerpt(E)} правильно определила язык, $Q$ --- общее количество цитат, для которых вызывалась реализованная вами процедура \t{excerpt(E)}.
+
+Вы можете использовать различные методы для решения данной задачи. Метод Rocchio --- это один из способов, позволяющий достигнуть точности около 0.4. Метод Rocchio определяет похожесть цитаты $E$ для каждого из известных языков $L$ и выбирает тот язык, который наиболее похож. Похожесть определяется как общее число различных символов из цитаты $E$, появлявшихся среди предыдущих цитат на языке $L$.
+
+Обратите внимание, что входные данные были загружены из реальных статей Википедии, и поэтому в них могут появляться некорректные символы или фрагменты текста. Это вполне ожидаемо и является частью данной задачи.
+
+В качестве иллюстрации мы приводим текстовую презентацию цитат из 56 разноязычных
+статей:
+
+1. Yshokkie word meestal in Kanada , die noorde van die VSA en in Europa gespeel. Dit
+is bekend as 'n b
+
+2. وهو المنتج الذي يجعل المنظم ال يكسب ربحا وال يخسر ويحصل على ، Producer Marginal المنتج الحدي دخل يكف
+
+3. "BAKILI" Futbol Klubu 1995-ci ildə Misir Səttаr oğlu Əbilov tərəfindən yаrаdılmış və
+həvəskаr futbol
+
+4. Квинт Фулвий Флак (Quintus Fulvius Flaccus; † 205 пр.н.е. ) e политик и генерал на
+Римската републик
+
+5. ইন্ডিয়ান ইনস্টিটিউি অফ স ়াশ্য়াল ওযযলযফয়ার অয়াি স্টিজযন ম্য়াযনজযম্ন্ট
+( ংযেযে আইআইএ ডস্টিউস্টিএম্ )
+
+6. 5. juni ( lipanj ) ( 5.6. ) je 156. dan godine po gregorijanskom kalendaru (157. u
+prestupnoj godini
+
+7. La Caunette és un municipi francès , situat al departament de l' Erau i a la regió de
+Llenguadoc-Ros
+
+8. Praha je malé městečko v Texasu , které leží cca 85 km na jihozápad od Austinu . Bylo
+založeno
+
+9. Graeme Allen Brown (født 9. april 1979 i Darwin , Northern Territory , Australien ) er
+en australsk
+
+10. Der Plattiger Habach ( 3.214 m ü. A. , nach anderen Angaben nur 3.207 m [1] )
+
+11. Το Νησί Γκρέιτ Μπάρριερ ( Αγγλικά : Great Barrier Island , Μαορί : Motu Aotea )
+είναι νησί στα βόρει
+
+12. Sid Bernstein Presents... is a 2010 feature-length documentary film by directors Jason
+Ressler and E
+
+13. El término latino lex loci celebrationis aplicado al derecho internacional privado quiere
+decir: "le
+
+14. Apollo 5 oli kosmoselaev , mis sooritas Apollo programmi teise mehitamata lennu.
+Lennu käigus testit
+
+15. هزار و سیصد و پنجاهمین سیارک( TAنامگذاری :1934 ، Rosselia به انگلیسی : 1350 (سیارک ۱۳۵۰ کشف شدهاس
+
+16. V. I. Beretti (myös Vikenty Ivanovitš Beretti , alk. Vincent Beretti ; 1781 Milano Italia -- 18. elok
+
+17. Le 5 e bataillon de parachutistes vietnamiens (ou 5 e BPVN ou encore 5 e Bawouan )
+est une unité par
+
+18. Amina Sarauniyar Zazzau,, wadda ta rayu daga shekarar 1533 zuwa 1610, ɗaya ce daga
+cikin 'ya'ya biyu
+
+ב מתמטיקה , השערת רימן היא השערה שהציע בשנת 1859 ה מתמטיקאי ברנרד רימן , מגדולי .19
+המתמטיקאים של אותה ע
+
+20. Sudski proces Doe protiv Boltona je sudski proces iz 1973 . godine kojim je američki
+Vrhovni sud uki
+
+21. Owen Cunningham Wilson ( 1968 . november 18. , Dallas , Texas , Egyesült Államok )
+amerikai színész
+
+22. Հայ Կաթողիկե Եկեղեցին պատկանում է Արևելյան Կաթոլիկ Եկեղեցիներին և
+այսպիսով ենթարկվում է Հռոմի Պապի ա
+
+23. Dionysios dari Halicarnassus ( Bahasa Yunani : Διονύσιος Ἀλεξάνδρου Ἀλικαρνᾱσσεύς
+, Dionysios putra
+
+24. Nnamdi "Zik" Azikiwe , bu onye isi-ala izizi Nijiria nwere. Ochichi ya bidolu na afo
+1954 welu ruo n
+
+25. La Riserva naturale orientata Serre della Pizzuta è un'area protetta del dipartimento
+Regionale di S
+
+26. 石橋和義 （いしばし かずよし/まさよし、生没年不詳）は、 �詳。 石橋氏 初
+代当主。初名氏義。 尾張 三郎を通称とし、官途は、 左近将監 → 三河守 → 左
+衛門佐 。 足利直義
+
+27. კორბინ ბლიუ ( ინგლ. Corbin Bleu ; დ. 21 თებერვალი , 1989 , დაბადების
+ადგილი ბრუკლინი , ნიუ-იორკი , ა
+
+28. Та́рья Ка́арина Ха́лонен (Tarja Kaarina Halonen)); 24 желтоқсан , 1943 , Каллио ,
+Хельсинки , Финлан
+
+29. 딜롱 ( Dilong )은 중국 랴오닝(Liaoning) 지방의 익시안층(Yixian Formation)에서
+온전한 4구의 화석으로 발견되었다. 이 공룡은 가장 원시적인 초기의 티
+
+30. Сүймөнкул Чокморов - советтик актёр. Жетинин айынын 9 (ноябрь) 1939-жылы,
+Фрунзе шаарын жанындагы Чо
+
+31. D' Mirjam vun Abellin war eng Nonn a Mystikerin , och " Maria vum gekräizegte Jesus
+" genannt. Si as
+
+32. Panopea abrupta ( angl. Geoduck ) - jūrinių dvigeldžių moliuskų rūšis, priklausanti
+Hiatellidae šeim
+
+33. "Dzimis Latvijā" ir Liepājas dueta Fomins & Kleins 2004 . gada 23. februārī izdotais
+otrais albu
+
+34. I Ludwik Lejzer Zamenhof dia dokotera mpijery maso nipetraka any Polonia .
+Fantantsika izy ankehitri
+
+35. Седумстотини милиони малечки алвеоли во белите дробови , всушност се
+шупливи чаури - алвеоли прекрие
+
+36. Энэхүү шувуу нь Бутан , Хятад , Гонконг , Энэтхэг , Пакистан , Иран , Япон ,
+Казакстан , Солонгос ,
+
+37. भारतातील महाराष्ट्रराज्याच्या नागपूर पासुन २१६ कि.मी. दू र असलेलेएि गाव. तेवैनगंगा
+नदीच्या िाठावर
+
+38. De Slotervaart was oorspronkelijk de waterweg die sinds de Middeleeuwen het dorp
+Sloten verbond met
+
+39. Macierz S (macierz rozpraszania, od ang. scattering matrix ) jest centralnym elementem
+w mechanice k
+
+40. A Hora do Rush 3 ( Rush Hour 3 , no original) é o terceiro filme da franquia Rush Hour
+. Dirigido po
+
+41. Coordonate : 51°34′0″N 12°3′0″E / 51.56667 , 12.05 Brachstedt este o comună din
+landul Saxonia-A
+
+42. Гробницы императоров династии Мин и Цин --- памятник Всемирного наследия
+ЮНЕСКО , состоящий из несколь
+
+43. Kovalentni radijus atoma - ponekad se naziva i valentni radijus. Kovalentni radijus je
+srednje rasto
+
+44. Koniecpol je mesto v Poľsku v Sliezskom vojvodstve v okrese Powiat częstochowski v
+rovnomennej gmine
+
+45. Hoxhë Vokrri vije nga Shqipëria ishte një klerik shqiptar i cili luftonte për Çështjën
+Kombëtare . A
+
+46. Гурдијеље је насеље у општини Тутин у Рашком округу . Према попису из 2002.
+било је 93 становника (п
+
+47. Underhållsstöd betalas ut av Försäkringskassan (FK) till en förälder som är
+vårdnadshavare och bor e
+
+48. இந்தியாவின் தேசிய நநடுஞ்சாலைகள் நடுவண் அரசின் தேசிய
+நநடுஞ்சாலைே்துலையாை் பராமரிக்கப்படுகின் ைன. நபரு
+
+49. Дар он зиндаги .маишат ,фаолияти мехнати,муборизаи ичтимои, русуму омол,
+хислат ва эхсосоти халк ифо
+
+50. ไฟทอฟธอรา อินเฟสทันส ( อังกฤษ : Phytophthora infestans ) คอืเชือ้ ราโอโอไมซีท หรือ ราน
+้า
+ที
+่
+เป็นสาเห
+
+51. ABUL FAWARIS BERRANY - 11. asyrda Orta Aziýadaky oguz taýpalarynyň berrany
+dinastiýasynyň wekili. Ol
+
+52. Egemenlik ya da hâkimiyet , bir toprak parçası ya da mekan üzerindeki kural koyma
+gücü ve hukuk yara
+
+53. Темне фентезі (від англ. Dark Fantasy - темне, похмуре фентезі ) - піджанр
+літератури, який включає
+
+54. Paris By Night 84: In Atlanta - Passport to Music & Fashion (Âm nhạc và Thời trang) là
+chương tr
+
+55. ISO 3166-2:GU ni akoole ninu ISO 3166-2 , apa opagun ISO 3166 ti International
+Organization for Stan
+
+56. 下卡姆斯克 （ 俄文 ： Нижнека́мск ； 韃靼語 ： Түбəн Кама/Tübän Kama ）是 俄
+羅斯 韃靼斯坦共和國 東北部的一個城市，位於 卡馬河 南岸。 2002年 人口22
+
+Пример входного файла, который вы можете скачать в архиве grader, содержит 10 000 таких цитат. Данные 56 языков --- это языки, заявленные как родные при регистрации участников IOI 2010. Язык каждой цитаты выбирается случайным образом из этих 56 языков, и каждая цитата выбирается из первого параграфа статьи, выбранной случайным образом из Википедии на соответствующем языке. Каждая строка файла содержит:
+\begin{itemize}
+\item Двухбуквенный ISO-код соответствующего языка Википедии;
+\item 100 целых чисел от 1 до 65 535, представляющих цитату, составленную из первых
+100 символов из первого параграфа статьи;
+\end{itemize}
+
+Система оценивания жюри использует 10 000 различных цитат, выбранных таким же
+способом из Википедий на тех же 56 языках. Однако, система оценивания жюри назначает
+другие номера от 0 до 55 каждому языку и другие числа от 1 до 65 535 каждому символу. 

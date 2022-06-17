@@ -1,0 +1,22 @@
+\bf{Пример}
+
+Ниже приведена последовательность вызовов вместе с состоянием текста после каждого из вызовов.
+
+\begin{tabular}{|c|c|l|}\hline
+\bf{Вызов}&\bf{Результат}&\bf{Текущий текст}\\\hline
+\t{Init()}&&\\\hline
+\t{TypeLetter(a)}& &a\\\hline
+\t{TypeLetter(b)}& &ab\\\hline
+\t{GetLetter(1)}& b &ab\\\hline
+\t{TypeLetter(d)}& &abd\\\hline
+\t{UndoCommands(2)}& &a\\\hline
+\t{UndoCommands(1)}& &abd\\\hline
+\t{GetLetter(2)}& d &abd\\\hline
+\t{TypeLetter(e)}& &abde\\\hline
+\t{UndoCommands(1)}& &abd\\\hline
+\t{UndoCommands(5)}& &ab\\\hline
+\t{TypeLetter(c)}& &abc\\\hline
+\t{GetLetter(2)}& c &abc\\\hline
+\t{UndoCommands(2)}& &abd\\\hline
+\t{GetLetter(2)}& d &abd\\\hline
+\end{tabular}

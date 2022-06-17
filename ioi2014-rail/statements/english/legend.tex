@@ -1,0 +1,33 @@
+Taiwan has a big railway line connecting the western and eastern shores of the island. The line consists of blocks $m$. The consecutive blocks are numbered $0, \ldots, m - 1$, starting from the western end. Each block has a one-way west-bound track on the north, a one-way east-bound track on the south, and optionally a train station between them.
+
+There are three types of blocks. A type $C$ block has a train station that you must enter from the northern track and exit to the southern track, a type $D$ block has a train station that you must enter from the southern track and exit to the northern track, and a type empty block has no train station. For example, in the following figure block 0 is type empty, block 1 is type $C$, and block 5 is type $D$. Blocks connect to each other horizontally. Tracks of adjacent blocks are joined by connectors, shown as shaded rectangles in the following figure.
+
+\includegraphics[scale=0.7]{1.png}
+
+The railsystem has $n$ stations numbered from $0$ to $n - 1$. We assume that we can go from any station to any other station by following the track. For example we can go from station 0 to station 2 by starting from block 2, then passing through blocks 3 and 4 by the southern track, and then passing through station 1, then passing through block 4 by the northern track, and finally reaching station 2 at block 3.
+
+Since there are multiple possible routes, the distance from one station to another is defined as the minimum number of connectors the route passes through. For example the shortest route from station 0 to 2 is through blocks $2-3-4-5-4-3$ and passes through 5 connectors, so the distance is $5$.
+
+A computer system manages the railsystem. Unfortunately after a power outage the computer no longer knows where the stations are and what types of blocks they are in. The only clue the computer has is the block number of station 0, which is always in a type $C$ block. Fortunately the computer can query the distance from any station to any other station. For example, the computer can query ``what is the distance from station $0$ to station $2$?'' and it will receive $5$.
+
+\textbf{Task}
+
+You need to implement a function \texttt{findLocation} that determines for each station the block number and block type.
+
+\begin{itemize}
+\item \texttt{void findLocation(int n, int first, int location[], int stype[])} 
+\begin{itemize}
+\item $n$: the number of stations.
+\item $first$: the block number of station $0$.
+\item $location$: array of size $n$; you should place the block number of station $i$ into $location[i]$.
+\item $stype$: array of size $n$; you should place the block type of station $i$ into $stype[i]$: $1$ for type $C$ and $2$ for type $D$.
+\end{itemize}
+\end{itemize}
+
+You can call a function \texttt{int getDistance(int i, int j)} to help you find the locations and types of stations. 
+
+\begin{itemize}
+\item \texttt{getDistance(i, j)} returns the distance from station $i$ to station $j$
+\item \texttt{getDistance(i, i)} will return $0$
+\item \texttt{getDistance(i, j)} will return $-1$ if $i$ or $j$ is outside the range $0 \le i, j \le n - 1$.
+\end{itemize}

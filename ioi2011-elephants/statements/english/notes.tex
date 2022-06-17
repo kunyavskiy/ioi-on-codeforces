@@ -1,0 +1,15 @@
+Consider the example. 
+
+First, your procedure \t{init} will be called with these parameters. Afterwards, your procedure
+\t{update} will be called once for each act. Here is an example sequence of calls and their correct return values:
+\begin{center}
+\begin{tabular}{ c c c } 
+act & call parameters & return value \\
+\hline
+$1$ & \t{update(2,16)} & $1$ \\
+$2$ & \t{update(1,25)} & $2$ \\
+$3$ & \t{update(3,35)} & $2$ \\
+$4$ & \t{update(0,38)} & $2$ \\
+$5$ & \t{update(2,0)} & $3$ \\
+\end{tabular}
+\end{center}

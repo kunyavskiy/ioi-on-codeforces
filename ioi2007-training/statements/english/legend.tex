@@ -1,0 +1,14 @@
+Mirko and Slavko are training hard for the annual tandem cycling marathon taking place in Croatia. They need to choose a route to train on.
+
+There are $N$ cities and $M$ roads in their country. Every road connects two cities and can be traversed in both directions. Exactly $N - 1$ of those roads are paved, while the rest of the roads are unpaved trails. Fortunately, the network of roads was designed so that each pair of cities is connected by a path consisting of paved roads. In other words, the $N$ cities and the $N - 1$ paved roads form a tree structure.
+
+Additionally, each city is an endpoint for at most $10$ roads total.
+
+A training route starts in some city, follows some roads and ends in the same city it started in. Mirko and Slavko like to see new places, so they made a rule never to go through the same city nor travel the same road twice. The training route may start in any city and does not need to visit every city.
+
+Riding in the back seat is easier, since the rider is shielded from the wind by the rider in the front. Because of this, Mirko and Slavko change seats in every city. To ensure that they get the same amount of training, they must choose a route with an even number of roads.
+
+Mirko and Slavko's competitors decided to block some of the unpaved roads, making it impossible for them to find a training route satisfying the above requirements. For each unpaved road there is a cost (a positive integer) associated with blocking the road. It is impossible to block paved roads.
+
+
+Write a program that, given the description of the network of cities and roads, finds the smallest total cost needed to block the roads so that no training route exists satisfying the above requirements.

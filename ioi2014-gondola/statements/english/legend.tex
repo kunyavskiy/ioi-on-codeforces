@@ -1,0 +1,68 @@
+Mao-Kong Gondola is a famous attraction in Taipei. The gondola system consists of a circular rail, a single station, and $n$ gondolas numbered consecutively from $1$ to $n$ running around the rail in a fixed direction. After gondola $i$ passes the station, the next gondola to pass the station will be gondola $i + 1$ if $i < n$, or gondola 1 if $i = n$.
+
+Gondolas may break down. Luckily we have an infinite supply of spare gondolas, which are numbered $n + 1, n + 2$, and so on. When a gondola breaks down we replace it (in the same position on the track) with the first available spare gondola, that is, the one with the lowest number. For example, if there are five gondolas and gondola 1 breaks down, then we will replace it with gondola 6.
+
+You like to stand at the station and watch the gondolas as they pass by. A \texttt{gondola sequence} is a sequence of $n$ numbers of gondolas that pass the station. It is possible that one or more gondolas broke down (and were replaced) before you arrived, but none of the gondolas break down while you are watching.
+
+Note that the same configuration of gondolas on the rail can give multiple gondola sequences, depending on which gondola passes first when you arrive at the station. For example, if none of the gondolas have broken down then both $(2, 3, 4, 5, 1)$ and $(4, 5, 1, 2, 3)$ are possible gondola sequences, but $(4, 3, 2, 5, 1)$ is not (because the gondolas appear in the wrong order).
+
+If gondola $1$ breaks down, then we might now observe the gondola sequence $(4, 5, 6, 2, 3)$. If gondola $4$ breaks down next, we replace it with gondola $7$ and we might observe the gondola sequence $(6, 2, 3, 7, 5)$. If gondola $7$ breaks down after this, we replace it with gondola $8$ and we may now observe the gondola sequence $(3, 8, 5, 6, 2)$.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Broken gondola & New gondola & Possible gondola sequence \\
+\hline
+1 &  6 & $(4, 5, 6, 2, 3)$ \\
+\hline
+4 & 7 & $(6, 2, 3, 7, 5)$ \\
+\hline
+7 & 8 & $(3, 8, 5, 6, 2)$ \\
+\hline
+\end{tabular}
+\end{center}
+
+A \texttt{replacement sequence} is a sequence consisting of the numbers of the gondolas that have broken down, in the order in which they break down. In the previous example the replacement sequence is $(1, 4, 7)$. A replacement sequence $r$ \texttt{produces} a gondola sequence $g$ if, after gondolas break down according to the replacement sequence $r$, the gondola sequence $g$ may be observed.
+
+
+\textbf{Gondola Sequence Checking}
+
+In the first three subtasks you must check whether an input sequence is a gondola sequence. See the table below for examples of sequences that are and are not gondola sequences. You need to implement a function \texttt{valid}.
+
+\begin{itemize}
+\item \texttt{int valid(int n, int inputSeq[])}
+\begin{itemize}
+\item $n$: the length of the input sequence.
+\item $inputSeq$: array of length $n$; $inputSeq[i]$ is element $i$ of the input sequence, for $0 \le i \le n - 1$.
+\item The function should return $1$ if the input sequence is a gondola sequence, or $0$ otherwise.
+\end{itemize}
+\end{itemize}
+
+\textbf{Replacement Sequence}
+
+In the next three subtasks you must construct a possible replacement sequence that produces a given gondola sequence. Any such replacement sequence will be accepted. You need to implement a function \texttt{replacement}.
+
+\begin{itemize}
+\item \texttt{int replacement(int n, int gondolaSeq[], int replacementSeq[])}
+\begin{itemize}
+\item $n$: the length of the input sequence.
+\item $gondolaSeq$: array of length $n$; $gondolaSeq$ is guaranteed to be a gondola sequence, and $gondolaSeq[i]$ is element $i$ of the sequence, for $0 \le i \le n - 1$.
+\item The function should return $l$, the length of the replacement sequence.
+\item $replacementSeq$: array that is sufficiently large to store the replacement sequence; you should return your sequence by placing element $i$ of your replacement sequence into $replacementSeq[i]$, for $0 \le i \le l - 1$.
+\end{itemize}
+\end{itemize}
+
+\textbf{Count Replacement Sequences}
+
+In the next four subtasks you must count the number of possible replacement sequences that produce a given sequence (which may or may not be a gondola sequence), modulo $1\,000\,000\,009$. You need to implement a function \texttt{countReplacement}.
+
+\begin{itemize}
+\item \texttt{int countReplacement(int n, int inputSeq[])}
+\begin{itemize}
+\item $n$: the length of the input sequence.
+\item $inputSeq$: array of length $n$; $inputSeq[i]$ is element $i$ of the input sequence, for $0 \le i \le n - 1$.
+\item If the input sequence is a gondola sequence, then count the number of replacement
+sequences that produce this gondola sequence (which could be extremely large), \texttt{and return this number modulo} $1\,000\,000\,009$. If the input sequence is not a gondola sequence, the function should return $0$. If the input sequence is a gondola sequence but no gondolas broke down, the function should return $1$.
+\end{itemize}
+\end{itemize}

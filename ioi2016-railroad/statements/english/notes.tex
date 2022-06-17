@@ -1,0 +1,19 @@
+\textbf{Example}
+
+\texttt{plan\_roller\_coaster([1, 4, 5, 6], [7, 3, 8, 6])}
+
+In this example there are four special sections. The best solution is to build them in the order $0, 3, 1, 2$, and to connect them by tracks of lengths $1, 2, 0$ respectively. This is how a train travels along this railroad track:
+
+\begin{itemize}
+\item Initially the speed of the train is $1$ km/h.
+\item The train starts the ride by entering special section $0$.
+\item The train leaves section $0$ going at $7$ km/h.
+\item Then there is a track of length $1$ m. When the train reaches the end of the track, its speed is $6$ km/h.
+\item The train enters special section $3$ going at $6$ km/h and leaves it at the same speed.
+\item After leaving section $3$, the train travels along a $2$m long track. Its speed decreases to $4$ km/h.
+\item The train enters special section $1$ going at $4$ km/h and leaves it going at $3$ km/h.
+\item Immediately after special section $1$ the train enters special section $2$.
+\item The train leaves section $2$. Its final speed is $8$ km/h.
+\end{itemize}
+
+The function should return the total length of tracks between the special sections: $1 + 2 + 0 = 3$.

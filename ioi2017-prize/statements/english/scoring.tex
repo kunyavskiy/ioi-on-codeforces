@@ -1,0 +1,38 @@
+In some test cases the behavior of the grader is adaptive. This means that in these test cases the grader does not have a fixed sequence of prizes. Instead, the answers given by the grader may depend on the questions asked by your solution. It is guaranteed that the grader answers in such a way that after each answer there is at least one sequence of prizes consistent with all the answers given so far.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Subtask & Points & Additional Input Constraints\\
+\hline
+1 &  20 & \parbox{13cm}{\centering \vspace{2mm}There is exactly 1 diamond and $n - 1$ lollipops (hence, $v = 2$).
+You can call the procedure \texttt{ask} at most $10\,000$ times \\\vspace{2mm}} \\
+\hline
+2 & 80 & No additional constraints \\
+\hline
+\end{tabular}
+\end{center}
+
+In subtask 2 you can obtain a partial score. Let $q$ be the maximum number of calls to the procedure \texttt{ask} among all test cases in this subtask. Then, your score for this subtask is calculated according to the following table:
+
+\newcommand{\lt}{\textless}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|}
+\hline
+Questions & Score \\
+\hline
+$10\,000 \lt q$ & $0$ (reported in CMS as `Wrong Answer') \\
+\hline
+$6000 \lt q \leq 10\,000$ & $70$ \\
+\hline
+$5000 \lt q \leq 6000$ & $80 - (q-5000)/100$ \\
+\hline
+$q \leq 5000$ & $80$ \\
+\hline
+\end{tabular}
+\end{center}
+
+

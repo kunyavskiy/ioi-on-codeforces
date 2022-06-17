@@ -1,0 +1,21 @@
+In the countryside, you can find a long straight road known as the Rice Way. Along this road there are $R$ rice fields. Each field is located at an integer coordinate between $1$ and $L$, inclusive. The rice fields will be presented in non-decreasing order of their coordinates. Formally, for $0 \le i < R$, rice field $i$ is at coordinate $X[i]$. You may assume that $1 \le X[0] \le \ldots \le X[R-1] \le L$.
+
+Please note that multiple rice fields may share the same coordinate.
+
+We plan to construct a single rice hub as a common place to store as much of the harvest as possible. As with the rice fields, the hub has to be at an integer coordinate between $1$ and $L$, inclusive.
+
+The rice hub can be at any location, including one that already contains one or more rice fields. Each rice field produces exactly $1$ truckload of rice every harvest season. To transport the rice to the hub, the city has to hire a truck driver. The driver charges $1$ Baht to transport a truckload of rice per unit of distance towards the hub. In other words, the cost of transporting rice from a given field to the rice hub is numerically equal to the difference between their coordinates.
+
+Unfortunately, our budget for this season is tight: we may only spend at most $B$ Baht on transportation. Your task is to help us strategically place the hub to gather as much rice as possible.
+
+Write a procedure \t{besthub(R,L,X,B)} that takes the following parameters:
+\begin{itemize}
+\item $R$~--- the number of rice fields. The fields are numbered $0$ through $R-1$.
+\item $L$~--- the maximum coordinate.
+\item $X$~--- a one-dimensional array of integers sorted from smallest to largest.
+For each $i$ $0 \le i < R$, field $i$ is located at $X[i]$.
+\item $B$~--- the budget.
+\end{itemize}
+
+Your procedure must find an optimal location of the hub and return the maximum number of truckloads of rice that can be transported to the hub within the budget.
+Note that the total cost of transporting the rice can be very large. The budget is given as a 64-bit integer, and we recommend that you use 64-bit integers in your computation. In C/C++, use the type long long.

@@ -1,0 +1,53 @@
+Paint By Numbers is a well-known puzzle game. We consider a simple one-dimensional version of this puzzle. 
+In this puzzle, the player is given a row of $n$ cells. The cells are numbered $0$ through $n - 1$ from the left to the right.
+The player has to paint each cell  black or white. We use `\texttt{X}' to denote black cells and `\texttt{\_}' to denote white cells.
+
+The player is given a sequence $c = [c_0, \ldots, c_{k - 1}]$ of $k$ positive integers: the \texttt{clues}. 
+He has to paint the cells in a way such that the black cells in the row form exactly $k$ blocks of consecutive cells.
+Moreover, the number of black cells in the $i$-th block ($0$-based) from the left should be equal to $c_i$. For example,
+if the clues are $c = [3, 4]$, the solved puzzle must have exactly two blocks of consecutive black cells: one of length 3 and 
+then another of length 4. Hence, if $n = 10$ and $c = [3, 4]$, one solution satisfying the clues is ``\texttt{\_XXX\_\_XXXX}". Note that
+``\texttt{XXXX\_XXX\_\_}" does not satisfy the clues because the blocks of black cells are not in the correct order. Also, ``\texttt{\_\_XXXXXXX\_}" 
+does not satisfy the clues because there is a single block of black cells, not two separate blocks.
+
+You are given a partially solved Paint By Numbers puzzle. That is, you know $n$ and $c$, and additionally you know that some
+cells must be black and some cells must be white. Your task is to deduce additional information about the cells.
+
+Specifically, a \textbf{valid solution} is one that satisfies the clues, and also agrees with the colors of the known cells.
+Your program should find cells that are painted black in every valid solution, and cells that are painted white in every
+valid solution. 
+
+You may assume that the input is such that there is at least one valid solution.
+
+\textbf{Implementation details}
+
+You should implement the following function (method):
+\begin{itemize}
+\item \texttt{string solve\_puzzle(string s, int[] c)}. 
+	\begin{itemize}
+    \item \texttt{s}: string of length $n$. For each $i$ ($0 \leq i \leq n - 1$) character $i$ is:
+	\begin{itemize}
+		\item `\texttt{X}', if cell $i$ must be black,
+		\item `\texttt{\_}', if cell $i$ must be white,
+		\item `\texttt{.}', if there is no information about cell $i$.
+	\end{itemize}
+	\item \texttt{c}: array of length $k$ containing clues, as defined above,
+	\item the function should return a string of length $n$. For each $i$ $(0 \le i \le n - 1)$ character $i$ of the output string should be:
+	\begin{itemize}    
+		\item `\texttt{X}', if cell $i$ is black in every valid solution,
+		\item `\texttt{\_}', if cell $i$ is white in every valid solution,
+		\item `\texttt{?}', otherwise (i.e., if there exist two valid solutions such that cell $i$ is black in one of
+        them and white in the other one).
+    \end{itemize}
+\end{itemize}
+\end{itemize}
+
+The ASCII codes of characters used in this problem are:
+\begin{itemize}
+\item `\texttt{X}': 88,
+\item `\texttt{\_}': 95,
+\item `\texttt{.}': 46,
+\item `\texttt{?}': 63.
+\end{itemize}
+
+Please use the provided template files for details of implementation in your programming language.

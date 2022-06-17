@@ -1,0 +1,14 @@
+The constraints are:
+\begin{itemize}
+\item $100 \leq H \leq 500$
+\item $100 \leq W \leq 500$
+\end{itemize}
+There are no subtasks. Instead, your score for this task will be based on how many images your program correctly classifies.
+
+Suppose you correctly classify P percent of the images (so $0 \leq P \leq 100$):
+\begin{itemize}
+\item If $P < 25$ then you will score $0$ points.
+\item If $25 \leq P < 50$ then you will score between $0$ and $10$ points, on a linear scale. Specifically, your score will be $10 \cdot \frac{P -­ 25}{25}$, rounded down to the nearest integer.
+\item If $50 \leq P < 90$ then you will score between $10$ and $100$ points, on a linear scale. Specifically, your score will be $10 + \left(90 \cdot \frac{P -­ 50}{40}\right)$, rounded down to the nearest integer.
+\item If $90 \leq P$ then you will score $100$ points.
+\end{itemize}

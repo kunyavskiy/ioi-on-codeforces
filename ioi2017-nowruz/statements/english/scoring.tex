@@ -1,0 +1,9 @@
+An output file is considered to be \texttt{valid} if all the following conditions are met:
+\begin{itemize}
+\item The output map must match the input map with the only exception that arbitrarily many `.' characters in the input map can be changed to `X' characters (cells blocked by bushes).
+\item The output map must have the property of a maze, as defined in the problem statement.
+\end{itemize}
+
+If your output for a test case is not valid, your score for that test case will be $0$. Otherwise, the score will be $\min(10, \frac{10 \cdot l}{k})$ points, rounded down to two digits after the decimal point. Here, $l$ is the number of kids that can hide in your output maze, and $k$ is the number provided in the input. You will score $10$ points for a test case if and only if your output is a maze in which $k$ or more kids can hide. For each test case there exists a solution that scores $10$ points.
+
+Note that if your solution is valid but still scores $0$ points according to the above formula, the grading verdict you will see in the CMS will be `Wrong Answer'.

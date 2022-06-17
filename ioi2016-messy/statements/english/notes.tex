@@ -1,0 +1,30 @@
+\textbf{Example}
+
+The grader makes the following function call:
+
+\begin{itemize}
+\item \texttt{restore\_permutation(4, 16, 16)}. We have $n = 4$ and the program can do at most $16$ ``writes'' and $16$ ``reads''.
+\end{itemize}
+
+The program makes the following function calls:
+
+\begin{itemize}
+\item \texttt{add\_element(``0001'')}
+\item \texttt{add\_element(``0011'')}
+\item \texttt{add\_element(``0100'')}
+\item \texttt{compile\_set()}
+\item \texttt{check\_element(``0001'')} returns \texttt{false}
+\item \texttt{check\_element(``0010'')} returns \texttt{true}
+\item \texttt{check\_element(``0100'')} returns \texttt{true}
+\item \texttt{check\_element(``1000'')} returns \texttt{false}
+\item \texttt{check\_element(``0011'')} returns \texttt{false}
+\item \texttt{check\_element(``0101'')} returns \texttt{false}
+\item \texttt{check\_element(``1001'')} returns \texttt{false}
+\item \texttt{check\_element(``0110'')} returns \texttt{false}
+\item \texttt{check\_element(``1010'')} returns \texttt{true}
+\item \texttt{check\_element(``1100'')} returns \texttt{false}
+ \end{itemize}
+
+Only one permutation is consistent with these values returned by \texttt{check\_element()}: the permutation 
+$p = [2, 1, 3, 0]$. Thus, \texttt{restore\_permutation} should return \texttt{[2, 1, 3, 0]}.
+

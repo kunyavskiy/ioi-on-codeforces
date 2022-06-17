@@ -1,0 +1,31 @@
+\textbf{Пример}
+
+Пусть сделан вызов функции:
+
+\begin{itemize}
+\item \texttt{restore\_permutation(4, 16, 16)}. В этом случае $n = 4$ и программа может сделать не более 16 добавлений и не более 16 проверок, что элемент есть в структуре данных.
+\end{itemize}
+
+
+Пусть программа делает следующие вызовы библиотечных функций:
+
+\begin{itemize}
+\item \texttt{add\_element("0001")}
+\item \texttt{add\_element("0011")}
+\item \texttt{add\_element("0100")}
+\item \texttt{compile\_set()}
+\item \texttt{check\_element("0001")} возвращает \texttt{false}
+\item \texttt{check\_element("0010")} возвращает \texttt{true}
+\item \texttt{check\_element("0100")} возвращает \texttt{true}
+\item \texttt{check\_element("1000")} возвращает \texttt{false}
+\item \texttt{check\_element("0011")} возвращает \texttt{false}
+\item \texttt{check\_element("0101")} возвращает \texttt{false}
+\item \texttt{check\_element("1001")} возвращает \texttt{false}
+\item \texttt{check\_element("0110")} возвращает \texttt{false}
+\item \texttt{check\_element("1010")} возвращает \texttt{true}
+\item \texttt{check\_element("1100")} возвращает \texttt{false}
+ \end{itemize}
+
+Существует единственная перестановка, при которой все сделанные вызовы \texttt{check\_element()} могли вернуть соответствующие результаты: перестановка 
+$p = [2, 1, 3, 0]$. Следовательно, \texttt{restore\_permutation} должна вернуть массив \texttt{[2, 1, 3, 0]}.
+

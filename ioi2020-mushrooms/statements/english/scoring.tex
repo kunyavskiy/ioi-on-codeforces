@@ -1,0 +1,27 @@
+If in any of the test cases, the calls to the procedure \t{use\_machine} do not conform to the rules mentioned above, or the return value of \t{count\_mushrooms} is incorrect, the score of your solution will be $0$. Otherwise, let $Q$ be the maximum number of calls to the procedure \t{use\_machine} among all test cases. Then, the score will be calculated according to the following table:
+\newcommand{\lt}{\textless} 
+
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|}
+\hline
+Condition & Score  \\
+\hline
+$20\,000 \lt Q$ & 0 \\
+\hline
+
+$10\,010 \lt Q \le 20\,000$ & 10 \\
+\hline
+
+$904 \lt Q \le 10\,010$ & 25 \\
+\hline
+
+$226 \lt Q \le 904$ & $100 \cdot \frac{226}{Q}$ \\
+\hline
+
+$Q \le 226$ & 100 \\
+\hline
+
+\end{tabular}
+\end{center}

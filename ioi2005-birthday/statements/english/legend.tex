@@ -1,0 +1,31 @@
+It is Byteman's birthday today. There are $n$ children at his birthday party (including Byteman). The children
+are numbered from $1$ to $n$. Byteman's parents have prepared a big round table and they have placed $n$ chairs
+around the table. When the children arrive, they take seats. The child number 1 takes one of the seats. Then
+the child number 2 takes the seat on the left. Then the child number 3 takes the next seat on the left, and so
+on. Finally the child number $n$ takes the last free seat, between the children number 1 and $n - 1$.
+
+Byteman's parents know the children very well and they know that some of the children will be noisy, if
+they sit too close to each other. Therefore the parents are going to reseat the children in a specific order. Such
+an order can be described by a permutation $p_1, p_2, \ldots , p_n$ ($p_1, p_2, \ldots, p_n$ are distinct integers from 1 to n)~---
+child $p_1$ should sit between $p_n$ and $p_2$, child $p_i$ (for $i = 2,3, \ldots , n-1)$ should sit between $p_{i - 1}$ and $p_{i + 1}$, and
+child $p_n$ should sit between $p_{n - 1}$ and $p_1$. Please note, that child $p_1$ can sit on the left or on the right from child $p_n$.
+
+To seat all the children in the given order, the parents must move each child around the table to the left or
+to the right some number of seats. For each child, they must decide how the child will move~--- that is, they
+must choose a direction of movement (left or right) and distance (number of seats). On the given signal, all
+the children stand up at once, move to the proper places and sit down.
+
+The reseating procedure throws the birthday party into a mess. The mess is equal to the largest distance
+any child moves. The children can be reseated in many ways. The parents choose one with minimum mess.
+Help them to find such a way to reseat the children.
+
+Your task is to write a program that:
+
+\begin{itemize}
+\item reads from the standard input the number of the children and the permutation describing the desired
+order of the children,
+
+\item determines the minimum possible mess,
+
+\item writes the result to the standard output
+\end{itemize}

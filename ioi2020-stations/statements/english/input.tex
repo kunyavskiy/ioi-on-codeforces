@@ -1,0 +1,21 @@
+The sample grader reads the input in the following format:
+\begin{itemize}
+\item line $1$: $r$ ($1 \leq r \leq 10$)
+\end{itemize}
+
+$r$ blocks follow, each describing a single scenario. The format of each block is as follows:
+\begin{itemize}
+\item line $1$: $n\ k$ ($2 \leq n \leq 1000$, $k \geq n-1$)
+\item line $2+i$ ($0 \leq i \leq n - 2$): $u[i]\ v[i]$ ($0 \leq u[i], v[i] \leq n - 1$)
+\item line $1 + n$: $q$: the number of calls to \t{find\_next\_station}.
+\item line $2 + n + j$ ($0 \leq j \leq q - 1$): $z[j]\ y[j]\ w[j]$: \t{indices} of stations involved in the $j$-th call to \t{find\_next\_station}. The station $z[j]$ holds the packet, the station $y[j]$ is the packet's
+target, and the station $w[j]$ is the station that the packet should be forwarded to.
+\end{itemize}
+
+For each call to \t{find\_next\_station}, the input comes from an arbitrarily chosen previous call to \t{label}. Consider the labels it produced. Then:
+\begin{itemize}
+\item $s$ and $t$ are labels of two different stations.
+\item $c$ is the sequence of all labels of neighbours of the station with label $s$, in ascending order.
+\end{itemize}
+
+For each test case, the total length of all arrays $c$ passed to the procedure \t{find\_next\_station} does not exceed $100\,000$ for all scenarios combined.

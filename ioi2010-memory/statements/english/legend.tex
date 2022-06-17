@@ -1,0 +1,52 @@
+A game called Memory is played using $50$ cards. Each card has one of the letters from A to Y (ASCII $65$ to $89$) printed on the face, so that each letter appears on
+exactly two cards. The cards are shuffled into some random order and dealt face down on the table.
+
+Jack plays the game by turning two cards face up so the letters are visible. For each of
+the $25$ letters Jack gets a candy from his mother the first time he sees both copies of
+the letter on the two face up cards. For example, the first time Jack turns over both
+cards that contain the letter M, he gets a candy. Regardless of whether the letters were
+equal or not, Jack then turns both cards face down again. The process is repeated until
+Jack receives $25$ candies --- one for each letter.
+
+You are to implement a procedure play that plays the game. Your implementation
+should call the procedure \t{faceup(C)} which is implemented by the grader. $C$ is a
+number between $1$ and $50$ denoting a particular card you wish to be turned face up.
+The card $C$ must not currently be face up. \t{faceup(C)} returns the character that is printed on the card $C$.
+
+After every second call to \t{faceup}, the grader automatically turns both cards face down
+again.
+
+Your procedure play may only terminate once Jack has received all $25$ candies. It is
+allowed to make calls to \t{faceup(C)} even after the moment when Jack gets the last
+candy.
+
+The following is one possible sequence of calls your procedure play could make, with
+explanations.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Call & Returned value & Explanation \\ 
+\hline
+faceup(1) & `B' & Card $1$ contains B. \\ 
+\hline 
+faceup(7) & `X' & \parbox{13cm}{\centering \vspace{2mm}Card $7$ contains X. The letters are not equal. The grader automatically turns cards $1$ and $7$ face down.\\\vspace{2mm}} \\ \hline
+faceup(7) & `X' & Card $7$ contains X.\\ 
+\hline
+faceup(15) & `O' &\parbox{13cm}{\centering \vspace{2mm} Card $15$ contains O. The letters are not equal. The grader automatically turns cards $7$ and $15$ face down.\\\vspace{2mm}} \\ 
+\hline
+faceup(50) & `X' & Card $50$ contains X.\\ 
+\hline
+faceup(7) & `X' & \parbox{13cm}{\centering \vspace{2mm}Card $7$ contains X. Jack gets his first candy. The grader automatically turns cards $50$ and $7$ face down.\\\vspace{2mm}}\\ \hline
+faceup(7) & `X' & Card $7$ contains X. \\ 
+\hline
+faceup(50) & `X' & \parbox{13cm}{\centering \vspace{2mm}Card $50$ contains X. Equal letters, but Jack gets no candy. The grader automatically turns cards $7$ and $50$ face down. \\\vspace{2mm}}\\ 
+\hline
+faceup(2) & `B' & Card $2$ contains B. \\ 
+\hline
+... & ... & Some function calls were omitted \\ \hline
+faceup(1) & `B' & Card $1$ contains B. \\ \hline 
+faceup(2) & `B' & Card $2$ contains B. Jack gets his 25th candy. \\ \hline 
+\end{tabular}
+\end{center}

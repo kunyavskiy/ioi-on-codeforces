@@ -1,0 +1,43 @@
+\textbf{Example 1}
+
+\texttt{solve\_puzzle(``..........", [3, 4])}
+
+These are all possible valid solutions of the puzzle:
+\begin{itemize}
+\item ``\texttt{XXX\_XXXX\_\_}",
+\item ``\texttt{XXX\_\_XXXX\_}",
+\item ``\texttt{XXX\_\_\_XXXX}",
+\item ``\texttt{\_XXX\_XXXX\_}",
+\item ``\texttt{\_XXX\_\_XXXX}",
+\item ``\texttt{\_\_XXX\_XXXX}".
+\end{itemize}
+
+One can observe that the cells with (0-based) indices 2, 6, and 7 are black in each valid solution. Each of
+the other cells can be, but does not have to be black. Hence, the correct answer is ``\texttt{??X???XX??}".
+
+\textbf{Example 2}
+
+\texttt{solve\_puzzle(``........", [3, 4])}
+
+In this example the entire solution is uniquely determined and the correct answer is ``\texttt{XXX\_XXXX}".
+
+\textbf{Example 3}
+
+\texttt{ solve\_puzzle(``...\_.\_....", [3]) }
+
+In this example we can deduce that cell 4 must be white as well~--- there is no way to fit three  consecutive black
+cells between the white cells at indices 3 and 5. Hence, the correct answer is ``\texttt{???\_\_\_????}".
+
+\textbf{Example 4}
+
+\texttt{ solve\_puzzle(``.X........", [3])}
+
+There are only two valid solutions that match the above description:
+
+\begin{itemize}
+\item ``\texttt{XXX\_\_\_\_\_\_\_}",
+\item ``\texttt{\_XXX\_\_\_\_\_\_}".
+\end{itemize}
+
+Thus, the correct answer is ``\texttt{?XX?\_\_\_\_\_\_}".
+

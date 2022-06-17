@@ -1,0 +1,25 @@
+{\bf Subtask 1 [25 points]}
+
+\t{HC(N)} must call \t{Guess(G)} at most $500$ times. There will be at most $125\,250$ calls to \t{HC(N)}, with N between $1$ and $500$.
+
+{\bf Subtask 2 [25 points]}
+
+\t{HC(N)} must call \t{Guess(G)} at most $18$ times. There will be at most $125\,250$ calls to \t{HC(N)}, with N between $1$ and $500$.
+
+{\bf Subtask 3 [25 points]}
+
+HC(N) must call \t{Guess(G)} at most $16$ times. There will be at most $125\,250$ calls to \t{HC(N)}, with N between $1$ and $500$.
+
+{\bf Subtask 4 [up to 25 points]}
+
+Let $W$ be the largest integer, such that $2 W \le 3 N$. For this subtask your solution will score:
+\begin{itemize}
+\item $0$ points, if \t{HC(N)} calls \t{Guess(G)} $2W$ times or more
+\item $25\alpha$ points, where $\alpha$ is the largest real number, such that $0 < \alpha < 1$
+and \t{HC(N)} calls \t{Guess(G)} at most $2W-\alpha W$ times,
+\item 25 points, if \t{HC(N)} calls \t{Guess(G)} at most $W$ times.
+\end{itemize}
+
+There will be at most $1\,000\,000$ calls to \t{HC(N)} with $N$ between $1$ and $500\,000\,000$.
+
+Be sure to initialize any variables used by \t{HC} every time it is called.

@@ -1,0 +1,39 @@
+The city of Tehran is home to the National Library of Iran.
+The main treasure of this library is located in a long hall with a row of $n$ tables, labeled $0$ through $n-1$ from left to right.
+On each table there is one ancient handwritten book being displayed.
+These books are ordered based on their ages, which makes it hard for the visitors to search for books by title.
+So, the library manager has decided to sort the books in alphabetical order of their titles.
+
+Aryan, a librarian, is going to do the job.
+He has created a list $p$ of length $n$, containing different integers from $0$ to $n-1$.
+This list describes the changes needed to rearrange the books into alphabetical order:
+for all $0 \le i < n$, the book that is currently on table $i$ should be moved to table $p[i]$.
+
+Aryan starts sorting the books at table $s$.
+He wants to return to the same table after finishing the job.
+Since the books are very valuable, he cannot carry more than one book at any time.
+While sorting the books Aryan will perform a sequence of actions.
+Each of those actions has to be one of the following:
+\begin{itemize}
+\item If he is not carrying a book and there is a book on the table he is at, he can pick up this book.
+\item If he is carrying a book and there is another book on the table he is at, he can switch the book he is carrying with the one on the table.
+\item If he is carrying a book and he is at an empty table, he can put the book he is carrying on the table.
+\item He can walk to any table. He may carry a single book while he does so.
+\end{itemize}
+
+For all $0 \le i, j < n$, the distance between tables $i$ and $j$ is precisely $|j-i|$ meters. Your task is to compute the minimum total distance Aryan needs to walk in order to sort all the books.
+
+\textbf{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \texttt{int64 minimum\_walk(int[] p, int s)}
+\begin{itemize}
+\item $p$ is an array of length $n$.
+The book that is on table $i$ at the beginning should be taken by Aryan to table $p[i]$ (for all $0 \le i < n$).
+\item $s$ is the label of the table where Aryan is at the beginning, and where he should be after sorting the books.
+\item This procedure should return the minimum total distance (in meters) Aryan has to walk in order to sort the books.
+\end{itemize}
+\end{itemize}
+

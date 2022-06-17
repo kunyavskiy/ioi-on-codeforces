@@ -1,0 +1,6 @@
+In a modern city for Greek gods, the streets are geometrically arranged as a grid with integer coordinates with streets parallel to the x and y axes. For each integer value Z, there is a horizontal street at y=Z and a vertical street at x=Z. This way, integer coordinate pairs represent the street junctions. During the hot days, the gods rest in cafeterias at street junctions. Messenger Hermes is to send photon messages to gods resting in the cafeterias by only moving along the city streets. Each message is for a single god, and it does not matter if the other gods see the message. 
+
+
+The messages are to be sent in a given order, and Hermes is provided the coordinates of the cafeterias in that order. Hermes starts from (0,0). To send a message to a cafeteria at ($X_i$,$Y_i$), Hermes only needs to visit some point on the same horizontal street (with y-coordinate $Y_i$) or on the same vertical street (with x-coordinate $X_i$). Having sent all of the messages, Hermes stops. 
+
+You are to write a program that, given a sequence of cafeterias, finds the minimum total distance Hermes needs to travel to send the messages. 

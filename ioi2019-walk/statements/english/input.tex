@@ -1,0 +1,9 @@
+The sample grader reads the input in the following format:
+\begin{itemize}
+\item line 1:  $n$ $m$ ($1 \leq n, m \leq  100\,000$)
+\item line $2 + i$ ($0 \leq i \leq n - 1$):  $x[i]$ $h[i]$ ($0 \leq x[0] < x[1] < \ldots < x[n - 1] \leq 10^9$ $1 \leq h[i] \leq 10^9$)
+\item line $n + 2 + j$ ($0 \leq j \leq m - 1$):  $l[j]$ $r[j]$ $y[j]$ ($0 \leq l[j] < r[j] \leq n-1$ $1 \leq y[j] \leq \min(h[l[j]], h[r[j]])$)
+\item line $n + m + 2$: $s$ $g$ ($0 \leq s, g \leq  n - 1$, $s \neq g$)
+\end{itemize}
+
+No two skywalks have a common point, except maybe on their endpoints.

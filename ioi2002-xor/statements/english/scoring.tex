@@ -1,0 +1,22 @@
+If
+\begin{itemize}
+\item the XOR calls specified in your output file do not generate the required image, or
+\item the number of XOR calls specified in your output file is not $K$, or
+\item in your output file, $K > 40000$, or
+\item your output file contains such an XOR call that $L>R$ or $T>B$, or
+\item your output file contains an XOR call which does not have positive coordinates, or
+\item your output file contains an XOR call with a coordinate value exceeding $N$,
+then your score is zero. 
+\end{itemize}
+
+Otherwise, your score is
+$1+ \frac{9 \times CallsInBestKnownSolution}{CallsInYourAnswer}$.
+
+The score is rounded to the first decimal place for each case. The total score is rounded
+off to the nearest integer.
+
+Suppose that you submit a solution with 121 XOR calls. If that is the best submission of
+all contestants, your score is 10. If the best of the submitted solution of all contestants
+uses 98 XOR calls, your score becomes $1+ \frac{9 \times 98}{121}(\approx 8.289)$, which will be rounded to $8.3$.
+
+Unfortunately, no best solution is known to me for sure. So, if you found solution, which is better then jury's one, you will receive \t{denial of judgment} verdict. In that case, contact me (by codeforces message to user PavelKunyavskiy) and I will eventually add your solution as new best one and rejudge problem. 

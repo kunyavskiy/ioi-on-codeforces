@@ -1,0 +1,25 @@
+Aizhan has a sequence of $N$ integers $S[0], S[1], \ldots, S[N - 1]$. She is trying to sort this sequence in ascending order by swapping some
+ pairs of elements. Her friend Ermek is also going to swap some pairs of elements~--- not necessarily in a helpful way.
+
+Ermek and Aizhan are going to modify the sequence in a series of rounds. In each round, first Ermek makes a swap and then Aizhan makes another swap. More precisely, the person making a swap chooses two valid indices and swaps the elements at those indices. Note that the two indices do not have to be distinct. If they are equal, the current person swaps an element with itself, which does not change the sequence.
+
+Aizhan knows that Ermek does not actually care about sorting the sequence $S$. She also knows the exact indices Ermek is going to choose. Ermek plans to take part in $M$ rounds of swapping. We number these rounds from $0$ to $M - 1$. For each $i$ between $0$ and $M - 1$ inclusive, Ermek will choose the indices $X[i]$ and $Y[i]$ in round $i$.
+
+Aizhan wants to sort the sequence $S$. Before each round, if Aizhan sees that the sequence is already sorted in ascending order, she will terminate the entire process. Given the original sequence $S$ and the indices Ermek is going to choose, your task is to find a sequence of swaps, which Aizhan can use to sort the sequence $S$. In addition, in some subtasks you are required to find a sequence of swaps that is as short as possible. You may assume that it is possible to sort the sequence $S$ in $M$ or fewer rounds.
+
+Note that if Aizhan sees that the sequence $S$ is sorted after Ermek's swap, she can choose to swap two equal indices (e.g., 0 and 0). As a result the sequence $S$ Aizhan reaches her goal. Also note that if the initial sequence $S$ is also sorted after the entire round, so is already sorted, the minimal number of rounds needed to sort it is 0.
+
+You are given the sequence $S$, the number $M$, and the sequences of indices $X$ and $Y$. Compute a sequence of swaps, which Aizhan can use to sort the sequence $S$. In subtasks and 5 and 6 the sequence of swaps you find has to be the shortest possible.
+
+You need to implement the function \texttt{findSwapPairs}
+\begin{itemize}
+\item \texttt{int findSwapPairs(int N, int S[], int M, int X[], int Y[], int P[], int Q[])}~--- This function will be called by the grader exactly once.
+\begin{itemize}
+\item $N$: the length of the sequence $S$.
+\item $S$: an array of integers containing the initial sequence $S$.
+\item $M$: the number of swaps Ermek plans to make.
+\item $X, Y$: arrays of integers of length $M$. For $0 \le i \le M - 1$, in round $i$ Ermek plans to swap numbers at indices $X[i]$ and $Y[i]$.
+\item $P, Q$: arrays of integers. Use these arrays to report one possible sequence of swaps Aizhan can make to sort the sequence $S$. Denote by $R$ the length of the sequence of swaps that your program has found. For each $i$ between $0$ and $R - 1$ inclusive, the indices Aizhan should choose in round $i$ should be stored into $P[i]$ and $Q[i]$. You may assume that the arrays $P$ and $Q$ have already been allocated to $M$ elements each.
+\item This function should return the value of $R$(defined above).
+\end{itemize}
+\end{itemize}

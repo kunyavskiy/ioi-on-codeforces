@@ -1,0 +1,30 @@
+Marita's little brother has left toys all over the living room floor! Fortunately, Marita has developed special robots to clean up the toys. She needs your help to determine which robots should pick up which toys.
+
+There are $T$ toys, each with an integer weight $W[i]$ and an integer size $S[i]$. Robots come in two kinds: \textit{weak} and \textit{small}.
+\begin{itemize}
+\item There are $A$ weak robots. Each weak robot has a weight limit $X[i]$, and can carry any toy of weight strictly less than $X[i]$. The size of the toy does not matter.
+\item There are $B$ small robots. Each small robot has a size limit $Y[i]$, and can carry any toy of size strictly less than $Y[i]$. The weight of the toy does not matter.
+\end{itemize}
+
+
+Each of Marita's robots takes one minute to put each toy away. Different robots can put away different toys at the same time.
+
+Your task is to determine whether Marita's robots can put all the toys away, and if so, the shortest time in which they can do this.
+
+You should submit a file implementing the function \t{putaway()} as follows: 
+
+\t{int putaway(int A, int B, int T, int X[], int Y[], int W[], int S[]);}
+
+This function should calculate the smallest number of minutes required for the robots to put all of the toys away, or should return $-­1$ if this is not possible.
+
+Parameters:
+\begin{itemize}
+\item $A$: The number of weak robots.
+\item $B$: The number of small robots.
+\item $T$: The number of toys.
+\item $X$: An array of length $A$ containing integers that specify the weight limit for each weak robot.
+\item $Y$: An array of length $B$ containing integers that specify the size limit for each small robot.
+\item $W$: An array of length $T$ containing integers that give the weight of each toy.
+\item $S$: An array of length $T$ containing integers that give the size of each toy.
+\item \textit{Returns}: The smallest number of minutes required to put all of the toys away, or ­$-1$ if this is not possible.
+\end{itemize}

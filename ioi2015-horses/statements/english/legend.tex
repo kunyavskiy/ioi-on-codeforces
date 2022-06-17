@@ -1,0 +1,46 @@
+Mansur loves to breed horses, just like his ancient ancestors did. He now has the largest herd in Kazakhstan. But this was not always the case. $N$ years ago, Mansur was just a dzhigit (Kazakh for \textit{a young man}) and he only had a single horse. He dreamed to make a lot of money and to finally become a bai (Kazakh for \textit{a very rich person}).
+
+Let us number the years from 0 to $N - 1$ in chronological order (i.e., year $N - 1$ is the most recent one). The weather of each year influenced the growth of the herd. For each year $i$, Mansur remembers a positive integer growth coefficient $X[i]$. If you started year $i$ with $h$ horses, you ended the year with $h \cdot X[i]$ horses in your herd.
+
+Horses could only be sold at the end of a year. For each year $i$, Mansur remembers a positive integer $Y[i]$: the price for which he could sell a horse at the end of year $i$. After each year, it was possible to
+sell arbitrarily many horses, each at the same price $Y[i]$.
+
+Mansur wonders what is the largest amount of money he could have now if he had chosen the best moments to sell his horses during the $N$ years. You have the honor of being a guest on Mansur's toi (Kazakh for \textit{holiday}), and he asked you to answer this question.
+
+Mansur's memory improves throughout the evening, and so he makes a sequence of $M$ updates. Each update will change either one of the values $X[i]$ or one of the values $Y[i]$. After each update he again asks you the largest amount of money he could have earned by selling his horses. Mansur's updates are cumulative: each of your answers should take into account all of the previous updates. Note that a single $X[i]$ or $Y[i]$ may be updated multiple times.
+
+The actual answers to Mansur's questions can be huge. In order to avoid working with large numbers, you are only required to report the answers modulo $10^9 + 7$.
+
+You are given $N$, $X$, $Y$, and the list of updates. Before the first update, and after every update, compute the maximal amount of money that Mansur could get for his horses, modulo $10^9 + 7$. You need to implement the functions \texttt{init}, \texttt{updateX}, and \texttt{updateY}.
+\begin{itemize}
+\item \texttt{int init(int N, int X[], int Y[])}~--- The grader will call this function first and exactly once.
+\begin{itemize}
+\item $N$: the number of years.
+\item $X$: an array of length $N$. For $0 \le i\le N - 1$, $X[i]$ gives the growth coefficient for year $i$.
+\item $Y$: an array of length. For $0 \le i \le N - 1$, $Y[i]$ gives the price of a horse after year $i$.
+\item Note that both $X$ and $Y$ specify the initial values given by Mansur (before any updates).
+\item After \texttt{init} terminates, the arrays $X$ and $Y$ remain valid, and you may modify their contents if you wish.
+\item The function should return the maximal amount of money Mansur could get for these initial values of $X$ and $Y$, modulo $10^9 + 7$.
+\end{itemize}
+
+\item \texttt{int updateX(int pos, int val)}
+\begin{itemize}
+\item $pos$: an integer from the range $0, \ldots, N - 1$.
+\item $val$: the new value for $X[pos]$.
+\item The function should return the maximal amount of money Mansur could get after this update, modulo $10^9 + 7$.
+\end{itemize}
+
+\item \texttt{int updateY(int pos, int val)}
+\begin{itemize}
+\item $pos$: an integer from the range $0, \ldots, N - 1$.
+\item $val$: the new value for $Y[pos]$.
+\item The function should return the maximal amount of money Mansur could get after this update, modulo $10^9 + 7$.
+\end{itemize}
+\end{itemize}
+
+You may assume that all the initial, as well as updated values of $X[i]$ and $Y[i]$ are between 1 and $10^9$ inclusive.
+
+After calling \texttt{init}, the grader will call \texttt{updateX} and \texttt{updateY} several times. 
+
+The total number of
+calls to \texttt{updateX} and \texttt{updateY} will be $M$.

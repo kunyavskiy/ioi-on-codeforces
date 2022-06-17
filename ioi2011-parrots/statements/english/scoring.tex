@@ -1,0 +1,40 @@
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|l|}
+\hline
+Subtask & Points & $N$ & $R$ & \parbox{7cm}{\centering \vspace{2mm}Additional Input Constraints\\\vspace{2mm}}\\
+\hline
+1 & 17 & $N = 8$ & $0 \le R \le 65535$ & \parbox{7cm}{\centering \vspace{2mm}Each integer in the array $M$ is either $0$ or $1$.\\ The number of times you can call the procedure send is at most $K=10 \cdot N$.\\\vspace{2mm}}\\
+\hline
+2 & 17 & $1 \leq N \leq 16$ & $0 \le R \le 65535$ &\parbox{7cm}{\centering \vspace{2mm} The number of times you can call the procedure send is at most $K=10 \cdot N$\\\vspace{2mm}} \\
+\hline
+3 & 18 & $1 \leq N \leq 16$ & $0 \le R \le 255$ & \parbox{7cm}{\centering \vspace{2mm}The number of times you can call the procedure send is at most $K=10 \cdot N$.\\\vspace{2mm}} \\
+\hline
+4 & 29 & $1 \leq N \leq 32$ & $0 \le R \le 255$ & \parbox{7cm}{\centering \vspace{2mm}The number of times you can call the procedure \t{send} is at most $K=10 \cdot N$.\\\vspace{2mm}} \\
+\hline
+5 & up to 19 points & $16 \leq N \leq 64$ &  $0 \le R \le 255$ &  \parbox{7cm}{\centering \vspace{2mm}The number of times you can call the procedure \t{send} is at most $K=15 \cdot N$
+
+\textbf{Important}: the score for this subtask depends on the ratio between the length of the encoded message and that of the original message.
+For a given test case $t$ in this subtask, let $P_t=\frac{L_t}{N_t}$
+be the ratio between the length $L_t$
+of
+the encoded message and the length $N_t$
+of the original message. Let $P$ be the maximum of
+all $P_t$. Your score for this subtask will be determined using the following rules:
+\begin{itemize}
+\item If $P \leq 5$, you get the full score of $19$ points.
+\item If $5 < P \leq 6$, you get $18$ points.
+\item If $6 < P \leq 7$, you get $17$ points.
+\item If $7 < P \leq 15$, your score is $1 + 2 \cdot (15 - P)$, rounded down to the nearest integer.
+\item If $P > 15$ or any of your outputs is incorrect, your score is $0$.
+\end{itemize}~---\\
+\vspace{2mm}} \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+\textbf{Important}: Any valid solution for subtasks $1$ to $4$ will also solve all preceding subtasks.
+However, due to the larger bound on $K$, a valid solution to subtask $5$ might not be able to
+solve subtasks $1$ to $4$. It is possible to solve all subtasks using the same solution.

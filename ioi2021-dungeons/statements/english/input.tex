@@ -1,0 +1,13 @@
+\newcommand{\gt}{\textgreater} 
+\newcommand{\lt}{\textless} 
+
+
+The sample grader reads the input in the following format:
+\begin{itemize}
+\item line $1$: $n\ q$ ($1 \leq n \leq 400\,000$, $1 \leq q \leq 50\,000$)
+\item line $2$: $s[0]\ s[1]\ldots \ s[n-1]$ ($1 \leq s[i] \leq 10^{7}$)
+\item line $3$: $p[0]\ p[1]\ldots \ p[n-1]$ ($1 \leq p[i] \leq 10^{7}$)
+\item line $4$: $w[0]\ w[1]\ldots \ w[n-1]$ ($i \lt w[i] \leq n$)
+\item line $5$: $l[0]\ l[1]\ldots \ l[n-1]$ ($0 \leq l[i] \leq n$)
+\item line $6 + i$ ($0 \leq i \leq q - 1$): $x\ z$ ($0 \leq x \leq n-1$, $1 \leq z \leq 10^{7}$) for the $i$-th call to \texttt{simulate}.
+\end{itemize}

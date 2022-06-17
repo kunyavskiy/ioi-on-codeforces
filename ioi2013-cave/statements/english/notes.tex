@@ -1,0 +1,18 @@
+Suppose the doors and switches are arranged as in the picture above:
+\begin{center}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{ |c|c|c| }
+\hline
+Function Call & Returns & Explanation\\
+\hline
+\t{tryCombination([1, 0, 1, 1])} & $1$ & \parbox{7cm}{\centering \vspace{2mm} This corresponds to the picture. Switches $0$, $2$ and $3$ are down, while switch $1$ is up. The function returns $1$, indicating that door $1$ is the first door from the left that is closed.\\\vspace{2mm}}\\
+\hline
+\t{tryCombination([0, 1, 1, 0])} & 3 & \parbox{7cm}{\centering \vspace{2mm}Doors $0$, $1$ and $2$ are all opened, while door $3$ is closed.\\\vspace{2mm}}\\
+\hline
+\t{tryCombination([1, ­1, 1, 0])} & $-1$ & \parbox{7cm}{\centering \vspace{2mm}Moving switch $0$ down causes all doors to be opened, indicated by the return value of ­$-1$.\\\vspace{2mm}}\\
+\hline
+\t{answer([1, 1, 1, 0],[3, 1, 0, 2])} & (Program exits) &\parbox{7cm}{\centering \vspace{2mm}We guess that the correct combination is $[1,1, 1,0]$, and that switches $0$, $1$, $2$ and $3$ connect to doors $3$, $1$, $0$ and $2$ respectively.\\\vspace{2mm}}\\
+\hline
+\end{tabular}
+\end{center}
+Your submission file should contain \t{\#include "cave.h"}.

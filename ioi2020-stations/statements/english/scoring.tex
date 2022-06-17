@@ -1,0 +1,43 @@
+\newcommand{\gt}{\textgreater} 
+\newcommand{\lt}{\textless} 
+
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Subtask & Points & $K$ & \parbox{11cm}{\centering \vspace{2mm}Additional Input Constraints\\\vspace{2mm}}\\
+\hline
+1 & 5 & $k = 1000$ & No station has more than $2$ neighbours.\\
+\hline
+2 & 8 & $k = 1000$ & Link $i$ connects stations $i+1$ and $\left\lfloor \frac{i}{2} \right\rfloor$.\\
+\hline
+3 & 16 & $k = 1\,000\,000$ & At most one station has more than $2$ neighbours.\\
+\hline
+4 & 10 & $k = 10^9$ & $n \leq 8$ \\
+\hline
+5 & 61 & $k = 10^9$ & --- \\
+\hline
+\end{tabular}
+\end{center}
+
+
+In subtask 5 you can obtain a partial score. Let $m$ be the maximum label value returned by \t{label} across all scenarios. Your score for this subtask is calculated according to the following table:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|}
+\hline
+Maximum label & Score  \\
+\hline
+$m\geq10^9$ & $0$ \\
+\hline
+$2000 \leq m \lt 10^9$ & $50 \cdot \log_{5\cdot10^5}(\frac{10^9}{m})$  \\
+\hline
+$1000 \lt m \lt 2000$ & $50$ \\
+\hline
+$m\leq 1000$ & $61$ \\
+\hline
+
+\end{tabular}
+\end{center}

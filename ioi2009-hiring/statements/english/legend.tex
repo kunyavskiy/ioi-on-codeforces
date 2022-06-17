@@ -1,0 +1,10 @@
+You have to hire workers for a construction project. There are $N$ candidates applying for the job, numbered from $1$ to $N$ inclusive. Each candidate $k$ requires that if he is hired, he must be paid at least $S_k$ dollars. Also, each candidate $k$ has a qualification level $Q_k$. The regulations of the construction industry require that you pay your workers in proportion to their qualification level, relative to each other. For example, if you hire two workers $A$ and $B$, and $Q_A = 3 \cdot Q_B$, then you
+have to pay worker $A$ exactly three times as much as you pay worker $B$. You are allowed to pay your workers non-integer amounts of money. This even includes quantities that cannot be written with a finite number of digits in decimal form, such as a third or a sixth of a dollar.
+
+
+You have $W$ dollars at hand and you want to hire as many workers as possible. You decide whom to hire and how much to pay them, but you have to meet the minimum salary
+requirements of those you choose to hire, and you have to obey the industry regulations. You also have to fit within your budget of $W$ dollars.
+
+The nature of your project is such that the qualification level is completely irrelevant, so you are only interested in maximizing the number of workers without regard to their qualification level. However, if there is more than one way to achieve this, then you want to select the one where the total amount of money you have to pay your workers is as small as possible. In case there is more than one way to achieve this, then you are indifferent among these ways and you would be satisfied with any one of them.
+
+Write a program that, given the different salary requirements and qualification levels of the candidates, as well as the amount of money you have, determines which candidates you should hire. You must hire as many of them as possible and you must do so with as little money as possible, while complying with the industry regulations specified above. 

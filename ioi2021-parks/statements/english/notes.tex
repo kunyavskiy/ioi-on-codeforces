@@ -1,0 +1,57 @@
+\textbf{Example 1}
+
+Consider the following call:
+
+\texttt{construct\_roads([4, 4, 6, 4, 2], [4, 6, 4, 2, 4])}
+
+This means that there are $5$ fountains:
+\begin{itemize}
+\item fountain $0$ is located at $(4,4)$,
+\item fountain $1$ is located at $(4,6)$,
+\item fountain $2$ is located at $(6,4)$,
+\item fountain $3$ is located at $(4,2)$,
+\item fountain $4$ is located at $(2,4)$.
+\end{itemize}
+
+It is possible to construct the following $4$ roads, where each road connects two fountains, and place
+the corresponding benches:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Road label & Labels of the fountains the road connects & Location of the assigned bench \\
+\hline
+$0$&$0,2$&$(5,5)$\\
+\hline
+$1$&$0,1$& $(3,5)$\\
+\hline
+$2$&$3,0$& $(5,3)$\\
+\hline
+$3$&$4,0$& $(3,3)$\\
+\hline
+\end{tabular}
+\end{center}
+
+This solution corresponds to the following diagram:
+
+\includegraphics[scale=0.7]{1.png}
+
+To report this solution, \texttt{construct\_roads} should make the following call:
+\begin{itemize}
+\item \texttt{build([0, 0, 3, 4], [2, 1, 0, 0], [5, 3, 5, 3], [5, 5, 3, 3])}
+\end{itemize}
+
+It should then return $1$.
+
+Note that in this case, there are multiple solutions that satisfy the requirements, all of which would be
+considered correct. For example, it is also correct to call \texttt{build([1, 2, 3, 4], [0, 0, 0, 0], [5, 5, 3, 3], [5, 3, 3, 5])} and then return $1$.
+
+\textbf{Example 2}
+
+Consider the following call:
+
+\texttt{construct\_roads([2, 4], [2, 6])}
+
+Fountain $0$ is located at $(2,2)$ and fountain $1$ is located at $(4,6)$. Since there is no way to
+construct roads that satisfy the requirements, \texttt{construct\_roads} should return $0$ without making any call to \texttt{build}.

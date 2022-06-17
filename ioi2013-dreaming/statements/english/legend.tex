@@ -1,0 +1,38 @@
+This story takes place a long time ago, when the world was new and the IOI had not yet
+been dreamt.
+
+Serpent lives in a land which has $N$ billabongs (water holes), numbered $0, \dots, N ­- 1$.
+There are $M$ bidirectional trails, joining pairs of billabongs, which Serpent can travel
+along. Each pair of billabongs is connected (directly or indirectly) by at most one sequence
+of trails, though some pairs of billabongs may not be connected at all (thus, $M \leq N - ­1$ ). Each
+trail takes a certain number of days for Serpent to travel along it: this number may be
+different for each trail.
+
+Serpent's friend, Kangaroo, wishes to make $N -­ M ­- 1$ new trails, so that it is possible for
+Serpent to travel between any pair of billabongs. Kangaroo can create trails between any
+pair of billabongs, and every trail that Kangaroo creates will take $L$ days for Serpent to
+travel along it.
+
+Additionally, Kangaroo wants to make Serpent's travels as fast as possible. Kangaroo will
+build the new trails so that the longest travel time between any two billabongs is as small as
+possible. Help Kangaroo and Serpent determine the longest travel time between any two
+billabongs, after Kangaroo has built the new trails in this way.
+
+You should submit a file implementing the function $travelTime()$, as follows:
+
+\t{int travelTime(int N, int M, int L, int A[], int B[], int T[]);}
+
+This function should calculate the greatest travel time (measured in days) between any pair
+of billabongs, assuming that Kangaroo has added $N ­- M ­- 1$ trails in such a way that all
+billabongs are connected and this greatest travel time is as small as possible.
+
+Parameters:
+\begin{itemize}
+\item $N$: The number of billabongs.
+\item $M$: The number of trails that already exist.
+\item $L$: The time in days that it takes Serpent to travel along a new trail.
+\item $A$, $B$ and $T$: Arrays of length $M$ that specify the endpoints and travel time of
+each pre­existing trail, so that the $i^{th}$ trail joins billabongs $A[i­-1]$ and $B[i - 1]$,
+and takes $T[i-­1]$ days to travel in either direction.
+\item \textit{Returns:} The greatest travel time between any pair of billabongs, as described above.
+\end{itemize}

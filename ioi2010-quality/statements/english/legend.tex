@@ -1,0 +1,21 @@
+Cities in Alberta tend to be laid out as rectangular grids of blocks. Blocks are labeled
+with coordinates 0 to $R-1$ from north to south and 0 to $C-1$ from west to east.
+
+The quality of living in each particular block has been ranked by a distinct number,
+called quality rank, between $1$ and $R\cdot C$, where $1$ is the best and $R\cdot C$ is the worst.
+
+The city planning department wishes to identify a rectangular set of blocks with
+dimensions $H$ from north to south and $W$ from west to east, such that the median
+quality rank among all blocks in the rectangle is the best. $H$ and $W$ are odd numbers
+not exceeding $R$ and $C$ respectively. The median quality rank among an odd number
+of quality ranks is defined to be the quality rank $m$ in the set such that the number of quality ranks better than $m$ equals the number of quality ranks worse than $m$.
+
+You are to implement a procedure \t{rectangle(R,C,H,W,Q)} where $R$ and $C$ represent
+the total size of the city, $H$ and $W$ represent the dimensions of the set of blocks,
+and $Q$ is an array such that $Q[a][b]$ is the quality rank for the block labeled a from
+north to south and b from west to east.
+
+Your implementation of rectangle must return a number: the best (numerically
+smallest) possible median quality rank of an $H$ by $W$ rectangle of blocks.
+
+Each test run will only call rectangle once.

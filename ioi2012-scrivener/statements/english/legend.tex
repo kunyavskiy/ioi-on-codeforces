@@ -1,0 +1,55 @@
+Some people say that Leonardo was a great admirer of Johannes Gutenberg, the German blacksmith who invented movable-type printing, and that he paid homage by designing a machine called the crayfish scrivener --- il gambero scrivano --- a very simple typing device. It is somehow similar to a simple modern typewriter and accepts only two commands: one to type the next character and one to undo the most recent commands. The notable feature of the crayfish scrivener is that the undo command is extremely powerful: an undo is also considered to be a command itself, and can be undone.
+
+Your task is to realize a software version of the crayfish scrivener: it starts with an empty text and accepts a sequence of commands entered by the user, and queries for specific positions of the current version of the text, as follows.
+
+\begin{itemize}
+\item \t{Init()} --- called once at the beginning of the execution, without arguments. It can be used for initializing data structures. It will never need to be undone.
+
+\item \t{TypeLetter(L)} --- append to the end of the text a single lowercase letter $L$ chosen from $a, \dots, z$.
+
+\item \t{UndoCommands(U)} --- undo the the last $U$ commands, for a positive integer $U$.
+
+\item \t{GetLetter(P)} --- return the letter at position $P$ in the current text, for a non-negative index $P$. The first letter in the text has index $0$. (This query is not a command and thus is ignored by the undo command.)
+\end{itemize}
+
+After the initial call to \t{Init()}, the other routines can be called zero or more times in any order. It is guaranteed that $U$ will not exceed the number of previously received commands, and that $P$ will be less than the current text length (the number of letters in the current text).
+
+As for \t{UndoCommands(U)}, it undoes the previous $U$ commands in reverse order: if the command to be undone is TypeLetter(L), then it removes $L$ from the end of the current text; if the command to be undone is \t{UndoCommands(X)} for some value $X$, it re-does the previous $X$ commands in their original order.
+
+You have to submit exactly one file, called \t{scrivener.c}, \t{scrivener.cpp} or \t{scrivener.pas}. This file must implement the subprograms described above using the following signatures:
+
+C/C++ programs:
+
+\t{void Init();}
+
+\t{void TypeLetter(char L);}
+
+\t{void UndoCommands(int U);}
+
+\t{char GetLetter(int P);}
+
+Pascal programs:
+
+\t{procedure Init;}
+
+\t{procedure TypeLetter(L : Char);}
+
+\t{procedure UndoCommands(U : LongInt);}
+
+\t{function GetLetter(P : LongInt) : Char;}
+
+These subprograms must behave as described above. Of course you are free to implement other subprograms for their internal use. Your submissions must not interact in any way with standard input/output, nor with any other file.
+
+The sample grader reads the input in the following format:
+
+\begin{itemize}
+\item line 1: the total number of commands and queries in the input;
+\item on each following line:
+\begin{itemize}
+\item $T$ followed by a space and a lowercase letter for a \t{TypeLetter} command;
+\item $U$ followed by a space and an integer for \t{UndoCommands};
+\item $P$ followed by a space and an integer for \t{GetLetter}.
+\end{itemize}
+\end{itemize}
+
+The sample grader will print the characters returned by \t{GetLetter}, each one on a separate line.

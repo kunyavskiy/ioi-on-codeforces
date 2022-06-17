@@ -1,0 +1,43 @@
+\newcommand{\gt}{\textgreater} 
+\newcommand{\lt}{\textless} 
+
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Подзадача & Баллы & $K$ & \parbox{10cm}{\centering \vspace{2mm}Дополнительные ограничения на входные данные\\\vspace{2mm}}\\
+\hline
+1 & 5 & $k = 1000$ & Ни одна из станции не имеет более $2$ соседей. \\
+\hline
+2 & 8 & $k = 1000$ & Соединение $i$ соответствует станциям $i+1$ и $\left\lfloor \frac{i}{2} \right\rfloor$.\\
+\hline
+3 & 16 & $k = 1\,000\,000$ & Не более одной станции имеет более $2$ соседей.\\
+\hline
+4 & 10 & $k = 10^9$ & $n \leq 8$ \\
+\hline
+5 & 61 & $k = 10^9$ & --- \\
+\hline
+\end{tabular}
+\end{center}
+
+
+В подзадаче 5 вы можете получить частичный балл. Пусть $m$ обозначает максимальное значение элементов \t{label} среди всех сценариев. Ваш балл за эту подзадач вычисляется следующим образом:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|}
+\hline
+Максимальный идентификатор & Балл  \\
+\hline
+$m\geq10^9$ & $0$ \\
+\hline
+$2000 \leq m \lt 10^9$ & $50 \cdot \log_{5\cdot10^5}(\frac{10^9}{m})$  \\
+\hline
+$1000 \lt m \lt 2000$ & $50$ \\
+\hline
+$m\leq 1000$ & $61$ \\
+\hline
+
+\end{tabular}
+\end{center}

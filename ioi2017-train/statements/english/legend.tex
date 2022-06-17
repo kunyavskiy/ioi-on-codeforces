@@ -1,0 +1,31 @@
+Arezou and her brother Borzou are twins. They have received an amazing toy train set for their birthday, and they used it to build a railway system with $n$ stations and $m$ \texttt{one-way} tracks. The stations are numbered from $0$ to $n - 1$. Each track starts at one station and ends at the same or a different station. There is at least one track starting at each station.
+
+Some stations are \texttt{charging stations}. Whenever the train arrives at a charging station, it gets fully charged. A fully charged train has enough energy to travel along $n$ consecutive tracks. That is, the train runs out of energy just when it enters the $n + 1$-st track after last being charged.
+
+On each station there is a switch that can be pointed to any of the tracks that start at that station. When a train is at a station, it leaves it using the track that is pointed to by the switch on that station.
+
+The twins are going to play a game with their train. They have already divided all the stations between themselves: each station is either owned by Arezou or by Borzou.
+There is a single train. At the beginning of the game the train is at station $s$ and it is fully charged. To start the game, the owner of station $s$ points the switch on station $s$ to one of the tracks that start at station $s$. Then, they turn the train on and the train starts traveling along the tracks.
+
+Whenever the train enters a station for the first time, the owner of that station sets the switch on that station. Once a switch is set, it stays in the same position for the rest of the game. Thus, if a train re-enters a station it visited before, it will leave that station along the same track as before.
+
+Since there is a finite number of stations, the train will eventually start going along a \texttt{cycle}. A cycle is a sequence of \texttt{distinct} stations $c[0], c[1], \ldots, c[k - 1]$ such that the train leaves station $c[i]$ (for $0 \le i < k - 1$) using a track going to station $c[i + 1]$, and it leaves station $c[k - 1]$ using a track going to station $c[0]$. Note that a cycle may consist of a single station (i.e., have $k = 1$) if the train leaves the station $c[0]$ using a track that goes back to $c[0]$.
+
+Arezou wins the game if the train continues going indefinitely, and Borzou wins if the train runs out of energy. In other words, if there is at least one charging station among $c[0], c[1], \ldots, c[k - 1]$, the train can recharge and cycle indefinitely, and Arezou wins. Otherwise, it will run out of energy (possibly after turning around the cycle several times), and Borzou wins.
+
+You are given the description of the railway system. Arezou and Borzou are going to play $n$ games. In the $s$-th game, for $0 \le s \le n - 1$, the train will initially be at station $s$. Your task is to find, for each game, whether there is a strategy for Arezou that guarantees she wins, regardless of how Borzou plays.
+
+\textbf{Implementation details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+\item \texttt{int[] who\_wins(int[] a, int[] r, int[] u, int[] v)}
+\begin{itemize}
+\item $a$: array of length $n$. If Arezou owns station $i$, $a[i] = 1$. Otherwise, Borzou owns station $i$ and $a[i] = 0$.
+\item $r$: array of length $n$. If the station $i$ is a charging station, $r[i] = 1$. Otherwise, $r[i] = 0$.
+\item $u$ and $v$: arrays of length $m$. For all $0 \leq i \leq m - 1$, there is a one-way track starting at station $u[i]$ and ending at station $v[i]$.
+\item This procedure should return an array $w$ of length $n$. For each $0 \leq i \leq n-1$, the value of $w[i]$ should be $1$ if Arezou can win the game that starts at station $i$, regardless of how Borzou plays. Otherwise, the value of $w[i]$ should be $0$.
+\end{itemize}
+\end{itemize}
+
