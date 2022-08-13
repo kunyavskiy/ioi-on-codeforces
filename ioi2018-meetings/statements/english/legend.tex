@@ -1,0 +1,43 @@
+There are $N$ mountains lying in a horizontal row, numbered from $0$ through $N-1$ from
+left to right. The height of the mountain $i$ is $H_i$ ($0\le i\le N-1$). Exactly one person
+lives on the top of each mountain.
+
+You are going to hold $Q$ meetings, numbered from $0$ through $Q-1$. The meeting $j$ ($0 \le j 
+\le Q-1$) will be attended by all the people living on the mountains from $L_j$ to $R_j$,
+inclusive ($0\le L_j \le R_j \le N-1$). For this meeting, you must select a mountain $x$ as the
+meeting place ($L_j \le x \le R_j$).  The cost of this meeting, based on your selection, is then
+calculated as follows:
+\begin{itemize}
+    \item The cost of the participant from each mountain $y$ ($L_j \le y \le R_j$) is the maximum
+height of the mountains between the mountains $x$ and $y$, inclusive. In particular,
+the cost of the participant from the mountain $x$ is $H_x$, the height of the mountain $x$.
+
+\item The cost of the meeting is the sum of the costs of all participants.
+\end{itemize}
+
+
+For each meeting, you want to find the minimum possible cost of holding it.
+
+Note that all participants go back to their own mountains after each meeting; so the
+cost of a meeting is not influenced by the previous meetings.
+
+
+\textbf{Implementation details}
+
+You should implement the following function:
+
+\begin{itemize}
+    \item \texttt{int64[] minimum\_costs(int[] H, int[] L, int[] R)}
+    \begin{itemize}
+        \item $H$: an array of length $N$, representing the heights of the mountains
+        \item $L$ and $R$: arrays of length $Q$, representing the range of the participants in the
+meetings.
+        \item This function should return an array $C$ of length $Q$. The value of $C_j$ ($0\le j\le Q-1$)
+ must be the minimum possible cost of holding the meeting $j$.
+\item Note that the values of $N$ and $Q$ are the lengths of the arrays, and can be
+obtained as indicated in the implementation notice.
+    \end{itemize}
+\end{itemize}
+
+
+

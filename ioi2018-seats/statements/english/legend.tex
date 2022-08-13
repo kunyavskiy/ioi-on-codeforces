@@ -1,0 +1,67 @@
+You are going to hold an international programming contest in a rectangular hall, which has $ H \cdot W $ seats arranged in $ H $ rows and $ W $ columns. The rows are numbered from $ 0 $ through $ H-1 $ and the columns are numbered from $ 0 $ through $ W-1. $ The seat in row $ r $ and column $ c $ is denoted by $ (r, c) $ . You invited $ H \cdot W $ contestants, numbered from 0 through $ H \cdot W - 1. $ You also made a seating chart, which assigns the contestant $i$ $( 0 \le i \le H \cdot W-1 )$ to the seat $ (R_i, C_i).$ The chart assigns exactly one contestant to each seat. 
+
+A set of seats in the hall $ S $ is said to be \bf{rectangular} if there are integers $ r_1 $ , $ r_2 $ , $ c_1 $ , and $ c_2 $ satisfying the following conditions:
+
+\begin{itemize}
+\item $ 0 \le r_1 \le r_2 \le H-1 $ 
+\item $ 0 \le c_1 \le c_2 \le W-1 $ 
+\item $ S $ is exactly the set of all seats $ (r, c) $ such that $ r_1 \le r \le r_2 $ and $c_1 \le c \le c_2$. 
+\end{itemize}
+
+A rectangular set consisting of $ k $ seats $ ( 1 \le k \le H \cdot W) $ , is \bf{beautiful} if the contestants whose assigned seats are in the set have numbers from $ 0 $ through $ k-1 $ . The \bf{beauty} of a seating chart is the number of beautiful rectangular sets of seats in the chart. 
+
+After preparing your seating chart, you receive several requests to swap two seats assigned to two contestants. More precisely, there are $ Q $ such requests numbered from $ 0 $ through $ Q-1 $ in chronological order. The request $ j$ $(0 \le j \le Q-1) $ is to swap the seats assigned to contestants $ A_j $ and $ B_j $ . You accept each request immediately and update the chart. After each update, your goal is to compute the beauty of the current seating chart. 
+
+\bf{Implementation details}
+
+You should implement the following procedure and function:
+
+\t{give_initial_chart(int H, int W, int[] R, int[] C)}
+
+\begin{itemize}
+\item $ H, W $ : the number of rows and the number of columns.
+\item $ R, C $ : arrays of length $ H \cdot W $ representing the initial seating chart.
+\item This procedure is called exactly once, and before any call to \t{swap_seats}.
+\end{itemize}
+
+\t{int swap_seats(int a, int b) }
+
+\begin{itemize}
+\item This function describes a request to swap two seats. 
+\item $ a, b: $ contestants whose seats are to be swapped.
+\item This function is called $ Q $ times.
+\item This function should return the beauty of the seating chart after the swap 
+\end{itemize}
+
+\bf{Constraints}
+
+\begin{itemize}
+\item $ 1 \le H $ 
+\item $ 1 \le W $ 
+\item $ H \cdot W \le 1\,000\,000 $ 
+\item $ 0 \le Ri \le H-1 $ for all $ i: 0 \le i \le H \cdot W-1 $ 
+\item $ 0 \le Ci \le W-1 $ for all $ i: 0 \le i \le H \cdot W-1 $ 
+\item $ (R_i, C_i) \neq (R_j, C_j) $ for all $ i, j: 0 \le i < j \le H \cdot W-1 $ 
+\item $ 1 \le Q \le 50\,000 $ 
+\item $ 0 \le a \le H \cdot W -1 $ for any call to \t{swap_seats}
+\item $ 0 \le b \le H \cdot W -1 $ for any call to \t{swap_seats}
+\item $ a \neq b $ for any call to \t{swap_seats}
+\end{itemize} 
+
+\bf{Sample grader}
+
+The sample grader reads the input in the following format:
+
+\begin{tabular}{ccccc}\\
+line& $ 1 $ &:& $ H$ $W$ $Q$ &\\
+line& $ 2+i $ &:& $R_i$ $C_i$ & $ (0 \le i \le H \cdot W-1) $ \\
+line& $ 2+H \cdot W+j $ &:& $A_j$ $B_j$ & $ (0 \le j \le Q-1) $ \\
+\end{tabular}
+
+Here, $ A_j $ and $ B_j $ are parameters for the call to \t{swap_seats} for the request $j.$ 
+
+The sample grader prints your answers in the following format:
+
+\begin{tabular}{ccccc}
+line& $ 1+j $ &:&the return value of \t{swap_seats} for the request $ j $ & $ (0 \le j \le Q-1) $ 
+\end{tabular}

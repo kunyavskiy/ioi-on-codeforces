@@ -1,0 +1,65 @@
+There are cities $N$ and $M$ roads in Ibaraki Prefecture, Japan. Cities are numbered from $0$ through $N-1$ in the increasing order of their population. Each road connects a pair of distinct cities, and can be traveled in both directions. You can travel from any city to any other city by using one or more of these roads.
+
+You planned $Q$ trips, numbered from $0$ through $Q-1$. The trip $i$ $(0 \le i \le Q-1)$ is to travel from $S_i$ the city to the city $E_i$.
+
+You are a werewolf. You have two forms: \bf{human form} and \bf{wolf form}. At the beginning of each trip you are in human form. At the end of each trip, you must be in wolf form. During the trip you have to \bf{transform} (change from human form to wolf form) exactly once. You can transform only when you are in some city (possibly $S_i$ or $E_i$).
+
+Living as a werewolf is not easy. You must avoid low-populated cities when you are in human form, and avoid highly-populated cities when you are in wolf form. For each trip $i$ $(0 \le i \le Q-1)$ there are two thresholds $L_i$ and $R_i$ $(0 \le L_i \le R_i \le N-1)$ that indicate which cities must be avoided. More specifically, you must avoid the cities $0, 1,  \dots , L_i-1$ when you are in human form, and must avoid the cities $R_i+1, R_i+2, \dots ,N-1$ when you are in wolf form. This means in the trip $i$, you can only transform in one of the cities $L_i, L_i+1, \dots , R_i.$
+
+Your task is to determine, for each trip, whether it is possible to travel from the city $S_i$ to the city $E_i$ in a way that satisfies the aforementioned constraints. The route you take can have an arbitrary length.
+
+\bf{Implementation details}
+
+You should implement the following function:
+
+\t{int[] check_validity(int N, int[] X, int[] Y, int[] S, int[] E, int[] L, int[] R)}
+
+\begin{itemize}
+\item $N$: the number of cities. 
+\item $X$ and $Y$: arrays of length $M$. For each $j$ $(0 \le j \le M-1)$, the city $X[j]$ is directly connected to the city $Y[j]$ by a road. 
+\item $S, E, L,$ and $R$: arrays of length $Q$, representing the trips.
+\end{itemize}
+
+Note that the values of $M$ and $Q$ are the lengths of the arrays, and can be obtained as indicated in the implementation notice.
+
+The function \t{check_validity} is called exactly once for each test case. This function should return an array $A$ of integers of length $Q$. The value of $A_i$ $(0 \le i \le Q-1)$ must be $1$ if the trip $i$ is possible while satisfying the aforementioned conditions, or $0$ otherwise.
+
+
+\bf{Constraints}
+
+\begin{itemize}
+\item $2 \le N \le 200\,000$
+\item $N-1 \le M \le 400\,000$
+\item $1 \le Q \le 200\,000$
+\item For each $j : 0 \le j \le M-1$
+\begin{itemize}
+\item $0 \le X_j \le N-1$
+\item $0 \le Y_j \le N-1$
+\item $X_j \neq Y_j$
+\end{itemize}
+\item You can travel from any city to any other city by using roads. 
+\item Each pair of cities are directly connected by at most one road. In other words, $(X_j, Y_j) \neq (X_k, Y_k)$ and $(Y_j, X_j) \neq (X_k, Y_k)$ for all $j, k: 0 \le j < k \le M-1$
+\item For each $i: 0 \le i \le Q-1$
+\begin{itemize}
+\item $0 \le L_i \le S_i \le N-1$
+\item $0 \le E_i \le R_i \le N-1$
+\item $S_i \neq E_i$
+\item $L_i \le R_i$
+\end{itemize}
+\end{itemize}
+
+\bf{Sample grader}
+
+The sample grader reads the input in the following format:
+
+\begin{tabular}{clclcr}
+line&$1$&:&$N$ $M$ $Q$&&\\
+line&$2+j$&:&$X_j$ $Y_j$&&$0 \le j \le M-1$\\
+line&$2+M+i$&:&$S_i$ $E_i$ $L_i$ $R_i$ &&$0 \le i \le Q-1$\\
+\end{tabular}
+
+The sample grader prints the return value of \t{check_validity} in the following format: 
+
+\begin{tabular}{clclcr}
+line&$1+i$&:&$A_i$&&$0 \le i \le Q-1$
+\end{tabular}

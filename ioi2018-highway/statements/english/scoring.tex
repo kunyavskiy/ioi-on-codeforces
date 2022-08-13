@@ -1,0 +1,25 @@
+\bf{Subtasks}
+
+\begin{tabular}{|c|c|l|} \hline
+\bf{Subtask}&\bf{Points (max)}&\bf{Additional constraints} \\\hline
+$1$&$5$&$M=N-1,$ one of $S$ or $T$ is $0,$ $N \le 100$\\\hline
+$2$&$7$&$M=N-1,$ one of $S$ or $T$ is $0$\\\hline
+$3$&$6$&$M=N-1,$ $U[i] = i,$ $V[i] = i+1$ for all $i: 0\le i \le M-1$\\\hline
+$4$&$33$&$M=N-1$\\\hline
+$5$&$18$&$A=1,$ $B=2$\\\hline
+$6$&$31$&No \\\hline
+\end{tabular}
+
+Assume your program is judged as \bf{Accepted}, and makes $X$ calls to \t{ask}. Then your score for $P$ the test case, depending on its subtask number, is calculated as follows:
+
+\begin{tabular}{llll}
+\bf{Subtask 1}&$P=5$&&\\
+\bf{Subtask 2}&If $X \le 60,$ &$P=7.$&Otherwise $P=0.$ \\
+\bf{Subtask 3}&If $X \le 60,$&$P=6.$&Otherwise $P=0.$ \\
+\bf{Subtask 4}&If $X \le 60,$&$P=33.$&Otherwise $P=0.$ \\
+\bf{Subtask 5}&If $X \le 52,$&$P=18.$&Otherwise $P=0.$ \\
+\bf{Subtask 6}&If $X \le 50,$&$P=31.$&If $51\le X\le 52, P=21.$\\
+&&& Otherwise  $P=0.$
+\end{tabular}
+
+Note that your score for each subtask is the minimum of the scores for the test cases in the subtask.

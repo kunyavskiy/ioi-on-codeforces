@@ -1,0 +1,39 @@
+The score and the constraints for each test case are as follows:
+
+\newcommand{\gt}{\textgreater} 
+\newcommand{\lt}{\textless} 
+
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Subtask & Points & \parbox{11cm}{\centering \vspace{2mm}Additional Input Constraints\\\vspace{2mm}}\\
+\hline
+1 & 2 &\parbox{11cm}{\centering \vspace{2mm} For each $i$ ($1\le i \le M$), the integer $i$ appears at most once in the
+sequence $A_0,A_1,\ldots A_{N-1}$.\\\vspace{2mm}}\\
+\hline
+2 & 4 & \parbox{11cm}{\centering \vspace{2mm}For each $i$ ($1\le i \le M$), the integer $i$ appears at most twice in the
+sequence $A_0,A_1,\ldots A_{N-1}$.\\\vspace{2mm}}\\
+\hline
+3 & 10 & \parbox{11cm}{\centering \vspace{2mm}For each $i$ ($1\le i\le M$), the integer $i$ appears at most $4$ times in the
+sequence $A_0,A_1,\ldots A_{N-1}$.\\\vspace{2mm}}\\
+\hline
+4 & 10 & $N=16$ \\
+\hline
+5 & 18 & $M=1$ \\
+\hline
+6 & 56 & No additional constraints \\
+\hline
+\end{tabular}
+\end{center}
+For each test case, if your program is judged as \textbf{Accepted}, your score is calculated
+according to the value of $S$:
+\begin{itemize}
+    \item If $S\le N + \log_2{N}$, you gain the full score for the test case.
+    \item For each test case in Subtasks $5$ and $6$, if $N + \log_2{N} \lt S \le 2\cdot N$, you gain a partial score. The score for the test case is $0.5 + 0.4 \times (\frac{2N - S}{N - \log_2{N}})^2$, multiplied by the
+score assigned to the subtask.
+\item Otherwise, the score is $0$.
+\end{itemize}
+Note that your score for each subtask is the minimum of the scores for the test cases
+in the subtask.

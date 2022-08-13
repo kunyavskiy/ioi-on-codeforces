@@ -1,0 +1,38 @@
+The sample grader produces three outputs.
+
+First, the sample grader outputs your answer to a file named out.txt in the following
+format.
+\begin{itemize}
+    \item line $1$: $S$
+    \item line $2 + i$ ($0 \le i \le M$): $C[i]$
+    \item line $2 + M + j$ ($1 \le j \le S$): $X[j-1]\ Y[j-1]$
+\end{itemize}
+
+Second, the sample grader simulates the moves of the ball. It outputs the serial
+numbers of the devices the ball entered in order to a file named log.txt.
+
+Third, the sample grader prints the evaluation of your answer to the standard output.
+
+\begin{itemize}
+    \item If your program is judged as \textbf{Accepted}, the sample grader prints $S$ and $P$ in the
+following format Accepted: $S\ P$.
+   \item If your program is judged as \textbf{Wrong Answer}, it prints Wrong Answer: MSG. The
+meaning of MSG is as follows:
+    \begin{itemize}
+        \item \texttt{answered not exactly once}: The procedure answer is called not exactly
+once.
+\item \texttt{wrong array length}: The length of $C$ is not $M+1$, or the lengths of $X$ and $Y$
+are different.
+\item \texttt{over $400000$ switches}: $S$ is larger than $400\,000$.
+\item \texttt{wrong serial number}: There is an element of $C$, $X$, or $Y$ which is smaller than
+$-S$ or larger than $M$.
+\item \texttt{over $20\,000\,000$ inversions}: The ball doesn't return to the origin within $20\,000\,000$ state changes of the switches.
+\item \texttt{state `Y'}: There is a switch whose state is `Y' when the ball first returns to
+the origin.
+\item \texttt{wrong motion}: The triggers which cause motions are different from the
+sequence $A$.
+    \end{itemize}
+\end{itemize}
+
+Note that the sample grader might not create out.txt and/or log.txt when your
+program is judged as \texttt{Wrong Answer}.

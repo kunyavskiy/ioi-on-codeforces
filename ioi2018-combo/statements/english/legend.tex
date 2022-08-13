@@ -1,0 +1,92 @@
+You are playing an action video game. The game controller has $4$ buttons, A, B, X, and Y. In this game, you can get coins with combo moves. You can make a combo move by pressing buttons in sequence.
+
+This game has a secret sequence of buttons, which can be represented as a string $S$ of those $4$ characters. You don't know the string $S$, but you know its length $N$.
+
+You also know that the first character of $S$ never reappears in it. For example, $S$ can be \t{"ABXYY"} or \t{"XYYAA"}, but cannot be \t{"AAAAA"} or \t{"BXYBX"}.
+
+You can press a sequence of up to $4 \cdot N$ buttons for a combo move. Let $p$ be the string which represents the sequence of the buttons you pressed. The number of coins you get for this move is calculated as the length of the longest prefix of $S$ which is also a substring of $p$. A substring of a string $t$ is a contiguous (possibly empty) sequence of characters within $t$. A prefix of $t$ is a substring of $t$ that is empty or contains the first character of $t$.
+
+For example, if $S$ is \t{"ABXYY"} and $p$ is "XXYYABYABXAY", you will get $3$ coins because \t{"ABX"} is the longest prefix of $S$ that is also a substring of $p$.
+
+Your task is to determine the secret string $S$ using few combo moves.
+
+\bf{Implementation details}
+
+You should implement the following function:
+
+\t{string guess_sequence(int N)}
+
+\begin{itemize}
+\item $N$: the length of string $S$.
+\item This function is called exactly once for each test case.
+\item This function should return the string $S$.
+\end{itemize}
+
+Your program can call the following function:
+
+\t{int press(string p)}
+
+\begin{itemize}
+\item $p$: a sequence of buttons you press.
+\item $p$ must be a string of length between $0$ and $4 \cdot N$, inclusive. Each character of $p$ must be A, B, X, or Y.
+\item You cannot call this function more than $8\,000$ times for each test case.
+\item This function returns the number of coins you get when you press the sequence of buttons represented by $p$.
+\end{itemize}
+
+If some of the above conditions are not satisfied, your program is judged as \bf{Wrong Answer}. Otherwise, your program is judged as \bf{Accepted} and your score is calculated by the number of calls to \t{press} (see Subtasks).
+
+\bf{Example}
+
+Let $S$ be \t{"ABXYY"}. The grader calls \t{guess_sequence(5)}. An example of communication is shown below.
+
+\begin{tabular}{|l|l|}\hline
+\bf{Call}&\bf{Return}\\\hline
+\t{press("XXYYABYABXAY")}&$3$\\\hline
+\t{press("ABXYY")}&$5$\\\hline
+\t{press("ABXYYABXYY")}&$5$\\\hline
+\t{press("")}&$0$\\\hline
+\t{press("X")}&$0$\\\hline
+\t{press("BXYY)}&$0$\\\hline
+\t{press("YYXBA")}&$1$\\\hline
+\t{press("AY")}&$1$\\\hline
+\end{tabular}
+
+
+
+For the first call to \t{press}, \t{"ABX"} appears in \t{"XXYYABYABXAY"} as a substring but \t{"ABXY"} does not, so $3$ is returned.
+
+For the third call to \t{press}, \t{"ABXYY"} itself appears in \t{"ABXYYABXYY"} as a substring, so $5$ is returned.
+
+For the sixth call to press, no prefix of \t{"ABXYY"} but the empty string appears in \t{"BXYY"} as a substring, so $0$ is returned.
+
+Finally, \t{guess_sequence(5)} should return \t{"ABXYY"}.
+
+The file \t{sample-01-in.txt} in the zipped attachment package corresponds to this example.
+
+\bf{Constraints}
+
+\begin{itemize}
+\item $1 \le N \le 2000$
+\item Each character of the string is A, B, X, or Y.
+\item The first character of $S$ never reappears in $S$.
+\end{itemize}
+
+In this problem, the grader is NOT adaptive. This means that $S$ is fixed at the beginning of the running of the grader and it does not depend on the queries asked by your solution. 
+
+\bf{Sample grader}
+
+The sample grader reads the input in the following format:
+
+\begin{itemize}
+\item line 1: $S$
+\end{itemize}
+
+If your program is judged as \bf{Accepted}, the sample grader prints \t{"Accepted: q"} with $q$ being the number of calls to the function press.
+
+If your program is judged as \bf{Wrong Answer}, it prints \t{"Wrong Answer: MSG"}. The meaning of $MSG$ is as follows:
+\begin{itemize}
+\item invalid press: A value of $p$ given to \t{press} is invalid. Namely, the length of $p$ is not between $0$ and $4N$, inclusive, or some character of $p$ is not A, B, X, or Y.
+\item too many moves: The function pressis called more than 8000 times.
+\item wrong guess: The return value of \t{guess_sequence} is not $S$.
+\end{itemize}
+
