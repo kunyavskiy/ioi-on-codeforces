@@ -1,1 +1,68 @@
-HTML statement is in progress, you can read \href{https://d2j2k8gtfu11sn.cloudfront.net/ioi-2022-d1-tasks/fish-en_ISC.pdf}{official one} for now
+Bu Dengklek owns a catfish farm.
+The catfish farm is a pond consisting of a $N \times N$ grid of cells.
+Each cell is a square of the same size.
+The columns of the grid are numbered from $0$ to $N - 1$ from west to east and the rows are numbered from $0$ to $N - 1$ from south to north.
+We refer to the cell located at column $c$ and row $r$ of the grid ($0 \le c \le N - 1$, $0 \le r \le N - 1$) as cell $(c, r)$.
+
+In the pond, there are $M$ catfish, numbered from $0$ to $M - 1$, located at \textbf{distinct} cells.
+For each $i$ such that $0 \le i \le M - 1$, catfish $i$ is located at cell $(X[i], Y[i])$, and weighs $W[i]$ grams.
+
+Bu Dengklek wants to build some piers to catch the catfish.
+A pier in column $c$ of length $k$ (for any $0 \le c \le N - 1$ and $1 \le k \le N$) is a rectangle extending from row $0$ to row $k - 1$, covering cells $(c, 0), (c, 1), \ldots, (c, k - 1)$.
+For each column, Bu Dengklek can choose either to build a pier of some length of her choice or to not build a pier.
+
+Catfish $i$ (for each $i$ such that $0 \le i \le M - 1$) can be caught if there is a pier directly to the west or east of it, and there is no pier covering its cell; that is, if
+
+\begin{itemize}
+    \item \textbf{at least one} of the cells $(X[i] - 1, Y[i])$ or $(X[i] + 1, Y[i])$ is covered by a pier, and
+    \item there is no pier covering cell $(X[i], Y[i])$.
+\end{itemize}
+
+For example, consider a pond of size $N = 5$ with $M = 4$ catfish:
+\begin{itemize}
+    \item Catfish $0$ is located at cell $(0, 2)$ and weighs $5$ grams.
+    \item Catfish $1$ is located at cell $(1, 1)$ and weighs $2$ grams.
+    \item Catfish $2$ is located at cell $(4, 4)$ and weighs $1$ gram.
+    \item Catfish $3$ is located at cell $(3, 3)$ and weighs $3$ grams.
+\end{itemize}
+
+
+One way Bu Dengklek can build the piers is as follows:
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+
+ Before the piers are built &  After the piers are built \\
+\hline
+\includegraphics{fish-sample1-pond.png}   & \includegraphics{fish-sample1-pier.png}\\
+\hline
+\end{tabular}
+\end{center}
+
+
+The number at a cell denotes the weight of the catfish located at the cell.
+The shaded cells are covered by piers.
+In this case, catfish $0$ (at cell $(0, 2)$) and catfish $3$ (at cell $(3, 3)$) can be caught.
+Catfish $1$ (at cell $(1, 1)$) cannot be caught, as there is a pier covering its location, while catfish $2$ (at cell $(4, 4)$) can not be caught as there is no pier directly to the west nor east of it.
+
+Bu Dengklek would like to build piers so that the total weight of catfish she can catch is as large as possible.
+Your task is to find the maximum total weight of catfish that Bu Dengklek can catch after building piers.
+
+
+\textbf{Implementation Details}
+
+You should implement the following procedure:
+\begin{itemize}
+    \item \texttt{int64 max\_weights(int N, int M, int[] X, int[] Y, int[] W)}
+    \begin{itemize}
+        \item $N$: the size of the pond.
+        \item  $M$: the number of catfish.
+        \item  $X$, $Y$: arrays of length $M$ describing catfish locations.
+        \item  $W$: array of length $M$ describing catfish weights.
+        \item  This procedure should return an integer representing the maximum total weight of catfish that Bu Dengklek can catch after building piers.
+        \item  This procedure is called exactly once.
+\end{itemize}
+\end{itemize}
+
+

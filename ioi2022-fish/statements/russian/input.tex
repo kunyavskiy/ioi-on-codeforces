@@ -1,0 +1,12 @@
+\newcommand{\gt}{\textgreater} 
+\newcommand{\lt}{\textless} 
+
+
+Пример грейдера читает входные данные в следующем формате:
+\begin{itemize}
+    \item строка $1$: $N \; M$ ($2 \le N \le 100\;000$, $1 \le M \le 300\;000$)
+    \item строка $2 + i$ ($0 \le i \le M - 1$): $X[i] \; Y[i] \; W[i]$ ($0 \le X[i] \le N - 1$, $0 \le Y[i] \le N - 1$, $1 \le W[i] \le 10^9$)
+
+\end{itemize}
+Никакие два сома не находятся в одной и той же клетке.
+  Другими словами, $X[i] \neq X[j]$ или $Y[i] \neq Y[j]$ для всех таких пар $i$ и $j$, где $0 \le i \lt j \le M - 1$).
