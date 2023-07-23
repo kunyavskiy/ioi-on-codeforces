@@ -1,1 +1,53 @@
-HTML statement is in progress, you can read \href{https://d2j2k8gtfu11sn.cloudfront.net/ioi-2022-d1-tasks/towers-en_ISC.pdf}{official one} for now
+There are $N$ radio towers in Jakarta.
+The towers are located along a straight line and numbered from $0$ to $N - 1$ from left to right.
+For each $i$ such that $0 \le i \le N - 1$, the height of tower $i$ is $H[i]$ metres.
+The heights of the towers are \textbf{distinct}.
+
+\newcommand{\gt}{\textgreater} 
+\newcommand{\lt}{\textless} 
+
+For some positive interference value $\delta$, a pair of towers $i$ and $j$ (where $0 \le i \lt j \le N - 1$) can communicate with each other if and only if there is an intermediary tower $k$, such that
+\begin{itemize}
+    \item tower $i$ is to the left of tower $k$ and tower $j$ is to the right of tower $k$, that is, $i \lt k \lt j$, and
+    \item the heights of tower $i$ and tower $j$ are both at most $H[k] - \delta$ metres.
+
+\end{itemize}
+
+Pak Dengklek wants to lease some radio towers for his new radio network.
+Your task is to answer $Q$ questions of Pak Dengklek which are of the following form:
+given parameters $L\ R$ and $D$ ($0 \le L \le R \le N - 1$ and $D > 0$), what is the maximum number of towers Pak Dengklek can lease, assuming that
+
+\begin{itemize}
+ \item Pak Dengklek can only lease towers with indices between $L$ and $R$ (inclusive), and
+ \item the interference value $\delta$ is $D$, and
+ \item any pair of radio towers that Pak Dengklek leases must be able to communicate with each other. 
+
+\end{itemize}
+Note that two leased towers may communicate using an intermediary tower $k$, regardless of whether tower $k$ is leased or not.
+
+
+\textbf{Implementation Details}
+
+You should implement the following procedures:
+
+\begin{itemize}
+    \item \texttt{void init(int N, int[] H)}
+\begin{itemize}
+
+\item $N$: the number of radio towers.
+\item $H$: an array of length $N$ describing the tower heights.
+\item This procedure is called exactly once, before any calls to \texttt{max\_towers}.
+\end{itemize}
+
+\item \texttt{int max\_towers(int L, int R, int D)}
+\begin{itemize}
+
+\item $L$, $R$: the boundaries of a range of towers.
+\item $D$: the value of $\delta$.
+\item This procedure should return the maximum number of radio towers Pak Dengklek can lease for his new radio network if he is only allowed to lease towers between tower $L$ and tower $R$ (inclusive) and the value of $\delta$ is $D$.
+\item This procedure is called exactly $Q$ times.
+\end{itemize}
+
+\end{itemize}
+
+
