@@ -1,10 +1,13 @@
-Yong-In city plans to build a bus network with $N$ bus stops. Each bus stop is at a street
-corner. Yong-In is a modern city, so its map is a grid of square blocks of equal size.
-Two of these bus stops are to be selected as hubs $H_1$ and $H_2$. The hubs will be connected to each other by a direct bus line and each of the remaining $N - 2$ bus stops will be connected directly to either $H_1$ or $H_2$ (but not to both), but not to any other bus stop.
+Yong-In city plans to build a bus network with $N$ bus stops.
+Each bus stop is at a street corner.
+Yong-In is a modern city, so its map is a grid of square blocks of equal size.
+Two of these bus stops are to be selected as hubs $H_1$ and $H_2$.
+The hubs will be connected to each other by a direct bus line and each of the remaining $N - 2$ bus stops will be connected directly to either $H_1$ or $H_2$ (but not to both), but not to any other bus stop.
 
-The distance between any two bus stops is the length of the shortest possible route
-following the streets. That is, if a bus stop is represented as $(x, y)$ with $x$-coordinate $x$ and $y$-coordinate $y$, then the distance between two bus stops $(x_1, y_1)$ and $(x_2, y_2)$ is $|x_1 - x_2| + |y_1 - y_2|$. If bus stops $A$ and $B$ are connected to the same hub $H_1$, then the length of the route from $A$ to $B$ is the sum of the distances from $A$ to $H_1$ and from $H_1$ to $B$. If bus stops $A$ and $B$ are connected to different hubs, e.g., $A$ to $H_1$ and $B$ to $H_2$, then the length of the route from $A$ to $B$ is the sum of the distances from $A$ to $H_1$, from $H_1$ to $H_2$, and
-from $H_2$ to $B$.
+The distance between any two bus stops is the length of the shortest possible route following the streets.
+That is, if a bus stop is represented as $(x, y)$ with $x$-coordinate $x$ and $y$-coordinate $y$, then the distance between two bus stops $(x_1, y_1)$ and $(x_2, y_2)$ is $|x_1 - x_2| + |y_1 - y_2|$.
+If bus stops $A$ and $B$ are connected to the same hub $H_1$, then the length of the route from $A$ to $B$ is the sum of the distances from $A$ to $H_1$ and from $H_1$ to $B$.
+If bus stops $A$ and $B$ are connected to different hubs, e.g., $A$ to $H_1$ and $B$ to $H_2$, then the length of the route from $A$ to $B$ is the sum of the distances from $A$ to $H_1$, from $H_1$ to $H_2$, and from $H_2$ to $B$.
 
 The planning authority of Yong-In city would like to make sure that every citizen can
 reach every point within the city as quickly as possible. Therefore, city planners want to
@@ -12,4 +15,5 @@ choose two bus stops to be hubs in such a way that in the resulting bus network 
 length of the longest route between any two bus stops is as short as possible.
 
 One choice $P$ of two hubs and assignments of bus stops to those hubs is better than
-another choice $Q$ if the length of the longest bus route is shorter in $P$ than in $Q$. Your task is to write a program to compute the length of this longest route for the best choice $P$.
+another choice $Q$ if the length of the longest bus route is shorter in $P$ than in $Q$.
+Your task is to write a program to compute the length of this longest route for the best choice $P$.
