@@ -1,0 +1,12 @@
+Your program must read from standard input the following data:
+\begin{itemize}
+\item The first line contains the integers $N$, $R$ and $Q$ ($1 \le N \le 200\,000$, $1 \le R \le 25\,000$, $1 \le Q \le 200\,000$), in order, separated by single spaces.
+\item The next $N$ lines describe the $N$ employees of the agency in order of seniority. The $k$-th of these $N$ lines describes employee number $k$. The first of these lines (i.e., the one describing the Chair) contains a single integer: the home region $H_1$ of the Chair. Each of the other $N-1$ lines contains two integers separated by a single space: employee $k$'s supervisor $S_k$ ($1\le S_k < k$), and employee $k$'s home region $H_k$ ($1 \le H_k \le R$). 
+\end{itemize}
+
+After reading the input data, your program must start alternately reading queries from standard input and writing query results to standard output. The $Q$ queries must be answered one at a time; your program must send the response to the query it has already received before it can receive the next query.
+
+Each query is presented on a single line of standard input and consists of two different integers separated by a single space: the two regions $r_1$ and $r_2$ ($1 \le r_1, r_2 \le R$). The response to each query must be a single line on standard output containing a single integer: the number of pairs of UNRDA employees $e_1$ and $e_2$, such that $e_1$'s home region is $r_1$, $e_2$'s home region is $r_2$ and $e_1$ is a manager of $e_2$.
+
+The test data will be such that the correct answer to any query given on standard input
+will always be less than $1\,000\,000\,000$.

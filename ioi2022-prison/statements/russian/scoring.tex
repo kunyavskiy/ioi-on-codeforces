@@ -1,0 +1,46 @@
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Подзадача & Баллы & \parbox{11cm}{\centering \vspace{2mm}Дополнительные ограничения на входные данные\\\vspace{2mm}} \\
+\hline
+1 & 5 &\parbox{11cm}{\centering \vspace{2mm} $N \le 500$, значение $x$ не должно превосходить $500$\\\vspace{2mm}}\\
+\hline
+2 & 5 & \parbox{11cm}{\centering \vspace{2mm}$N \le 500$, значение $x$ не должно превосходить $70$\\\vspace{2mm}}\\
+\hline
+3 & 90 & \parbox{11cm}{\centering \vspace{2mm}Значение $x$ не должно превосходить $60$.\\\vspace{2mm}}\\
+\hline
+\end{tabular}
+\end{center}
+
+Если в каком-либо тесте результат функции \texttt{devise\_strategy} не задает корректную стратегию, вы получите за эту подзадачу $0$ баллов.
+
+В позадаче 3 вы можете получить частичный балл.
+Пусть $m$ обозначает максимально значение $x$ среди всех выданных стратегий на тестах данной позадачи. Ваш балл за эту подзадачу будет определяться согласно следующей таблице:
+\begin{center}
+ \renewcommand{\arraystretch}{1.5}
+ \begin{tabular}{|c|c|c|}
+\hline
+Ограничение         &  Баллы \\ 
+\hline
+$40 \le m \le 60$ &  $20$ \\
+\hline
+$26 \le m \le 39$ &  $25 + 1.5 \times (40 - m)$ \\
+\hline
+$m = 25$          &  $50$ \\
+\hline
+$m = 24$          &  $55$ \\
+\hline
+$m = 23$          &  $62$ \\
+\hline
+$m = 22$          &  $70$ \\
+\hline
+$m = 21$          &  $80$ \\
+\hline
+$m \le 20$        &  $90$ \\
+\hline
+\end{tabular}
+\end{center}
+
+

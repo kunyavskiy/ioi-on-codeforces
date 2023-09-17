@@ -1,0 +1,23 @@
+Consider the following call:
+
+\texttt{devise\_strategy(3)}
+
+
+Let $v$ denote the number the prisoner reads from the whiteboard upon entering the room.
+One of the correct strategies is as follows:
+\begin{itemize}
+    \item If $v = 0$ (including the initial number), inspect bag A.
+    \begin{itemize}
+    \item If it contains $1$ coin, identify bag A as the one with fewer coins.
+  \item If it contains $3$ coins, identify bag B as the one with fewer coins.
+  \item If it contains $2$ coins, write $1$ on the whiteboard (overwriting $0$).
+  \end{itemize}
+\item If $v = 1$, inspect bag B.
+\begin{itemize}
+  \item If it contains $1$ coin, identify bag B as the one with fewer coins.
+  \item If it contains $3$ coins, identify bag A as the one with fewer coins.
+  \item If it contains $2$ coins, write $0$ on the whiteboard (overwriting $1$). Note that this case can never happen, as we can conclude that both bags contain $2$ coins, which is not allowed.
+\end{itemize}
+\end{itemize}
+To report this strategy the procedure should return \texttt{[[0, -1, 1, -2], [1, -2, 0, -1]]}.
+The length of the returned array is $2$, so for this return value the value of $x$ is $2 - 1 = 1$.

@@ -1,0 +1,17 @@
+This is an interactive task. Your program sends commands to the alien device using the standard output, and receives feedback from the device by reading from the standard input.
+
+\begin{itemize}
+\item At the beginning of your program, you should read three integers $N$, $X_0$ and $Y_0$ from the standard input, separated by single spaces. The number $N$ ($15 \le N \le 2\,000\,000\,000$) is the size of the meadow, while $(X_0, Y_0)$ are the coordinates
+of one cell with flattened grass.
+
+\item To examine the grass in the cell $(X, Y)$ using the alien device, you should output a line of the form ``\t{examine~X~Y}'' to the standard output. If the coordinates $(X, Y)$ are not inside the meadow (the conditions $1 \le X \le N$ and $1 \le Y \le N$ are not satisfied), or if you use this facility more than $300$ times,
+your program will receive a score of zero on that test run.
+
+\item The alien device will respond with a single line containing the word ``\t{true}'' if the grass in cell $(X, Y)$ is flattened and the word ``false'' otherwise.
+
+\item When your program has found the center cell, it should output a line of the form ``\t{solution $X_C$ $Y_C$}'' to
+the standard output, where $(X_C, Y_C)$ are the coordinates of the center cell. 
+\end{itemize}
+
+In order to interact properly with the grader, your program needs to flush the standard output after every write operation. 
+

@@ -1,0 +1,45 @@
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+Subtask & Points & \parbox{11cm}{\centering \vspace{2mm}Additional Input Constraints\\\vspace{2mm}}\\
+\hline
+1 & 5 &\parbox{11cm}{\centering \vspace{2mm} $N \le 500$, the value of $x$ must not be more than $500$\\\vspace{2mm}}\\
+\hline
+2 & 5 & \parbox{11cm}{\centering \vspace{2mm}$N \le 500$, the value of $x$ must not be more than $70$\\\vspace{2mm}}\\
+\hline
+3 & 90 & \parbox{11cm}{\centering \vspace{2mm}The value of $x$ must not be more than $60$\\\vspace{2mm}}\\
+\hline
+\end{tabular}
+\end{center}
+
+If in any of the test cases, the array returned by \texttt{devise\_strategy} does not represent a correct strategy, the score of your solution for that subtask will be $0$.
+
+In subtask 3 you can obtain a partial score.
+Let $m$ be the maximum value of $x$ for the returned arrays over all test cases in this subtask.
+Your score for this subtask is calculated according to the following table:
+
+\begin{center}
+ \renewcommand{\arraystretch}{1.5}
+ \begin{tabular}{|c|c|c|}
+\hline
+Condition         &  Points \\ 
+\hline
+$40 \le m \le 60$ &  $20$ \\
+\hline
+$26 \le m \le 39$ &  $25 + 1.5 \times (40 - m)$ \\
+\hline
+$m = 25$          &  $50$ \\
+\hline
+$m = 24$          &  $55$ \\
+\hline
+$m = 23$          &  $62$ \\
+\hline
+$m = 22$          &  $70$ \\
+\hline
+$m = 21$          &  $80$ \\
+\hline
+$m \le 20$        &  $90$ \\
+\hline
+\end{tabular}
+\end{center}

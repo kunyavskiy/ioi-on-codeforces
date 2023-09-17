@@ -1,0 +1,11 @@
+The first line of the input file contains two space-separated integers, $N$ and $P$.
+
+Each of the next $N$ lines describes a cow's properties using $P$ space-separated letters. The first letter on each line is the value of property 1, and so on. The second line in the input file describes cow 1, the third line describes cow 2, etc.
+The question/answer phase takes place via standard input and standard output.
+
+Your program asks a question about the cow being put to bed by writing to standard output a line that is a 'Q' followed by a space, the property number, a space, and a  spaceseparated set of one or more values. For example, "Q 1 Z Y" means "Does property 1 have value either 'Z' or 'Y' for the cow being put to bed?". The property must be an
+integer in the range $1 \ldots P$. All values must be 'X', 'Y', or 'Z' and no value should be listed more than once for a single question.
+
+After asking each question your program asks, read a single line containing a single integer. The integer $1$ means the value of the specified property of the cow being put to bed is in the set of values given; the integer $0$ means it is not. 
+
+The program's last line of output should be a 'C' followed by a space and a single integer that specifies the cow that your program has determined Farmer John is putting to bed.

@@ -1,1 +1,76 @@
-HTML statement is in progress, you can read \href{https://d2j2k8gtfu11sn.cloudfront.net/ioi-2022-d1-tasks/prison-en_ISC.pdf}{official one} for now
+In a prison, there are $500$ prisoners.
+One day, the warden offers them a chance to free themselves.
+He places two bags with money, bag A and bag B, in a room.
+Each bag contains between $1$ and $N$ coins, inclusive.
+The number of coins in bag A is \textbf{different} from the number of coins in bag B.
+The warden presents the prisoners with a challenge.
+The goal of the prisoners is to identify the bag with fewer coins.
+
+The room, in addition to the money bags, also contains a whiteboard.
+A single number must be written on the whiteboard at any time.
+Initially, the number on the whiteboard is $0$.
+
+Then, the warden asks the prisoners to enter the room, one by one.
+The prisoner who enters the room does not know which or how many other prisoners have entered the room before them.
+Every time a prisoner enters the room, they read the number currently written on the whiteboard.
+After reading the number, they must choose either bag A or bag B.
+The prisoner then \textbf{inspects} the chosen bag, thus getting to know the number of coins inside it.
+Then, the prisoner must perform either of the following two \textbf{actions}:
+\begin{itemize}
+    \item Overwrite the number on the whiteboard with a non-negative integer and leave the room.
+Note that they can either change or keep the current number.
+The challenge continues after that (unless all $500$ prisoners have already entered the room).
+    \item Identify one bag as the one that has fewer coins. This immediately ends the challenge.
+\end{itemize}
+
+
+The warden will not ask a prisoner who has left the room to enter the room again.
+
+The prisoners win the challenge if one of them correctly identifies the bag with fewer coins.
+They lose if any of them identifies the bag incorrectly, or all $500$ of them have entered the room and not attempted to identify the bag with fewer coins.
+
+Before the challenge starts, the prisoners gather in the prison hall and decide on a common \textbf{strategy} for the challenge in three steps.
+\begin{itemize}
+    \item They pick a non-negative integer $x$, which is the largest number they may ever want to write on the whiteboard.
+\item They decide, for any number $i$ written on the whiteboard ($0 \le i \le x$), which bag should be inspected by a prisoner who reads number $i$ from the whiteboard upon entering the room.
+\item They decide what action a prisoner in the room should perform after getting to know the number of coins in the chosen bag. Specifically, for any number $i$ written on the whiteboard ($0 \le i \le x$) and any number of coins $j$ seen in the inspected bag ($1 \le j \le N$), they either decide
+\begin{itemize}
+  \item what number between $0$ and $x$ (inclusive) should be written on the whiteboard, or
+  \item which bag should be identified as the one with fewer coins.
+  
+\end{itemize}
+\end{itemize}
+
+
+Upon winning the challenge, the warden will release the prisoners after serving $x$ more days.
+
+Your task is to devise a strategy for the prisoners that would ensure they win the challenge (regardless of the number of coins in bag A and bag B).
+The score of your solution depends on the value of $x$ (see Subtasks section for details).
+
+
+\textbf{Implementation Details}
+
+You should implement the following procedure:
+
+\begin{itemize}
+    \item \texttt{int[][] devise\_strategy(int N)}
+\begin{itemize}
+
+\item $N$: the maximum possible number of coins in each bag.
+\item This procedure should return an array $s$ of arrays of $N + 1$ integers, representing your strategy.
+The value of $x$ is the length of array $s$ minus one.
+For each $i$ such that $0 \le i \le x$, the array $s[i]$ represents what a prisoner should do if they read number $i$ from the whiteboard upon entering the room:
+    \begin{enumerate}
+        \item The value of $s[i][0]$ is $0$ if the prisoner should inspect bag A, or $1$ if the prisoner should inspect bag B.
+        \item Let $j$ be the number of coins seen in the chosen bag. The prisoner should then perform the following action:
+        \begin{itemize}
+            \item  If the value of $s[i][j]$ is $-1$, the prisoner should identify bag A as the one with fewer coins.
+    \item If the value of $s[i][j]$ is $-2$, the prisoner should identify bag B as the one with fewer coins.
+    \item If the value of $s[i][j]$ is a non-negative number, the prisoner should write that number on the whiteboard. Note that $s[i][j]$ must be at most $x$.
+    \end{itemize}
+    \end{enumerate}
+\item This procedure is called exactly once.
+
+\end{itemize}
+\end{itemize}
+

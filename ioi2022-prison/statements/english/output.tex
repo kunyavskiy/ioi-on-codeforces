@@ -1,0 +1,31 @@
+The sample grader first calls \texttt{devise\_strategy(N)}.
+The value of $x$ is the length of the array returned by the call minus one.
+Then, if the sample grader detects that the array returned by \texttt{devise\_strategy} does not conform to the constraints described in Implementation Details, it prints one of the following error messages and exits:
+
+
+\begin{itemize}
+\item \texttt{s is an empty array}: $s$ is an empty array (which does not represent a valid strategy).
+\item \texttt{s[i] contains incorrect length}: There exists an index $i$ ($0 \le i \le x$) such that the length of $s[i]$ is not $N + 1$.
+\item \texttt{First element of s[i] is non-binary}: There exists an index $i$ ($0 \le i \le x$) such that $s[i][0]$ is neither $0$ nor $1$.
+\item \texttt{s[i][j] contains incorrect value}: There exist indices $i, j$ ($0 \le i \le x, 1 \le j \le N$) such that $s[i][j]$ is not between $-2$ and $x$.
+\end{itemize}
+
+Otherwise, the sample grader produces two outputs.
+
+First, the sample grader prints the output of your strategy in the following format:
+
+\begin{itemize}
+\item line $1 + k$ ($0 \le k$): output of your strategy for scenario $k$.
+If applying the strategy leads to a prisoner identifying bag A as the one with fewer coins, then the output is the character `A'.
+If applying the strategy leads to a prisoner identifying bag B as the one with fewer coins, then the output is the character `B'.
+If applying the strategy does not lead to any prisoner identifying a bag with fewer coins, then the output is the character `X'.
+\end{itemize}
+
+
+Second, the sample grader writes a file `log.txt' in the current directory in the following format:
+\begin{itemize}
+\item line $1 + k$ ($0 \le k$): $w[k][0] \; w[k][1] \; \ldots$
+\end{itemize}
+
+The sequence on line $1 + k$ corresponds to scenario $k$ and describes the numbers written on the whiteboard.
+Specifically, $w[k][l]$ is the number written by the ${(l+1)}^{th}$ prisoner to enter the room.
